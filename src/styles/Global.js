@@ -45,11 +45,20 @@ const GlobalStyle = createGlobalStyle`
 
     * {
 
+      text-shadow: ${theme.effect.textShadow}
+      scrollbar-width: thin;
+      scrollbar-color: ${theme.color.selection} ${theme.color.black};
+
+      @suports (scrollbar-color) {
+
+        scrollbar-color: ${theme.color.background} ${theme.color.black};
+      }
+
       &::-webkit-scrollbar {
 
         background: ${theme.color.white};
         width: 1.2rem;
-        height: 1rem;
+        height: 0;
 
         &:hover {
 
@@ -59,22 +68,26 @@ const GlobalStyle = createGlobalStyle`
 
       &::-webkit-scrollbar-track {
 
-        background: ${theme.color.selection};
+        background: ${theme.color.black};
       }
 
       &::-webkit-scrollbar-thumb {
 
-        background: ${theme.color.background};
+        background: ${theme.color.selection};
         border-radius:1rem;
-        border:solid .3rem ${theme.color.selection};
+        border:solid .3rem ${theme.color.black};
 
         &:hover {
 
-          background:  ${theme.color.background};
-          border:solid .1rem ${theme.color.selection};
+          border:solid .1rem ${theme.color.black};
         }
       }
 
+      &::selection {
+
+        background: ${theme.color.selection};
+        color: ${theme.color.white};
+      }
     }
 
     :root {
@@ -97,7 +110,18 @@ const GlobalStyle = createGlobalStyle`
   a,
   button {
 
+    text-decoration:none;
     cursor: pointer;
+  }
+
+  .no-select {
+
+    user-drag: none;
+    -webkit-user-drag: none;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
   }
 `;
 
