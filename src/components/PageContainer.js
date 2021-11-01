@@ -8,7 +8,7 @@ const PageContainer = styled.section`
   ${({ theme }) => css`
 
     background: ${theme.color.black};
-    box-shadow: ${theme.effects.containerShadow};
+    box-shadow: ${theme.effect.containerShadow};
   `}
 
   display: flex;
@@ -70,7 +70,7 @@ const PageContainer = styled.section`
       background: url(${arrow}) center no-repeat ${({ theme }) => theme.color.brightBlack};
       background-size: 32%;
       background-position:center calc(50% - 3%);
-      color: ${({ theme }) => theme.color.white};
+      color: ${({ theme }) => theme.color.fadeWhite};
 
       display: flex;
       align-items: center;
@@ -82,7 +82,7 @@ const PageContainer = styled.section`
 
       width:100%;
 
-      transition: margin .3s ease-out;
+      transition: margin .2s ease-out;
 
       padding-top: 7rem;
 
@@ -101,7 +101,6 @@ const PageContainer = styled.section`
 
         border-radius: 1rem 0 0 1rem ;
         margin-right: -200%;
-        transition: margin .3s ease-out;
       }
 
       &:hover {
@@ -115,8 +114,6 @@ const PageContainer = styled.section`
     &.from-left {
 
       border-radius: 0 1rem 1rem 0;
-
-      position: sticky;
 
       left: 0;
 
