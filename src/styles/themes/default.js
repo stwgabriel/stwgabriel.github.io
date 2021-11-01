@@ -18,8 +18,9 @@ const defaultStyles = {
     },
   },
 
-  effects: {
+  effect: {
     containerShadow: '15px 15px 50px #00000015',
+    textShadow: '2px 2px 5px #00000015',
   },
 
   sizes: {
