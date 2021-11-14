@@ -10,33 +10,63 @@ const GlobalStyle = createGlobalStyle`
   @font-face {
 
     font-family: "SF Pro";
-    src        : url(${SFProHeavy}) format("truetype");
+    src        :
+      local(SF Pro),
+      local(SF-Pro),
+      local(sf pro),
+      local(sf-pro),
+      url(${SFProHeavy}) format("truetype");
     font-weight: 800;
+        font-display: fallback;
+
+
   }
   @font-face {
 
     font-family: "SF Pro";
-    src        : url(${SFProBold}) format("truetype");
+    src        :
+      local(SF Pro),
+      local(SF-Pro),
+      local(sf pro),
+      local(sf-pro),
+      url(${SFProBold}) format("truetype");
     font-weight: 700;
+        font-display: fallback;
+
   }
   @font-face {
 
     font-family: "SF Pro";
-    src        : url(${SFProMedium}) format("truetype");
-    font-weight: 600;
+    src        :
+      local(SF Pro),
+      local(SF-Pro),
+      local(sf pro),
+      local(sf-pro),
+      url(${SFProMedium}) format("truetype");
+      font-weight: 600;
+      font-display: fallback;
+
   }
   @font-face {
 
     font-family: "SF Pro";
-    src        : url(${SFProRegular}) format("truetype");
-    font-weight: 500;
+    src        :
+      local(SF Pro),
+      local(SF-Pro),
+      local(sf pro),
+      local(sf-pro),
+      url(${SFProRegular}) format("truetype");
+      font-weight: 500;
+      font-display: fallback;
+
   }
 
   * {
 
     box-sizing: border-box;
-    font-family:"SF Pro", -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
-
+    font-family:"SF Pro", -apple-system, BlinkMacSystemFont, Arial, Helvetica, Montserrat,   sans-seif;
+    letter-spacing: small;
+    text-shadow: ${({ theme }) => theme.effect.textShadow};
     padding: 0;
     margin: 0;
   }
