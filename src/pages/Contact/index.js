@@ -1,12 +1,10 @@
 import { useContext } from 'react';
-import { Link } from 'react-router-dom';
 
 import { NavigationContext } from '../../contexts/NavigationContext';
 
 import { PageContainer } from '../../components/PageContainer';
+import PageBorder from '../../components/PageBorder';
 import { Content } from './styles';
-
-import arrow from '../../assets/images/icons/arrow.svg';
 
 function Contact() {
 
@@ -16,10 +14,7 @@ function Contact() {
   return (
 
     <PageContainer>
-      <Link className="page-border from-left toSkills" onClick={handleNavigation} to="/skills">
-        <img className="arrow" src={arrow} alt="Arrow" />
-        <span>Skills</span>
-      </Link>
+      <PageBorder handleNavigation={handleNavigation} from="from-left" to="skills" />
       <Content>
         <h1>contact</h1>
       </Content>

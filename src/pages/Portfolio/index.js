@@ -1,12 +1,10 @@
 import { useContext } from 'react';
-import { Link } from 'react-router-dom';
 
 import { NavigationContext } from '../../contexts/NavigationContext';
 
 import { PageContainer } from '../../components/PageContainer';
+import PageBorder from '../../components/PageBorder';
 import { Content } from './styles';
-
-import arrow from '../../assets/images/icons/arrow.svg';
 
 function Portfolio() {
 
@@ -16,10 +14,7 @@ function Portfolio() {
   return (
 
     <PageContainer>
-      <Link onClick={handleNavigation} className="page-border from-left toHome" to="/">
-        <img className="arrow" src={arrow} alt="arrow" />
-        <span>Home</span>
-      </Link>
+      <PageBorder handleNavigation={handleNavigation} from="from-left" to="" />
       <Content>
         <br />
         <br />
@@ -68,10 +63,7 @@ function Portfolio() {
         </p>
         <br />
       </Content>
-      <Link onClick={handleNavigation} className="page-border from-right toSkills" to="/skills">
-        <img src={arrow} alt="arrow" />
-        <span>Skills</span>
-      </Link>
+      <PageBorder handleNavigation={handleNavigation} from="from-right" to="skills" />
     </PageContainer>
   );
 }
