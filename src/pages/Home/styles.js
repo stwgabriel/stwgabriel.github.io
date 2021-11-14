@@ -22,19 +22,20 @@ const MainView = styled.section`
   min-height: 38rem;
   height: clamp(38rem, 85vh, 180rem);
 
-  padding-bottom:clamp(100px, 10vh, 10rem);
+  padding-bottom: clamp(100px, 10vh, 10rem);
 
   .row {
 
     display: flex;
-    height: 80%;
+    align-items: flex-end;
+    justify-content: flex-end;
 
     margin: 0 auto;
 
     #home-title {
 
       color: ${({ theme }) => theme.color.fadeWhite};
-      font-size: clamp(6rem, 11vw, 25rem);
+      font-size: clamp(4rem, 10vw, 28rem);
       font-weight: bolder;
 
       align-self: flex-start;
@@ -111,7 +112,7 @@ const MeView = styled.section`
       flex-direction: column;
       justify-content: center;
 
-      padding-right: 12rem;
+      padding-right: clamp(5rem, 10vw, 15rem);
 
       p {
 
@@ -158,7 +159,7 @@ const MeView = styled.section`
 
         &:hover {
 
-          background: ${({ theme }) => theme.color.hotPurple};
+          background: ${({ theme }) => theme.color.brightBlack};
         }
       }
 
@@ -169,18 +170,6 @@ const MeView = styled.section`
     }
   }
 `;
-
-// const DownloadOverlay = styled.div`
-
-//   background: #0005;
-
-//   position: fixed;
-//   top:0;
-//   bottom:0;
-//   /* left:0; */
-//   right:0;
-//   transform: translate(-50%, -50%)
-// `;
 
 export {
   Content, MainView, MeView,

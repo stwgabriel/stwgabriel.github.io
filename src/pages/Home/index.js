@@ -1,5 +1,4 @@
 import { useContext, useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
 
 import { NavigationContext } from '../../contexts/NavigationContext';
 
@@ -9,11 +8,12 @@ import {
 
 import { PageContainer } from '../../components/PageContainer';
 import { PageTitle } from '../../components/PageTitle';
+import Modal from '../../components/Modal';
 
-import arrow from '../../assets/images/icons/arrow.svg';
 import scroll from '../../assets/images/icons/mouse-scroll.svg';
 import mePicture from '../../assets/images/me-picture.png';
-import downloadArrow from '../../assets/images/icons/download-arrow.svg';
+import downloadIcon from '../../assets/images/icons/download.svg';
+import PageBorder from '../../components/PageBorder';
 
 function Home() {
 
@@ -34,11 +34,10 @@ function Home() {
       behavior: 'smooth',
     });
   }
+
   function handleModalVisibility() {
 
     setModalVisible(() => (!modalVisible));
-
-    console.log(modalVisible);
   }
 
   useEffect(() => {
@@ -54,8 +53,8 @@ function Home() {
   }, []);
 
   return (
-    <PageContainer id="page-container">
 
+    <PageContainer id="page-container">
       <Content>
 
         <MainView>
@@ -84,6 +83,7 @@ function Home() {
         <MeView id="me">
 
           <PageTitle className="no-select"> Me </PageTitle>
+
           <div className="me-content">
 
             <div className="content__text">
@@ -106,41 +106,21 @@ function Home() {
             </div>
 
             <div className="content__picture no-select">
+
               <img src={mePicture} alt="Me" className="no-select" />
               <button onClick={handleModalVisibility} className="download-resume" type="button">
+
                 <span>Resume</span>
-                <img src={downloadArrow} alt="download" />
+                <img src={downloadIcon} alt="download" />
               </button>
             </div>
 
           </div>
+
+          {modalVisible ? <Modal handleClose={handleModalVisibility} /> : ''}
         </MeView>
-
-        {/* {modalVisible && (
-          <DownloadOverlay>
-            <div className="download-modal">
-              <div className="click-to-exit">
-                x
-              </div>
-              <ul className="options">
-                <li className="option">
-                  label
-                </li>
-              </ul>
-            </div>
-          </DownloadOverlay>
-        )} */}
-
       </Content>
-
-      <Link
-        className="page-border from-right toPortifolio no-select"
-        onClick={handleNavigation}
-        to="/portfolio"
-      >
-        <img className="arrow" src={arrow} alt="Arrow" />
-        <span>Portfolio</span>
-      </Link>
+      <PageBorder handleNavigation={handleNavigation} from="from-right" to="portfolio" />
 
     </PageContainer>
   );
