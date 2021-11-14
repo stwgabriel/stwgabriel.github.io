@@ -20,6 +20,8 @@ const defaultStyles = {
 
   effect: {
     containerShadow: '15px 15px 50px #00000015',
+    elementShadow: '0 5px 25px #00000030',
+    itemShadow: '1px 1px 5px  #00000055',
     textShadow: '2px 2px 5px #00000015',
   },
 
