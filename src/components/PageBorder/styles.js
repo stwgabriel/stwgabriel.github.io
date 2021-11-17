@@ -10,12 +10,12 @@ const Container = styled.div`
 
   overflow: hidden;
 
-
   a {
 
-    font-size: clamp(1.6rem, 1.2vw, 2.5rem);
     font-size: 1.2vw;
-    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(1.6rem, 1.2vw, 6rem);
+    font-family: 'Montserrat',  sans-serif;
+    font-weight: 400;
     text-decoration: none;
 
     display: flex;
@@ -26,9 +26,8 @@ const Container = styled.div`
     min-height: 100vh;
     height: 100vh;
     min-width: 8rem;
-    width:  15vh;
-    max-width: 20rem;
-    width: clamp(8rem, 15vh, 20rem);
+    width:  8vw;
+    width: clamp(8rem, 8vw, 30rem);
 
     padding: 1rem;
 
@@ -39,13 +38,12 @@ const Container = styled.div`
       color: ${({ theme }) => theme.color.fadeWhite};
       font-size: inherit;
       font-family: inherit;
-      margin-top: 7rem;
+      margin-top: 4vw;
     }
 
     img {
 
       width: 32%;
-      max-width: 4.5rem;
       position: absolute;
       top: calc(50% - 5%);
     }
@@ -67,28 +65,24 @@ const Container = styled.div`
       top: 0;
       bottom: 0;
 
-      max-width: 20rem;
       width: 8rem;
       width:100%;
 
-      transition: margin .2s ease-out;
+      transition: margin .2s ease-in;
 
-      padding-top: 7rem;
+      padding-top: 4vw;
 
       z-index: 5;
     }
 
     &.from-right {
 
-      border-radius: 1rem 0 0 1rem ;
-
       right: 0;
-
       height: 100vh;
 
       &::after {
 
-        border-radius: 1rem 0 0 1rem ;
+        border-radius: 1vw 0 0 1vw;
         margin-right: -200%;
       }
 
@@ -102,10 +96,7 @@ const Container = styled.div`
     }
     &.from-left {
 
-      border-radius: 0 1rem 1rem 0;
-
       left: 0;
-
       height: 100vh;
 
       .arrow {
@@ -118,7 +109,7 @@ const Container = styled.div`
         background: url(${leftArrow}) center no-repeat ${({ theme }) => theme.color.brightBlack};
         background-size: 32%;
         background-position:center calc(50% - 3%);
-        border-radius: 0 1rem 1rem 0;
+        border-radius: 0 1vw 1vw 0;
 
         margin-left: -200% ;
       }
@@ -132,25 +123,25 @@ const Container = styled.div`
       }
     }
 
-    &.toPortifolio {
+    &.to-portfolio {
 
       &::after {
         content: 'Portfolio';
       }
     }
-    &.toHome {
+    &.to-home {
 
       &::after {
         content: 'Home';
       }
     }
-    &.toSkills {
+    &.to-skills {
 
       &::after {
         content: 'Skills';
       }
     }
-    &.toContact {
+    &.to-contact {
 
       &::after {
         content: 'Contact';
