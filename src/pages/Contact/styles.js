@@ -1,13 +1,8 @@
 import styled from 'styled-components';
 
-const Content = styled.div`
+const MainView = styled.div`
 
-  flex: 1;
-
-  max-width:90%;
-
-  padding:1.5rem;
-  margin-right: 8rem;
+  width:100%;
 `;
 
-export { Content };
+export { MainView };

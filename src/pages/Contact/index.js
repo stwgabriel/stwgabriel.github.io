@@ -2,9 +2,10 @@ import { useContext } from 'react';
 
 import { NavigationContext } from '../../contexts/NavigationContext';
 
-import { PageContainer } from '../../components/PageContainer';
+import PageContainer from '../../components/PageContainer';
 import PageBorder from '../../components/PageBorder';
-import { Content } from './styles';
+import PageView from '../../components/PageView';
+import PageTitle from '../../components/PageTitle';
 
 function Contact() {
 
@@ -14,10 +15,10 @@ function Contact() {
   return (
 
     <PageContainer>
-      <PageBorder handleNavigation={handleNavigation} from="from-left" to="skills" />
-      <Content>
-        <h1>contact</h1>
-      </Content>
+      <PageBorder handleNavigation={handleNavigation} from="from-left" to="skills">Skills</PageBorder>
+      <PageView>
+        <PageTitle className="no-select">Contact</PageTitle>
+      </PageView>
     </PageContainer>
   );
 }
