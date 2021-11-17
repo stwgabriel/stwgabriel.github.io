@@ -1,19 +1,17 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
 const PageContainer = styled.section`
 
-  ${({ theme }) => css`
-
-    background: ${theme.color.black};
-    box-shadow: ${theme.effect.containerShadow};
-  `}
+  background: ${({ theme }) => theme.color.black};
+  box-shadow: ${({ theme }) => theme.effect.containerShadow};
 
   display: flex;
   flex-direction: row;
 
   max-height: 100vh;
-  max-width:100vw;
-  width:100%;
+  min-width: 100vw;
+  width: 100vw;
+  flex: 1;
 
   position: relative;
 
@@ -21,4 +19,4 @@ const PageContainer = styled.section`
   overflow-y: auto;
 `;
 
-export { PageContainer };
+export default PageContainer;
