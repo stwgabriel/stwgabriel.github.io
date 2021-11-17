@@ -24,11 +24,6 @@ const defaultStyles = {
     itemShadow: '1px 1px 5px  #00000055',
     textShadow: '2px 2px 5px #00000015',
   },
-
-  sizes: {
-
-    searchCorner: '5rem',
-  },
 };
 
 export default defaultStyles;
