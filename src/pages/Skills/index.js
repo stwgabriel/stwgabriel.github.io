@@ -2,9 +2,10 @@ import { useContext } from 'react';
 
 import { NavigationContext } from '../../contexts/NavigationContext';
 
-import { PageContainer } from '../../components/PageContainer';
+import PageContainer from '../../components/PageContainer';
 import PageBorder from '../../components/PageBorder';
-import { Content } from './styles';
+import PageView from '../../components/PageView';
+import PageTitle from '../../components/PageTitle';
 
 function Portfolio() {
 
@@ -14,11 +15,23 @@ function Portfolio() {
   return (
 
     <PageContainer>
-      <PageBorder handleNavigation={handleNavigation} from="from-left" to="portfolio" />
-      <Content>
-        <h1> Skills </h1>
-      </Content>
-      <PageBorder handleNavigation={handleNavigation} from="from-right" to="contact" />
+      <PageBorder
+        handleNavigation={handleNavigation}
+        from="from-left"
+        to="portfolio"
+      >
+        Portfolio
+      </PageBorder>
+      <PageView>
+        <PageTitle className="no-select">Skills</PageTitle>
+      </PageView>
+      <PageBorder
+        handleNavigation={handleNavigation}
+        from="from-right"
+        to="contact"
+      >
+        Contact
+      </PageBorder>
     </PageContainer>
   );
 }
