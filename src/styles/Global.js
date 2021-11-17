@@ -1,140 +1,140 @@
-import { createGlobalStyle, css } from 'styled-components';
+import { createGlobalStyle } from 'styled-components';
 
-import SFProRegular from '../assets/fonts/SFPro/SFPro-Regular.ttf';
-import SFProMedium from '../assets/fonts/SFPro/SFPro-Medium.ttf';
-import SFProBold from '../assets/fonts/SFPro/SFPro-Bold.ttf';
-import SFProHeavy from '../assets/fonts/SFPro/SFPro-Heavy.ttf';
+import TextRegular from '../assets/fonts/SF-Pro/Text-Regular.ttf';
+import TextMedium from '../assets/fonts/SF-Pro/Text-Medium.ttf';
+import TextBold from '../assets/fonts/SF-Pro/Text-Bold.ttf';
+import TextHeavy from '../assets/fonts/SF-Pro/Text-Heavy.ttf';
+
+import DisplayRegular from '../assets/fonts/SF-Pro/Display-Regular.ttf';
+import DisplayMedium from '../assets/fonts/SF-Pro/Display-Medium.ttf';
+import DisplayBold from '../assets/fonts/SF-Pro/Display-Bold.ttf';
+import DisplayHeavy from '../assets/fonts/SF-Pro/Display-Heavy.ttf';
 
 const GlobalStyle = createGlobalStyle`
 
   @font-face {
 
-    font-family: "SF Pro";
-    src        :
-      local(SF Pro),
-      local(SF-Pro),
-      local(sf pro),
-      local(sf-pro),
-      url(${SFProHeavy}) format("truetype");
+    font-family: "ProText";
+    src        : url(${TextHeavy}) format("truetype");
     font-weight: 800;
-        font-display: fallback;
-
-
+    font-display: fallback;
   }
   @font-face {
 
-    font-family: "SF Pro";
-    src        :
-      local(SF Pro),
-      local(SF-Pro),
-      local(sf pro),
-      local(sf-pro),
-      url(${SFProBold}) format("truetype");
+    font-family: "ProText";
+    src        : url(${TextBold}) format("truetype");
     font-weight: 700;
-        font-display: fallback;
-
+    font-display: fallback;
   }
   @font-face {
 
-    font-family: "SF Pro";
-    src        :
-      local(SF Pro),
-      local(SF-Pro),
-      local(sf pro),
-      local(sf-pro),
-      url(${SFProMedium}) format("truetype");
-      font-weight: 600;
-      font-display: fallback;
-
+    font-family: "ProText";
+    src        : url(${TextMedium}) format("truetype");
+    font-weight: 600;
+    font-display: fallback;
   }
   @font-face {
 
-    font-family: "SF Pro";
-    src        :
-      local(SF Pro),
-      local(SF-Pro),
-      local(sf pro),
-      local(sf-pro),
-      url(${SFProRegular}) format("truetype");
-      font-weight: 500;
-      font-display: fallback;
+    font-family: "ProText";
+    src        : url(${TextRegular}) format("truetype");
+    font-weight: 500;
+    font-display: fallback;
+  }
 
+  @font-face {
+
+    font-family: "ProDisplay";
+    src        : url(${DisplayHeavy}) format("truetype");
+    font-weight: 800;
+    font-display: fallback;
+  }
+  @font-face {
+
+    font-family: "ProDisplay";
+    src        : url(${DisplayBold}) format("truetype");
+    font-weight: 700;
+    font-display: fallback;
+  }
+  @font-face {
+
+    font-family: "ProDisplay";
+    src        : url(${DisplayMedium}) format("truetype");
+    font-weight: 600;
+    font-display: fallback;
+  }
+  @font-face {
+
+    font-family: "ProDisplay";
+    src        : url(${DisplayRegular}) format("truetype");
+    font-weight: 500;
+    font-display: fallback;
   }
 
   * {
 
     box-sizing: border-box;
-    font-family:"SF Pro", -apple-system, BlinkMacSystemFont, Arial, Helvetica, Montserrat,   sans-seif;
-    letter-spacing: small;
+    font-family: "ProText", -apple-system, BlinkMacSystemFont, Tahoma, Arial Black,Verdana, Helvetica, Montserrat, sans-seif;
     text-shadow: ${({ theme }) => theme.effect.textShadow};
+
     padding: 0;
     margin: 0;
+
+    text-shadow: ${({ theme }) => theme.effect.textShadow};
+    scrollbar-width: thin;
+    scrollbar-color: ${({ theme }) => theme.color.selection} ${({ theme }) => theme.color.black};
   }
 
-  ${({ theme }) => css`
+  @supports (scrollbar-color: ${({ theme }) => theme.color.background} ${({ theme }) => theme.color.black}) and (scrollbar-width: thin) {
 
-    * {
+    scrollbar-color: ${({ theme }) => theme.color.background} ${({ theme }) => theme.color.black};
+    scrollbar-width: thin;
+  }
+  &::-webkit-scrollbar {
 
-      text-shadow: ${theme.effect.textShadow}
-      scrollbar-width: thin;
-      scrollbar-color: ${theme.color.selection} ${theme.color.black};
+    background: ${({ theme }) => theme.color.white};
+    width: 1.2rem;
+    height: 0;
 
-      @suports (scrollbar-color) {
+    &:hover {
 
-        scrollbar-color: ${theme.color.background} ${theme.color.black};
-      }
-
-      &::-webkit-scrollbar {
-
-        background: ${theme.color.white};
-        width: 1.2rem;
-        height: 0;
-
-        &:hover {
-
-          width:1.7rem;
-        }
-      }
-
-      &::-webkit-scrollbar-track {
-
-        background: ${theme.color.black};
-      }
-
-      &::-webkit-scrollbar-thumb {
-
-        background: ${theme.color.selection};
-        border-radius:1rem;
-        border:solid .3rem ${theme.color.black};
-
-        &:hover {
-
-          border:solid .1rem ${theme.color.black};
-        }
-      }
-
-      &::selection {
-
-        background: ${theme.color.selection};
-        color: ${theme.color.white};
-      }
+      width:1.7rem;
     }
+  }
 
-    :root {
+  &::-webkit-scrollbar-track {
 
-      background: ${theme.color.background};
-      color: ${theme.color.white};
+    background: ${({ theme }) => theme.color.black};
+  }
 
-      font-size: 62.5%;
-      font-weight: 600;
+  &::-webkit-scrollbar-thumb {
 
-      scroll-behavior: smooth;
+    background: ${({ theme }) => theme.color.selection};
+    border-radius:1rem;
+    border:solid .3rem ${({ theme }) => theme.color.black};
+
+    &:hover {
+
+      border:solid .1rem ${({ theme }) => theme.color.black};
     }
-  `}
+  }
+
+  &::selection {
+
+    background: ${({ theme }) => theme.color.selection};
+    color: ${({ theme }) => theme.color.white};
+  }
+
+  :root {
+
+    background: ${({ theme }) => theme.color.background};
+    color: ${({ theme }) => theme.color.white};
+    font-size: 62.5%;
+  }
 
   body {
 
     font-size: 1.6rem;
+    font-weight: 500;
   }
 
   a,
