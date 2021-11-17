@@ -2,18 +2,17 @@ import { useContext, useEffect, useState } from 'react';
 
 import { NavigationContext } from '../../contexts/NavigationContext';
 
-import {
-  Content, MainView, MeView,
-} from './styles';
+import { MainView, MeView } from './styles';
 
-import { PageContainer } from '../../components/PageContainer';
-import { PageTitle } from '../../components/PageTitle';
-import Modal from '../../components/Modal';
+import PageContainer from '../../components/PageContainer';
+import PageBorder from '../../components/PageBorder';
+import PageView from '../../components/PageView';
+import PageTitle from '../../components/PageTitle';
+import DownloadModal from '../../components/DownloadModal';
 
 import scroll from '../../assets/images/icons/mouse-scroll.svg';
 import mePicture from '../../assets/images/me-picture.png';
 import downloadIcon from '../../assets/images/icons/download.svg';
-import PageBorder from '../../components/PageBorder';
 
 function Home() {
 
@@ -55,7 +54,7 @@ function Home() {
   return (
 
     <PageContainer id="page-container">
-      <Content>
+      <PageView marginLeft>
 
         <MainView>
 
@@ -68,7 +67,7 @@ function Home() {
 
             <div className="position">
               <span>Front-end Developer &amp;</span>
-              <span>UX Design Students</span>
+              <span>UX Design Student</span>
             </div>
 
           </div>
@@ -117,10 +116,12 @@ function Home() {
 
           </div>
 
-          {modalVisible ? <Modal handleClose={handleModalVisibility} /> : ''}
+          {modalVisible ? <DownloadModal handleClose={handleModalVisibility} /> : ''}
         </MeView>
-      </Content>
-      <PageBorder handleNavigation={handleNavigation} from="from-right" to="portfolio" />
+      </PageView>
+      <PageBorder handleNavigation={handleNavigation} from="from-right" to="portfolio">
+        Portfolio
+      </PageBorder>
 
     </PageContainer>
   );
