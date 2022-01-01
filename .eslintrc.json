@@ -29,7 +29,6 @@
     ],
     "react/react-in-jsx-scope": "off",
     "import/prefer-default-export": "off",
-    "padded-blocks": "off",
-    "react/jsx-no-bind":"off"
+    "padded-blocks": "off"
   }
 }
