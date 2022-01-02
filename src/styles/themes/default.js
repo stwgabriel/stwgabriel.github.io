@@ -15,11 +15,14 @@ const defaultStyles = {
       background: '#22212C',
       selection: '#454158',
       comment: '#7970A9',
+      white: '#F8F8F2',
 
       textColor: '#E1E2E8',
       fadeTextColor: '#CDCFD1',
 
-      white: '#F8F8F2',
+      reverseAccent: '#2D2A39',
+
+      modalBackground: '#2D2A39',
     },
 
     gray: {
@@ -50,6 +53,11 @@ const defaultStyles = {
     elementShadow: '0 5px 25px #00000030',
     itemShadow: '1px 1px 5px  #00000055',
     textShadow: '2px 2px 5px #00000015',
+  },
+
+  metric: {
+
+    borderRadius: '1.4vw',
   },
 };
 
