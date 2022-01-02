@@ -15,7 +15,14 @@ function Contact() {
   return (
 
     <PageContainer>
-      <PageBorder handleNavigation={handleNavigation} from="from-left" to="skills">Skills</PageBorder>
+      <PageBorder
+        borderSide="left"
+        handleNavigation={handleNavigation}
+        from="from-left"
+        to="skills"
+      >
+        Skills
+      </PageBorder>
       <PageView>
         <PageTitle className="no-select">Contact</PageTitle>
       </PageView>
