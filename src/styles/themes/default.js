@@ -4,11 +4,38 @@ const defaultStyles = {
 
     white: '#F8F8F2',
     fadeWhite: 'rgba(248,248,242,.7)',
-    black: '#21222C',
+    black: '#22212C',
     background: '#282A36',
-    selection: '#44475A',
+    selection: '#454158',
     brightBlack: '#6272A4',
     hotPurple: '#8134AF',
+
+    main: {
+
+      background: '#22212C',
+      selection: '#454158',
+      comment: '#7970A9',
+
+      textColor: '#E1E2E8',
+      fadeTextColor: '#CDCFD1',
+
+      white: '#F8F8F2',
+    },
+
+    gray: {
+
+      default: '#CDCFD1',
+      bright: '#E1E2E8',
+    },
+
+    cold: {
+
+      blue: '#6272A4',
+    },
+
+    hot: {
+
+    },
 
     social: {
 
