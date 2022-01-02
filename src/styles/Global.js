@@ -142,7 +142,7 @@ const GlobalStyle = createGlobalStyle`
     list-style: none;
   }
 
-  .no-select {
+  img,.no-select {
 
     user-drag: none;
     -webkit-user-drag: none;
