@@ -16,6 +16,7 @@ function Portfolio() {
 
     <PageContainer>
       <PageBorder
+        borderSide="left"
         handleNavigation={handleNavigation}
         from="from-left"
         to="portfolio"
@@ -26,6 +27,7 @@ function Portfolio() {
         <PageTitle className="no-select">Skills</PageTitle>
       </PageView>
       <PageBorder
+        borderSide="right"
         handleNavigation={handleNavigation}
         from="from-right"
         to="contact"
