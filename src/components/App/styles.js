@@ -1,13 +1,10 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
 const Container = styled.div`
 
-  ${() => css`
-
-    display: flex;
-    min-height: 100vh;
-    width: 100%;
-  `}
+  display: flex;
+  min-height: 100vh;
+  width: 100%;
 `;
 
 export { Container };
