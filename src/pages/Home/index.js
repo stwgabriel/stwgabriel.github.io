@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from 'react';
 
 import { NavigationContext } from '../../contexts/NavigationContext';
 
-import { MainView, MeView } from './styles';
+import { MainView, AboutView } from './styles';
 
 import PageContainer from '../../components/PageContainer';
 import PageBorder from '../../components/PageBorder';
@@ -12,14 +12,14 @@ import DownloadModal from '../../components/DownloadModal';
 
 import scroll from '../../assets/images/icons/mouse-scroll.svg';
 import mePicture from '../../assets/images/me-picture.png';
-import downloadIcon from '../../assets/images/icons/download.svg';
+import downloadIcon from '../../assets/images/icons/download-arrow.svg';
 
 function Home() {
 
   const navigation = useContext(NavigationContext);
   const { handleNavigation } = navigation;
 
-  const [modalVisible, setModalVisible] = useState(false);
+  const [renderDownloadModal, setRenderDownloadModal] = useState(false);
 
   function handleScroll(e) {
 
@@ -36,7 +36,7 @@ function Home() {
 
   function handleModalVisibility() {
 
-    setModalVisible(() => (!modalVisible));
+    setRenderDownloadModal(() => (!renderDownloadModal));
   }
 
   useEffect(() => {
@@ -54,6 +54,7 @@ function Home() {
   return (
 
     <PageContainer id="page-container">
+
       <PageView marginLeft>
 
         <MainView>
@@ -79,9 +80,9 @@ function Home() {
 
         </MainView>
 
-        <MeView id="me">
+        <AboutView id="me">
 
-          <PageTitle className="no-select"> Me </PageTitle>
+          <PageTitle className="no-select">About Me</PageTitle>
 
           <div className="me-content">
 
@@ -116,10 +117,20 @@ function Home() {
 
           </div>
 
-          {modalVisible ? <DownloadModal handleClose={handleModalVisibility} /> : ''}
-        </MeView>
+          <DownloadModal
+            handleRenderDownloadModal={() => (handleModalVisibility)}
+            renderDownloadModal={renderDownloadModal}
+          />
+        </AboutView>
+
       </PageView>
-      <PageBorder handleNavigation={handleNavigation} from="from-right" to="portfolio">
+
+      <PageBorder
+        borderSide="right"
+        from="from-right"
+        to="portfolio"
+        handleNavigation={handleNavigation}
+      >
         Portfolio
       </PageBorder>
 

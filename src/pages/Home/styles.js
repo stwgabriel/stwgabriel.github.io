@@ -23,7 +23,7 @@ const MainView = styled.section`
   }
 
   padding-bottom: 10vh;
-  padding-bottom: clamp(100px, 10vh, 10rem);
+  padding-bottom: clamp(12rem, 10vh, 30rem);
 
   .row {
 
@@ -33,9 +33,9 @@ const MainView = styled.section`
 
     margin: 0 auto;
 
-    #home-title {
+    h1#home-title {
 
-      color: ${({ theme }) => theme.color.fadeWhite};
+      color: ${({ theme }) => theme.color.main.fadeTextColor};
       font-size: 10vw;
       font-size: clamp(4rem, 10vw, 40rem);
       font-family: "ProDisplay", -apple-system, BlinkMacSystemFont, Tahoma, Arial Black,Verdana, Helvetica, Montserrat, sans-seif;
@@ -63,7 +63,7 @@ const MainView = styled.section`
 
     .position {
 
-      color: ${({ theme }) => theme.color.fadeWhite};
+      color: ${({ theme }) => theme.color.main.fadeTextColor};
       font-size: 1.5vw;
       font-size: clamp(1.6rem, 1.5vw, 5rem);
       font-style: italic;
@@ -80,7 +80,7 @@ const MainView = styled.section`
 
     background: transparent;
     border: none;
-    color: ${({ theme }) => theme.color.fadeWhite};
+    color: ${({ theme }) => theme.color.main.fadeTextColor};
     font-size: 1.3vw;
     font-size: clamp(1.6rem, 1.3vw, 5rem);
     font-weight: inherit;
@@ -110,9 +110,9 @@ const MainView = styled.section`
   }
 `;
 
-const MeView = styled.section`
+const AboutView = styled.section`
 
-  padding: clamp(100px, 10vh, 10rem) 0;
+  padding: clamp(12rem, 10vh, 30rem) 0;
 
   .me-content {
 
@@ -144,18 +144,18 @@ const MeView = styled.section`
     .content__picture {
 
       display: flex;
+      flex:1;
       flex-direction: column;
       align-items: center;
       justify-content: flex-start;
-      flex:1;
 
       .download-resume {
 
-        background: rgba(255, 255, 255, 0.15);
+        background: ${({ theme }) => theme.color.main.selection};
         border: none;
         backdrop-filter: blur(4px);
-        border-radius: .7vw;
-        color: ${({ theme }) => theme.color.white};
+        border-radius: 1.1vw;
+        color: ${({ theme }) => theme.color.main.textColor};
         font-size: 1.4vw;
         font-size: clamp(1.6rem, 1.4vw, 2.5rem);
 
@@ -163,8 +163,8 @@ const MeView = styled.section`
         align-items:center;
         justify-content: center;
 
-        padding: 1.2rem 2rem;
-        padding: 1vw 1.6vw;
+        padding: 1.8rem 1.4rem;
+        padding: 1vw 2vw;
         margin-top: 2vw;
         margin-top: clamp(3rem, 2vw, 6rem);
 
@@ -185,12 +185,11 @@ const MeView = styled.section`
 
           width: 1.4vw;
           width: clamp(1.6rem, 1.4vw, 5rem);
-
         }
 
         &:hover {
 
-          background: ${({ theme }) => theme.color.brightBlack};
+          background: ${({ theme }) => theme.color.cold.blue};
         }
       }
 
@@ -202,4 +201,4 @@ const MeView = styled.section`
   }
 `;
 
-export { MainView, MeView };
+export { MainView, AboutView };
