@@ -91,57 +91,55 @@ const GlobalStyle = createGlobalStyle`
   }
   &::-webkit-scrollbar {
 
-    background: ${({ theme }) => theme.color.white};
-    width: 1.2rem;
+    width: 1vw;
     height: 0;
-
-    &:hover {
-
-      width:1.7rem;
-    }
   }
-
   &::-webkit-scrollbar-track {
 
-    background: ${({ theme }) => theme.color.black};
+    background: ${({ theme }) => theme.color.main.selection};
   }
-
   &::-webkit-scrollbar-thumb {
 
-    background: ${({ theme }) => theme.color.selection};
-    border-radius:1rem;
-    border:solid .3rem ${({ theme }) => theme.color.black};
+    background: ${({ theme }) => theme.color.main.background};
+    border-radius:1vw;
+    border:solid .3vw ${({ theme }) => theme.color.main.selection};
 
     &:hover {
 
-      border:solid .1rem ${({ theme }) => theme.color.black};
+      border:solid .1vw ${({ theme }) => theme.color.main.selection};
     }
   }
 
   &::selection {
 
-    background: ${({ theme }) => theme.color.selection};
-    color: ${({ theme }) => theme.color.white};
+    background: ${({ theme }) => theme.color.main.selection};
+    color: ${({ theme }) => theme.color.main.textColor};
   }
 
   :root {
 
-    background: ${({ theme }) => theme.color.background};
-    color: ${({ theme }) => theme.color.white};
+    background: ${({ theme }) => theme.color.main.background};
     font-size: 62.5%;
   }
 
   body {
 
+    color: ${({ theme }) => theme.color.main.textColor};
     font-size: 1.6rem;
-    font-weight: 500;
+    font-weight: 600;
   }
 
   a,
   button {
 
+    border: none;
     text-decoration:none;
     cursor: pointer;
+  }
+
+  li {
+
+    list-style: none;
   }
 
   .no-select {
@@ -152,6 +150,10 @@ const GlobalStyle = createGlobalStyle`
     -moz-user-select: none;
     -webkit-user-select: none;
     -ms-user-select: none;
+  }
+  .no-events {
+
+    pointer-events: none;
   }
 `;
 
