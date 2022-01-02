@@ -48,8 +48,8 @@ const Container = styled.div`
   .hoverLayer {
 
     background: ${({ theme }) => theme.color.cold.blue};
-    border-radius: ${({ borderSide }) => (borderSide === 'left' && '0 1.8vw 1.8vw 0')
-    || (borderSide === 'right' && '1.8vw 0 0 1.8vw')};
+    border-radius: ${({ borderSide, theme }) => (borderSide === 'left' && `0 ${theme.metric.borderRadius} ${theme.metric.borderRadius} 0`)
+  || (borderSide === 'right' && `${theme.metric.borderRadius} 0 0 ${theme.metric.borderRadius}`)};
     pointer-events: none;
 
     position: absolute;
