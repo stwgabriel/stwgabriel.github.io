@@ -75,8 +75,6 @@ const MainView = styled.section`
 
     display: flex;
     flex-direction: column;
-
-    margin-left: -.8%;
   }
 
   .scroll-down {
