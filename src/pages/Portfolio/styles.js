@@ -1,7 +1,5 @@
 import styled from 'styled-components';
 
-const PortfolioContainer = styled.div`
+export default styled.div`
 
 `;
-
-export { PortfolioContainer };

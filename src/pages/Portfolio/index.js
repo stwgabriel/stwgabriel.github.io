@@ -7,7 +7,7 @@ import PageBorder from '../../components/PageBorder';
 import PageView from '../../components/PageView';
 import PageTitle from '../../components/PageTitle';
 
-import { PortfolioContainer } from './styles';
+import PortfolioContainer from './styles';
 
 function Portfolio() {
 
