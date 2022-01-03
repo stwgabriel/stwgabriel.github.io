@@ -6,7 +6,8 @@ import PageContainer from '../../components/PageContainer';
 import PageBorder from '../../components/PageBorder';
 import PageView from '../../components/PageView';
 import PageTitle from '../../components/PageTitle';
-import { HorizontalScrollView, Project } from './styles';
+
+import { PortfolioContainer } from './styles';
 
 function Portfolio() {
 
@@ -28,27 +29,9 @@ function Portfolio() {
 
       <PageView>
         <PageTitle className="no-select">Portfolio</PageTitle>
-        <HorizontalScrollView>
-          <h2>Front-end Projects</h2>
-          <Project>
-            <div className="project__image">
-              {/* <img src="" alt="Project Preview" /> */}
-            </div>
-            <div className="project__content--overlay">
-              <div className="project__content">
-                <header>
-                  <h3>Title</h3>
-                  <button className="expand-close-info" type="button">{' '}</button>
-                </header>
-                <p className="content__description">description</p>
-                <h3>Tech</h3>
-                <div className="tech-tags">
-                  <span className="tech-tag">HTML</span>
-                </div>
-              </div>
-            </div>
-          </Project>
-        </HorizontalScrollView>
+        <PortfolioContainer>
+
+        </PortfolioContainer>
       </PageView>
 
       <PageBorder
