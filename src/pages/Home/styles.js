@@ -152,9 +152,9 @@ const AboutView = styled.section`
       .download-resume {
 
         background: ${({ theme }) => theme.color.main.selection};
-        border: none;
         backdrop-filter: blur(4px);
-        border-radius: 1.1vw;
+        border: none;
+        border-radius: ${({ theme }) => theme.metric.borderRadius};
         color: ${({ theme }) => theme.color.main.textColor};
         font-size: 1.4vw;
         font-size: clamp(1.6rem, 1.4vw, 2.5rem);
@@ -183,8 +183,8 @@ const AboutView = styled.section`
 
         img {
 
-          width: 1.4vw;
-          width: clamp(1.6rem, 1.4vw, 5rem);
+          width: 1.2vw;
+          width: clamp(1.6rem, 1.2vw, 5rem);
         }
 
         &:hover {
