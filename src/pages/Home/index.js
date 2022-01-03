@@ -59,24 +59,22 @@ function Home() {
 
         <MainView>
 
-          <div className="row">
+          <h1 id="home-title">
+            <span>Hello,</span>
+            <span>I&apos;m Gabriel</span>
+          </h1>
 
-            <h1 id="home-title">
-              <span>Hello,</span>
-              <span>I&apos;m Gabriel</span>
-            </h1>
+          <div className="bottom-row">
+            <a href="#me" className="scroll-down no-select">
+              <span>Scroll Down</span>
+              <img src={scroll} alt="Scroll" />
+            </a>
 
             <div className="position">
-              <span>Front-end Developer &amp;</span>
-              <span>UX Design Student</span>
+              <span>Front-end Developer</span>
+              <span>&amp; UX Design Student</span>
             </div>
-
           </div>
-
-          <a href="#me" className="scroll-down no-select">
-            <span>Scroll Down</span>
-            <img src={scroll} alt="Scroll" />
-          </a>
 
         </MainView>
 

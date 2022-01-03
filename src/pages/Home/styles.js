@@ -2,11 +2,15 @@ import styled from 'styled-components';
 
 const MainView = styled.section`
 
-  position:relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 
   max-height: 80rem;
   height: clamp(38rem, 85vh, 250rem);
   min-height: 30rem;
+
+  position:relative;
 
   @media (min-width: 1400px) {
 
@@ -22,58 +26,55 @@ const MainView = styled.section`
     min-height: 80rem;
   }
 
-  padding-bottom: 10vh;
-  padding-bottom: clamp(12rem, 10vh, 30rem);
+  padding-bottom: 12vh;
+  padding-bottom: clamp(10rem, 12vh, 30rem);
 
-  .row {
+  h1#home-title {
+
+    color: ${({ theme }) => theme.color.main.fadeTextColor};
+    font-size: 10vw;
+    font-size: clamp(4rem, 10vw, 40rem);
+    font-family: "ProDisplay", -apple-system, BlinkMacSystemFont, Tahoma, Arial Black,Verdana, Helvetica, Montserrat, sans-seif;
+    letter-spacing: small;
+    line-height: 1.6ch;
+    font-weight: 800;
+
+    align-self: flex-start;
+    display:flex;
+    flex-direction: column;
+
+    margin-left: -.8%;
+
+    @media (min-width: 2300px) {
+
+      font-size: 10vw;
+      font-size: clamp(25rem, 11vw, 40rem);
+    }
+
+    span {
+
+      font-family: inherit;
+    }
+  }
+
+  .bottom-row {
 
     display: flex;
     align-items: flex-end;
-    justify-content: flex-end;
+    justify-content: space-between;
+  }
 
-    margin: 0 auto;
+  .position {
 
-    h1#home-title {
+    color: ${({ theme }) => theme.color.main.fadeTextColor};
+    font-size: 1.5vw;
+    font-size: clamp(1.6rem, 1.5vw, 5rem);
+    font-family: "ProDisplay", -apple-system, BlinkMacSystemFont, Tahoma, Arial Black,Verdana, Helvetica, Montserrat, sans-seif;
+    font-style: italic;
+    font-weight: 600;
 
-      color: ${({ theme }) => theme.color.main.fadeTextColor};
-      font-size: 10vw;
-      font-size: clamp(4rem, 10vw, 40rem);
-      font-family: "ProDisplay", -apple-system, BlinkMacSystemFont, Tahoma, Arial Black,Verdana, Helvetica, Montserrat, sans-seif;
-      letter-spacing: small;
-      line-height: 1.6ch;
-      font-weight: 800;
-
-      align-self: flex-start;
-      display:flex;
-      flex-direction: column;
-
-      margin-left: -.8%;
-
-      @media (min-width: 2300px) {
-
-        font-size: 10vw;
-        font-size: clamp(25rem, 11vw, 40rem);
-      }
-
-      span {
-
-        font-family: inherit;
-      }
-    }
-
-    .position {
-
-      color: ${({ theme }) => theme.color.main.fadeTextColor};
-      font-size: 1.5vw;
-      font-size: clamp(1.6rem, 1.5vw, 5rem);
-      font-style: italic;
-      font-weight: 600;
-
-      display: flex;
-      flex-direction: column;
-
-      margin-left: auto;
-    }
+    display: flex;
+    flex-direction: column;
   }
 
   .scroll-down {
@@ -83,17 +84,15 @@ const MainView = styled.section`
     color: ${({ theme }) => theme.color.main.fadeTextColor};
     font-size: 1.3vw;
     font-size: clamp(1.6rem, 1.3vw, 5rem);
-    font-weight: inherit;
+    font-family: 'Montserrat',  sans-serif;
+    font-weight: 600;
 
     display: flex;
     align-items: center;
     justify-content: center;
 
-    position: absolute;
-    bottom: 2rem;
-    left: -1rem;
-
     padding: 1rem;
+    margin-bottom: -1vw;
 
     span {
 
@@ -105,7 +104,7 @@ const MainView = styled.section`
 
       pointer-events: none;
       width: 1.2vw;
-      width: clamp(1.4rem, 1vw, 4rem);
+      width: clamp(1rem, .9vw, 4rem);
     }
   }
 `;
