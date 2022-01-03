@@ -6,6 +6,7 @@ const Container = styled.nav`
   margin-bottom: max(6rem, 5vw);
 
   ul {
+<<<<<<< HEAD
 
     display: flex;
     align-items: center;
@@ -87,6 +88,9 @@ const Container = styled.nav`
         transform: translateY(0);
       }
     }
+=======
+    
+>>>>>>> 412c539 (feat: create NavMenu)
   }
 `;
 
