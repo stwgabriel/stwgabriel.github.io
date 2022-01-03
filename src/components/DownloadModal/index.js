@@ -9,10 +9,12 @@ import {
 } from './styles';
 
 import close from '../../assets/images/icons/close.svg';
-import downoloadIcon from '../../assets/images/icons/download.svg';
+import downloadIcon from '../../assets/images/icons/download-arrow.svg';
 import docIcon from '../../assets/images/icons/document.svg';
 
-function DownloadModal({ handleClose }) {
+function DownloadModal({ handleRenderDownloadModal, renderDownloadModal }) {
+
+  if (!renderDownloadModal) { return null; }
 
   const [portugueseOption, setPortugueseOption] = useState(false);
   const [englishOption, setEnglishOption] = useState(false);
@@ -23,9 +25,14 @@ function DownloadModal({ handleClose }) {
 
     if (target.classList.contains('pt-br')) { setPortugueseOption(!portugueseOption); }
     if (target.classList.contains('en-us')) { setEnglishOption(!englishOption); }
-
-    if (target.classList.contains('click-to-exit')) { handleClose(); }
   }
+
+  useEffect(() => {
+
+    document.addEventListener('click', handleClick);
+
+    return () => document.removeEventListener('click', handleClick);
+  });
 
   const
     [
@@ -35,33 +42,19 @@ function DownloadModal({ handleClose }) {
       ptPdf,
     ] = [
 
-        '/resume/English-US.docx',
-        '/resume/English-US.pdf',
-        '/resume/Portugues-BR.docx',
-        '/resume/Portugues-BR.pdf',
+        '/resume/stwGabriel_English-US.docx',
+        '/resume/stwGabriel_English-US.pdf',
+        '/resume/stwGabriel_Portugues-BR.docx',
+        '/resume/stwGabriel_Portugues-BR.pdf',
       ];
-  const clickToExit = 'Click to exit';
-
-  useEffect(() => {
-
-    document.addEventListener('click', handleClick);
-
-    return () => {
-
-      document.removeEventListener('click', handleClick);
-    };
-  });
 
   return reactDOM.createPortal(
-    <Overlay
-      className="no-selec click-to-exit"
-      title={clickToExit}
-    >
 
+    <Overlay className="no-select">
       <Container>
 
         <button
-          onClick={handleClose}
+          onClick={handleRenderDownloadModal()}
           type="button"
           className="close-button"
         >
@@ -81,7 +74,7 @@ function DownloadModal({ handleClose }) {
               type="button"
               className="download-button en-us"
             >
-              <img src={downoloadIcon} alt="download" />
+              <img src={downloadIcon} alt="download" />
             </button>
 
             {englishOption && (
@@ -106,6 +99,7 @@ function DownloadModal({ handleClose }) {
               </FileSelector>
             )}
           </File>
+
           <File>
 
             <header className="file-header">
@@ -117,7 +111,7 @@ function DownloadModal({ handleClose }) {
               type="button"
               className="download-button pt-br"
             >
-              <img src={downoloadIcon} alt="download" />
+              <img src={downloadIcon} alt="download" />
             </button>
 
             {portugueseOption && (
@@ -152,7 +146,8 @@ function DownloadModal({ handleClose }) {
 
 DownloadModal.propTypes = {
 
-  handleClose: PropTypes.func.isRequired,
+  handleRenderDownloadModal: PropTypes.func.isRequired,
+  renderDownloadModal: PropTypes.bool.isRequired,
 };
 
 export default DownloadModal;

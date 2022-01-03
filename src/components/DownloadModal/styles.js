@@ -19,30 +19,12 @@ const Overlay = styled.div`
   height:100vh;
 
   z-index:500;
-
-  &:before {
-
-    position:absolute;
-    top:0;
-    bottom:0;
-    left:0;
-    right:0;
-    width:100vw;
-    height:100vh;
-
-    filter: blur(3px);
-  }
-
-  .click-to-exit {
-
-    background: red;
-  }
 `;
 
 const Container = styled.div`
 
-  background:${({ theme }) => theme.color.background};
-  border-radius: 1vw;
+  background:${({ theme }) => theme.color.main.modalBackground};
+  border-radius: ${({ theme }) => theme.metric.borderRadius};
   box-shadow: ${({ theme }) => theme.effect.elementShadow};
 
   pointer-events: all;
@@ -52,18 +34,18 @@ const Container = styled.div`
   align-items: flex-end;
 
   max-width: 90%;
-  width: 45vw;
-  width: clamp(45rem, 45vw, 180rem);
+  width: 40vw;
+  width: clamp(45rem, 35vw, 180rem);
 
   padding: 3.3vw;
-  padding: clamp(3.3rem, 3.3vw, 15rem);
+  padding: clamp(3.3rem, 2.5vw, 15rem);
   z-index: 550;
 
   .close-button {
 
     background: ${({ theme }) => theme.color.selection};
     border:none;
-    border-radius: 50%;
+    border-radius:  ${({ theme }) => theme.metric.borderRadius};
     box-shadow: ${({ theme }) => theme.effect.elementShadow};
 
     display: grid;
@@ -73,13 +55,13 @@ const Container = styled.div`
     top:0;
     right: 0;
 
-    height: 3vw;
-    width: 3vw;
+    height: 2.5vw;
+    width: 2.5vw;
     width: clamp(3.3rem, 3vw, 20rem);
     height: clamp(3.3rem, 3vw, 20rem);
 
-    margin-bottom: 3vw;
-    margin-bottom: clamp(3.3rem, 3vw, 10rem);
+    margin-bottom: 2.5vw;
+    margin-bottom: clamp(3.3rem, 2.5vw, 10rem);
 
     transition: background .3s ease-in;
 
@@ -92,7 +74,7 @@ const Container = styled.div`
 
     &:hover {
 
-      background: #fff5;
+      background: #fff3;
     }
   }
 `;
@@ -106,12 +88,12 @@ const DownloadOptions = styled.ul`
 
 const File = styled.li`
 
-  background: ${({ theme }) => theme.color.selection};
-  border-radius: .8vw;
+  background: ${({ theme }) => theme.color.main.selection};
+  border-radius:  ${({ theme }) => theme.metric.borderRadius};
   box-shadow: ${({ theme }) => theme.effect.elementShadow};
 
-  font-size: 1.4vw;
-  font-size:  clamp(1.6rem, 1.4vw, 8rem);
+  font-size: 1.2vw;
+  font-size:  clamp(1.6rem, 1.2vw, 8rem);
 
   display: flex;
   align-items:center;
@@ -119,9 +101,10 @@ const File = styled.li`
 
   width: 100%;
 
-  padding: 1.2vw 1.5vw;
-  padding: clamp(1rem, 1.2vw, 5rem) clamp(1.5rem, 1.5vw, 8rem);
-  margin-bottom: clamp(1.6rem, 1.5vw, 7rem);
+  padding: .8vw 1.5vw;
+  padding: clamp(.8rem, .6vw, 5rem) clamp(1rem, 1.5vw, 5rem);
+  margin-bottom: .8vw;
+  margin-bottom: clamp(1.2rem, .8vw, 7rem);
 
   position: relative;
   overflow: hidden;
@@ -129,8 +112,8 @@ const File = styled.li`
   img {
 
     filter: drop-shadow(${({ theme }) => theme.effect.itemShadow});
-    width: 1.6vw;
-    width: clamp(1.2rem, 1.6vw, 9rem);
+    width: 1.3vw;
+    width: clamp(1.6rem, 1.3vw, 9rem);
   }
 
   &:last-of-type {
@@ -154,11 +137,12 @@ const File = styled.li`
 
     background:transparent;
     border: none;
-    border-radius: .5rem;
+    border-radius:  ${({ theme }) => theme.metric.borderRadius};
 
     height: 100%;
 
-    padding: .5rem 1rem;
+    padding: .6vw 1.1vw;
+    margin-right: -.4vw;
 
     transition: background .3s ease-in;
 
@@ -169,15 +153,15 @@ const File = styled.li`
 
     &:hover {
 
-      background:  #0005;
+      background:  ${({ theme }) => theme.color.main.reverseAccent};
     }
   }
 `;
 
 const FileSelector = styled.div`
 
-  background: ${({ theme }) => theme.color.selection};
-  border-radius: .8rem;
+  background: ${({ theme }) => theme.color.main.selection};
+  border-radius:  ${({ theme }) => theme.metric.borderRadius};
 
   display: flex;
   flex-direction:row;
@@ -187,7 +171,7 @@ const FileSelector = styled.div`
   right: 0;
 
   height: 100%;
-  width:fit-content;
+  width: fit-content;
 
   overflow: hidden;
   z-index:100;
@@ -206,20 +190,21 @@ const FileSelector = styled.div`
     flex: 1;
 
     height: 100%;
+    min-width:6rem;
     width: 6vw;
 
     transition: background .3s ease-in;
 
     &:hover {
 
-      background: #0005;
+      background:${({ theme }) => theme.color.main.reverseAccent};
     }
   }
 
   .divider {
 
-    background:${({ theme }) => theme.color.black};
-    border-radius: 1rem;
+    background:${({ theme }) => theme.color.main.reverseAccent};
+    border-radius:  ${({ theme }) => theme.metric.borderRadius};
     opacity: .7;
     width: .2rem;
     height: 35%;
