@@ -10,14 +10,11 @@ import PageTitle from '../../components/PageTitle';
 import PortfolioContainer from './styles';
 
 function Portfolio() {
-
   const navigation = useContext(NavigationContext);
   const { handleNavigation } = navigation;
 
   return (
-
     <PageContainer>
-
       <PageBorder
         borderSide="left"
         handleNavigation={handleNavigation}
@@ -29,9 +26,7 @@ function Portfolio() {
 
       <PageView>
         <PageTitle className="no-select">Portfolio</PageTitle>
-        <PortfolioContainer>
-
-        </PortfolioContainer>
+        <PortfolioContainer />
       </PageView>
 
       <PageBorder
@@ -42,7 +37,6 @@ function Portfolio() {
       >
         Skills
       </PageBorder>
-
     </PageContainer>
   );
 }

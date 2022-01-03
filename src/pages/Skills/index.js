@@ -8,12 +8,10 @@ import PageView from '../../components/PageView';
 import PageTitle from '../../components/PageTitle';
 
 function Portfolio() {
-
   const navigation = useContext(NavigationContext);
   const { handleNavigation } = navigation;
 
   return (
-
     <PageContainer>
       <PageBorder
         borderSide="left"

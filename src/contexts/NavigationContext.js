@@ -129,7 +129,7 @@ function NavigationProvider({ children }) {
       leave: fromRightAnimation.leave,
     });
   }
-  
+
   function setDefaultAnim() {
 
     setPageTransition({
