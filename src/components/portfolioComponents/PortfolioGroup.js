@@ -20,11 +20,11 @@ function PortfolioGroup(props) {
 }
 
 PortfolioGroup.defaultProps = {
-  title: 'Projects',
+  title: 'Front end Projects',
   items: [
     {
       title: 'Project',
-      description: 'brief description',
+      description: 'just a brief description of my incredible project, lorem ipsum silor domor amet lorem ipsum lorem ipsum',
       techs: ['HTML', 'CSS', 'Javascript', 'React', 'Git', 'Bash'],
       image: moveIt,
     }, {
