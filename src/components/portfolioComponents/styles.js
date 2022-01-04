@@ -136,6 +136,8 @@ const ProjectContainer = styled.div`
     }
 
     .tech-container {
+      height: 7.6vw;
+
       h3 {
         margin-bottom: .8vw;
       }

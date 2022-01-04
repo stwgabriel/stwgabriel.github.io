@@ -30,7 +30,7 @@ PortfolioGroup.defaultProps = {
     }, {
       title: 'Project',
       description: 'brief description',
-      techs: ['HTML', 'CSS', 'Javascript', 'React'],
+      techs: ['HTML', 'CSS', 'Javascript'],
       image: moveIt,
     },
   ],
