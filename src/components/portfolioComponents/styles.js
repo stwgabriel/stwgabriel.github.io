@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 const PortfolioGroupContainer = styled.div`
+
   > header {
     margin: 5vh 0 4vh;
     
@@ -14,11 +15,14 @@ const PortfolioGroupContainer = styled.div`
 
 const ProjectListContainer = styled.div`
   display: flex;
+
+  overflow: hidden;
 `;
 
 const ProjectContainer = styled.div`
   border: .15vw solid ${({ theme }) => theme.color.main.fadeTextColor};
   border-radius: ${({ theme }) => theme.metric.borderRadius};
+  box-shadow: ${({ theme }) => theme.effect.containerShadow};
   font-family: 'Montserrat', sans-serif;
 
   position: relative;
@@ -45,7 +49,7 @@ const ProjectContainer = styled.div`
   }
 
   .overlay {
-    background: rgba(0, 0, 0, .5);
+    background: #00000000;
     border-radius: ${({ theme }) => theme.metric.borderRadius};
 
     position: absolute;
@@ -53,6 +57,8 @@ const ProjectContainer = styled.div`
     right: 0;
     bottom: 0;
     left: 0;
+
+    transition: background .25s ease-in;
   }
 
   .info {
@@ -63,13 +69,15 @@ const ProjectContainer = styled.div`
     position: absolute;
     top: 100%;
     left: 0;
-    transform: translateY(-90%); // -34.2 -90
+    transform: translateY(-35%);
 
     width: 100%;
     height: 100%;
 
     padding: 1.2vw;
     margin-top: -.15vw;
+
+    transition: transform .25s ease-in;
 
     header {
       display: flex;
@@ -96,6 +104,7 @@ const ProjectContainer = styled.div`
       transition: background .25s ease-in;
 
       img {
+        width: 1.6vw;
         transform: rotateX(180deg); // 0 to turn it the other way
         transition: transform .25s ease-in;
         margin: auto;
@@ -147,6 +156,7 @@ const ProjectContainer = styled.div`
       button {
         background: ${({ theme }) => theme.color.main.selection};
         border-radius: ${({ theme }) => theme.metric.borderRadius};
+        box-shadow: ${({ theme }) => theme.effect.elementShadow};
         color: ${({ theme }) => theme.color.main.fadeTextColor};
   
         font-size: 1vw;
@@ -155,11 +165,28 @@ const ProjectContainer = styled.div`
     }
 
   }
+
+  &.open {
+    .info {
+      transform: translateY(-90%);
+    }
+
+    .overlay {
+      background: #00000055;
+    }
+
+    .icon {
+      img {
+        transform: rotateX(0);
+      }
+    }
+  }
 `;
 
 const TechContainer = styled.div`
   background: ${({ theme }) => theme.color.main.selection};
   border-radius: ${({ theme }) => theme.metric.borderRadius};
+  box-shadow: ${({ theme }) => theme.effect.itemShadow};
 
   color: ${({ theme }) => theme.color.main.fadeTextColor};
 

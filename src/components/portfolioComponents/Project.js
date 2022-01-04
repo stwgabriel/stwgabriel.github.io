@@ -13,7 +13,8 @@ function Project({ item }) {
 
   const [isInfoSectionOpen, setIsInfoSectionOpen] = useState(false);
 
-  function toggleInfoSectionState() {
+  function toggleInfoSectionState(e) {
+    e.target.blur();
     setIsInfoSectionOpen((prevState) => !prevState);
   }
 
@@ -26,8 +27,8 @@ function Project({ item }) {
       <div className="info">
         <header>
           <h3>{ title }</h3>
-          <button className="icon" type="button">
-            <img src={dropdownArrow} alt="Dropdown Arrow" />
+          <button onClick={toggleInfoSectionState} className="icon" type="button">
+            <img className="no-select no-events" src={dropdownArrow} alt="Dropdown Arrow" />
           </button>
         </header>
         <p className="description">{description}</p>
@@ -38,7 +39,7 @@ function Project({ item }) {
           </div>
         </div>
         <div className="see-project-button">
-          <button type="button" onClick={toggleInfoSectionState}>
+          <button type="button">
             See project
           </button>
         </div>
