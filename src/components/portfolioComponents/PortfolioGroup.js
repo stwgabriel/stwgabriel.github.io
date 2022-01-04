@@ -10,7 +10,7 @@ function PortfolioGroup(props) {
   return (
     <PortfolioGroupContainer>
       <header>
-        <h1>{title}</h1>
+        <h2>{title}</h2>
       </header>
       <ProjectListContainer>
         { items && items.map((item) => <Project item={item} />) }
@@ -25,7 +25,7 @@ PortfolioGroup.defaultProps = {
     {
       title: 'Project',
       description: 'brief description',
-      techs: ['HTML', 'CSS', 'Javascript', 'React'],
+      techs: ['HTML', 'CSS', 'Javascript', 'React', 'Git', 'Bash'],
       image: moveIt,
     }, {
       title: 'Project',

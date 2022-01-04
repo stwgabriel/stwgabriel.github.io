@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import PropTypes from 'prop-types';
 
 import { ProjectContainer } from './styles';
@@ -10,20 +11,36 @@ function Project({ item }) {
     title, description, techs, image,
   } = item;
 
+  const [isInfoSectionOpen, setIsInfoSectionOpen] = useState(false);
+
+  function toggleInfoSectionState() {
+    setIsInfoSectionOpen((prevState) => !prevState);
+  }
+
   return (
-    <ProjectContainer>
-      <div className="wrapper">
+    <ProjectContainer className={isInfoSectionOpen ? 'open' : undefined}>
+      <div className="main-image">
         <img src={image} alt="Project" />
         <div className="overlay" />
-        <div className="info">
-          <header>
-            <h1>{ title }</h1>
+      </div>
+      <div className="info">
+        <header>
+          <h3>{ title }</h3>
+          <button className="icon" type="button">
             <img src={dropdownArrow} alt="Dropdown Arrow" />
-          </header>
-          <p className="description">{description}</p>
+          </button>
+        </header>
+        <p className="description">{description}</p>
+        <div className="tech-container">
+          <h3>Techs</h3>
           <div className="techs">
             { techs && techs.map((tech) => <Tech>{tech}</Tech>) }
           </div>
+        </div>
+        <div className="see-project-button">
+          <button type="button" onClick={toggleInfoSectionState}>
+            See project
+          </button>
         </div>
       </div>
     </ProjectContainer>
