@@ -6,4 +6,8 @@ const ProjectListContainer = styled.div``;
 
 const ProjectContainer = styled.div``;
 
-export { ProjectContainer, ProjectListContainer, PortfolioGroupContainer };
+const TechContainer = styled.div``;
+
+export {
+  ProjectContainer, ProjectListContainer, PortfolioGroupContainer, TechContainer,
+};
