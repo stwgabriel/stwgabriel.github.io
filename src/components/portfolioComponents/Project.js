@@ -1,19 +1,24 @@
 import PropTypes from 'prop-types';
+
 import { ProjectContainer } from './styles';
 import Tech from './Tech';
 
+import dropdownArrow from '../../assets/images/icons/dropdown-arrow.svg';
+
 function Project({ item }) {
-  const { title, description, techs } = item;
+  const {
+    title, description, techs, image,
+  } = item;
 
   return (
     <ProjectContainer>
       <div className="wrapper">
-        { /* futuramente <img /> */ }
+        <img src={image} alt="Project" />
         <div className="overlay" />
         <div className="info">
           <header>
             <h1>{ title }</h1>
-            { /* icon <img />  */ }
+            <img src={dropdownArrow} alt="Dropdown Arrow" />
           </header>
           <p className="description">{description}</p>
           <div className="techs">
@@ -30,6 +35,7 @@ Project.propTypes = {
     title: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
     techs: PropTypes.shape.isRequired,
+    image: PropTypes.string.isRequired,
   }).isRequired,
 };
 

@@ -2,6 +2,8 @@ import PropTypes from 'prop-types';
 import Project from './Project';
 import { PortfolioGroupContainer, ProjectListContainer } from './styles';
 
+import moveIt from '../../assets/images/move-it-project.png';
+
 function PortfolioGroup(props) {
   const { title, items } = props;
 
@@ -24,10 +26,12 @@ PortfolioGroup.defaultProps = {
       title: 'Project',
       description: 'brief description',
       techs: ['HTML', 'CSS', 'Javascript', 'React'],
+      image: moveIt,
     }, {
       title: 'Project',
       description: 'brief description',
       techs: ['HTML', 'CSS', 'Javascript', 'React'],
+      image: moveIt,
     },
   ],
 };
