@@ -8,7 +8,7 @@ import dropdownArrow from '../../assets/images/icons/dropdown-arrow.svg';
 
 function Project({ item }) {
   const {
-    title, description, techs, image,
+    title, description, techs, image, projectAddress,
   } = item;
 
   const [isInfoSectionOpen, setIsInfoSectionOpen] = useState(false);
@@ -38,10 +38,10 @@ function Project({ item }) {
             { techs && techs.map((tech) => <Tech>{tech}</Tech>) }
           </div>
         </div>
-        <div className="see-project-button">
-          <button type="button">
+        <div className="address-container">
+          <a href={projectAddress} target="_blank" rel="noreferrer">
             See project
-          </button>
+          </a>
         </div>
       </div>
     </ProjectContainer>
@@ -52,8 +52,9 @@ Project.propTypes = {
   item: PropTypes.shape({
     title: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
-    techs: PropTypes.shape.isRequired,
+    techs: PropTypes.shape([]).isRequired,
     image: PropTypes.string.isRequired,
+    projectAddress: PropTypes.string.isRequired,
   }).isRequired,
 };
 

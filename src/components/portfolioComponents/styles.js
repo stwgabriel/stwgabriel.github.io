@@ -149,11 +149,13 @@ const ProjectContainer = styled.div`
     }
 
 
-    .see-project-button {
+    .address-container {
+
       display: flex;
       justify-content: center;
 
-      button {
+
+      a {
         background: ${({ theme }) => theme.color.main.selection};
         border-radius: ${({ theme }) => theme.metric.borderRadius};
         box-shadow: ${({ theme }) => theme.effect.elementShadow};
