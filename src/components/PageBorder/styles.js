@@ -36,8 +36,13 @@ const Container = styled.div`
 
     &:focus {
 
-      border: solid 3px red;
+      border: solid .25vw ${({ theme }) => theme.color.main.comment};
       outline: none;
+
+      & ~ .hoverLayer {
+
+        ${({ borderSide }) => borderSide}: 0;
+      }
     }
 
     img {
@@ -57,6 +62,7 @@ const Container = styled.div`
 
   .hoverLayer {
 
+    background: ${({ theme }) => theme.color.cold.blue};
     position: absolute;
     top:0;
     bottom: 0;
