@@ -3,7 +3,11 @@ import styled from 'styled-components';
 const PageView = styled.div`
 
   flex: 1;
+
   min-height: 100vh;
+  height: fit-content;
+
+  overflow: auto;
 
   padding: clamp(12rem, 12vh, 20rem) clamp(5rem, 5vw, 10rem);
   margin-right: ${({ marginRight }) => (marginRight ? '10vw' : 0)};
