@@ -23,7 +23,12 @@ const ProjectListContainer = styled.div`
   max-width: 100%;
   display: flex;
 
-  overflow-x: auto;
+  overflow: auto;
+
+  &::-webkit-scrollbar {
+
+    height: 1vw;
+  }
 `;
 
 const ProjectContainer = styled.div`
@@ -41,6 +46,27 @@ const ProjectContainer = styled.div`
   width: clamp(21rem, 20.5vw, 90.5rem); 
   height: 20.5vw; 
   height: clamp(20.5rem, 20vw, 90rem); 
+
+  @media (min-width: 1280px) {
+
+    min-width: 27rem;
+  }
+  @media (min-width: 1500px) {
+
+    min-width: 29rem;
+  }
+  @media (min-width: 1800px) {
+
+    min-width: 39rem;
+  }
+  @media (min-width: 2200px) {
+
+    min-width: 42rem;
+  }
+  @media (min-width: 2400px) {
+
+    min-width: 48rem;
+  }
 
   margin: 0 2vw 1vw 0;
 
@@ -130,7 +156,7 @@ const ProjectContainer = styled.div`
         margin: auto;
       }
 
-      &:hover {
+      &:hover, &:focus {
 
         background: ${({ theme }) => theme.color.main.selection};
 
