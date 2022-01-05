@@ -7,6 +7,7 @@ import { MainView, AboutView } from './styles';
 import PageContainer from '../../components/PageContainer';
 import PageBorder from '../../components/PageBorder';
 import PageView from '../../components/PageView';
+import NavMenu from '../../components/NavMenu';
 import PageTitle from '../../components/PageTitle';
 import DownloadModal from '../../components/DownloadModal';
 
@@ -54,16 +55,17 @@ function Home() {
   return (
 
     <PageContainer id="page-container">
-
       <PageView marginLeft>
-
         <MainView>
 
+          <NavMenu />
+          <button type="button" id="main-content">
+            {' '}
+          </button>
           <h1 id="home-title">
             <span>Hello,</span>
             <span>I&apos;m Gabriel</span>
           </h1>
-
           <div className="bottom-row">
             <a href="#me" className="scroll-down no-select">
               <span>Scroll Down</span>
@@ -75,7 +77,6 @@ function Home() {
               <span>&amp; UX Design Student</span>
             </div>
           </div>
-
         </MainView>
 
         <AboutView id="me">

@@ -75,12 +75,14 @@ const MainView = styled.section`
 
     display: flex;
     flex-direction: column;
+
+    margin-left: -.8%;
   }
 
   .scroll-down {
 
     background: transparent;
-    border: none;
+    border-radius: ${({ theme }) => theme.metric.borderRadius};
     color: ${({ theme }) => theme.color.main.fadeTextColor};
     font-size: 1.3vw;
     font-size: clamp(1.6rem, 1.3vw, 5rem);
