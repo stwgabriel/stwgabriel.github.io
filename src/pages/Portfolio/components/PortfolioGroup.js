@@ -22,8 +22,6 @@ function PortfolioGroup({ title, items }) {
 }
 
 PortfolioGroup.defaultProps = {
-
-  title: 'Front end Projects',
   items: [
     {
       title: 'Project',
@@ -37,12 +35,30 @@ PortfolioGroup.defaultProps = {
       techs: ['HTML', 'CSS', 'Javascript'],
       image: moveIt,
     },
+    {
+      title: 'Project',
+      description: 'just a brief description of my incredible project, lorem ipsum silor domor amet lorem ipsum lorem ipsum',
+      techs: ['HTML', 'CSS', 'Javascript', 'React', 'Git', 'Bash'],
+      image: moveIt,
+    },
+    {
+      title: 'Project',
+      description: 'brief description',
+      techs: ['HTML', 'CSS', 'Javascript'],
+      image: moveIt,
+    },
+    {
+      title: 'Project',
+      description: 'brief description',
+      techs: ['HTML', 'CSS', 'Javascript'],
+      image: moveIt,
+    },
   ],
 };
 
 PortfolioGroup.propTypes = {
 
-  title: PropTypes.string,
+  title: PropTypes.string.isRequired,
   items: PropTypes.shape(),
 };
 

@@ -29,7 +29,8 @@ function Portfolio() {
         <NavMenu />
         <PageTitle className="no-select">Portfolio</PageTitle>
         <PortfolioContainer>
-          <PortfolioGroup />
+          <PortfolioGroup title="Front end projects" />
+          <PortfolioGroup title="Design projects" />
         </PortfolioContainer>
       </PageView>
       <PageBorder
