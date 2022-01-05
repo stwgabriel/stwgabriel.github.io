@@ -49,15 +49,16 @@ const defaultStyles = {
   },
 
   effect: {
+
     containerShadow: '15px 15px 50px #00000015',
     elementShadow: '0 5px 25px #00000030',
-    itemShadow: '1px 1px 5px  #00000055',
+    itemShadow: '0 0 10px  #00000015',
     textShadow: '2px 2px 5px #00000015',
   },
 
   metric: {
 
-    borderRadius: '1.4vw',
+    borderRadius: '1.2vw',
   },
 };
 
