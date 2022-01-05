@@ -7,10 +7,14 @@ const Container = styled.div`
   bottom: 0;
   ${({ borderSide }) => borderSide}: 0px;
 
+  min-width: 12rem;
+
   overflow: hidden;
 
   .hoverLayer, a {
 
+     border-radius: ${({ borderSide, theme }) => (borderSide === 'left' && `0 ${theme.metric.borderRadius} ${theme.metric.borderRadius} 0`)
+    || (borderSide === 'right' && `${theme.metric.borderRadius} 0 0 ${theme.metric.borderRadius}`)};
     font-size: 1.2vw;
     font-size: clamp(1.6rem, 1.2vw, 6rem);
     font-family: 'Montserrat',  sans-serif;
@@ -30,6 +34,12 @@ const Container = styled.div`
 
     z-index: 100;
 
+    &:focus {
+
+      border: solid 3px red;
+      outline: none;
+    }
+
     img {
 
       width: 30%;
@@ -46,11 +56,6 @@ const Container = styled.div`
   }
 
   .hoverLayer {
-
-    background: ${({ theme }) => theme.color.cold.blue};
-    border-radius: ${({ borderSide, theme }) => (borderSide === 'left' && `0 ${theme.metric.borderRadius} ${theme.metric.borderRadius} 0`)
-  || (borderSide === 'right' && `${theme.metric.borderRadius} 0 0 ${theme.metric.borderRadius}`)};
-    pointer-events: none;
 
     position: absolute;
     top:0;
