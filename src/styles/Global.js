@@ -73,7 +73,7 @@ const GlobalStyle = createGlobalStyle`
   * {
 
     box-sizing: border-box;
-    font-family: "ProText", -apple-system, BlinkMacSystemFont, Tahoma, Arial Black,Verdana, Helvetica, Montserrat, sans-seif;
+    font-family: "ProText", -apple-system, BlinkMacSystemFont, Tahoma, Arial Black,Verdana, Helvetica, Montserrat, sans-serif;
     text-shadow: ${({ theme }) => theme.effect.textShadow};
 
     padding: 0;
@@ -120,6 +120,8 @@ const GlobalStyle = createGlobalStyle`
 
     background: ${({ theme }) => theme.color.main.background};
     font-size: 62.5%;
+
+    max-width: 100vw;
   }
 
   body {
@@ -142,7 +144,8 @@ const GlobalStyle = createGlobalStyle`
     list-style: none;
   }
 
-  img,.no-select {
+  img,
+  .no-select {
 
     user-drag: none;
     -webkit-user-drag: none;
@@ -151,9 +154,25 @@ const GlobalStyle = createGlobalStyle`
     -webkit-user-select: none;
     -ms-user-select: none;
   }
+  img,
   .no-events {
 
     pointer-events: none;
+  }
+
+  &:focus{
+
+    outline: solid .25vw ${({ theme }) => theme.color.main.comment} ;
+  }
+
+  button#main-content {
+
+    outline: none;
+
+    &:focus, &:active, &:hover {
+
+    outline: none !important;
+  }
   }
 `;
 
