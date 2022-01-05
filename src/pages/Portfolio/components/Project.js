@@ -1,8 +1,7 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
 
-import { ProjectContainer } from './styles';
-import Tech from './Tech';
+import { ProjectContainer, Tag } from './styles';
 
 import dropdownArrow from '../../../assets/images/icons/dropdown-arrow.svg';
 
@@ -51,7 +50,7 @@ function Project({ item }) {
           <h3>Techs</h3>
 
           <div className="techs">
-            { techs && techs.map((tech) => <Tech>{tech}</Tech>) }
+            { techs && techs.map((tech) => <Tag>{tech}</Tag>) }
           </div>
         </div>
 

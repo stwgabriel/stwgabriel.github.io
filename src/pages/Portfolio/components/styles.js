@@ -216,7 +216,7 @@ const ProjectContainer = styled.div`
   }
 `;
 
-const TechContainer = styled.div`
+const Tag = styled.span`
 
   background: ${({ theme }) => theme.color.main.selection};
   border-radius: ${({ theme }) => theme.metric.borderRadius};
@@ -227,5 +227,5 @@ const TechContainer = styled.div`
 `;
 
 export {
-  ProjectContainer, ProjectListContainer, PortfolioGroupContainer, TechContainer,
+  ProjectContainer, ProjectListContainer, PortfolioGroupContainer, Tag,
 };
