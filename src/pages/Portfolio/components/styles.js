@@ -161,6 +161,8 @@ const ProjectContainer = styled.div`
     .tech-container {
 
       height: 7.6vw;
+    
+      overflow: hidden;
 
       h3 {
 
@@ -173,6 +175,7 @@ const ProjectContainer = styled.div`
         flex-wrap: wrap;
 
         font-size: .82vw;
+
       }
     }
 
@@ -223,7 +226,7 @@ const Tag = styled.span`
   color: ${({ theme }) => theme.color.main.fadeTextColor};
 
   padding: .5vw .8vw;
-  margin: 0 .6vw .6vw 0;
+  margin: 0 .6vw .69vw 0;
 `;
 
 export {
