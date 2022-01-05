@@ -26,6 +26,7 @@ function NavMenu() {
         </li>
         <li>
           <NavLink
+            exact
             to="/"
             className="nav-menu-option"
             activeClassName="active"

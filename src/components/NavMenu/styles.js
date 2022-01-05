@@ -2,6 +2,9 @@ import styled from 'styled-components';
 
 const Container = styled.nav`
 
+  margin-bottom: 5vw;
+  margin-bottom: max(6rem, 5vw);
+
   ul {
 
     display: flex;
