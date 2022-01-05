@@ -4,14 +4,16 @@ const PortfolioGroupContainer = styled.div`
 
   max-width: 100%;
 
-  > header {
+  header#portfolio-group-header {
 
     margin: 5vh 0 4vh;
     
     h2 {
+
       font-family: "ProDisplay", -apple-system, BlinkMacSystemFont, Tahoma, Arial Black,Verdana, Helvetica, Montserrat, sans-serif;
       font-weight: 600;
       font-size: 1.6vw;
+      font-size: clamp(1.8rem, 1.6vw, 7rem);
     }
   }
 `;
@@ -33,9 +35,12 @@ const ProjectContainer = styled.div`
 
   position: relative;
 
-  min-width: 25rem;
-  min-width: 32rem;
-  height: 35rem;
+  min-width: 21rem;
+  min-height: 20.5rem;
+  width: 21vw; 
+  width: clamp(21rem, 20.5vw, 90.5rem); 
+  height: 20.5vw; 
+  height: clamp(20.5rem, 20vw, 90rem); 
 
   margin: 0 2vw 1vw 0;
 
@@ -171,14 +176,13 @@ const ProjectContainer = styled.div`
       }
     }
 
-
     .address-container {
 
       display: flex;
       justify-content: center;
 
-
       a {
+        
         background: ${({ theme }) => theme.color.main.selection};
         border-radius: ${({ theme }) => theme.metric.borderRadius};
         box-shadow: ${({ theme }) => theme.effect.elementShadow};
@@ -188,7 +192,6 @@ const ProjectContainer = styled.div`
         padding: .6vw 1.3vw;
       }
     }
-
   }
 
   &.open {
@@ -217,8 +220,6 @@ const TechContainer = styled.div`
 
   background: ${({ theme }) => theme.color.main.selection};
   border-radius: ${({ theme }) => theme.metric.borderRadius};
-  box-shadow: ${({ theme }) => theme.effect.itemShadow};
-
   color: ${({ theme }) => theme.color.main.fadeTextColor};
 
   padding: .5vw .8vw;

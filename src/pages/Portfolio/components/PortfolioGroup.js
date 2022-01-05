@@ -2,17 +2,19 @@ import PropTypes from 'prop-types';
 import Project from './Project';
 import { PortfolioGroupContainer, ProjectListContainer } from './styles';
 
-import moveIt from '../../assets/images/move-it-project.png';
+import moveIt from '../../../assets/images/move-it-project.png';
 
-function PortfolioGroup(props) {
-  const { title, items } = props;
+function PortfolioGroup({ title, items }) {
 
   return (
     <PortfolioGroupContainer>
-      <header>
+
+      <header id="portfolio-group-header">
         <h2>{title}</h2>
       </header>
+
       <ProjectListContainer>
+
         { items && items.map((item) => <Project item={item} />) }
       </ProjectListContainer>
     </PortfolioGroupContainer>
@@ -20,6 +22,7 @@ function PortfolioGroup(props) {
 }
 
 PortfolioGroup.defaultProps = {
+
   title: 'Front end Projects',
   items: [
     {
@@ -27,7 +30,8 @@ PortfolioGroup.defaultProps = {
       description: 'just a brief description of my incredible project, lorem ipsum silor domor amet lorem ipsum lorem ipsum',
       techs: ['HTML', 'CSS', 'Javascript', 'React', 'Git', 'Bash'],
       image: moveIt,
-    }, {
+    },
+    {
       title: 'Project',
       description: 'brief description',
       techs: ['HTML', 'CSS', 'Javascript'],
@@ -37,6 +41,7 @@ PortfolioGroup.defaultProps = {
 };
 
 PortfolioGroup.propTypes = {
+
   title: PropTypes.string,
   items: PropTypes.shape(),
 };

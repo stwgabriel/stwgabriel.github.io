@@ -8,7 +8,8 @@ import PageView from '../../components/PageView';
 import PageTitle from '../../components/PageTitle';
 
 import { PortfolioContainer } from './styles';
-import PortfolioGroup from '../../components/portfolioComponents/PortfolioGroup';
+import PortfolioGroup from './components/PortfolioGroup';
+import NavMenu from '../../components/NavMenu';
 
 function Portfolio() {
   const navigation = useContext(NavigationContext);
@@ -25,6 +26,7 @@ function Portfolio() {
         Home
       </PageBorder>
       <PageView>
+        <NavMenu />
         <PageTitle className="no-select">Portfolio</PageTitle>
         <PortfolioContainer>
           <PortfolioGroup />
