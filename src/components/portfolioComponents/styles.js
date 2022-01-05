@@ -2,7 +2,10 @@ import styled from 'styled-components';
 
 const PortfolioGroupContainer = styled.div`
 
+  max-width: 100%;
+
   > header {
+
     margin: 5vh 0 4vh;
     
     h2 {
@@ -14,12 +17,15 @@ const PortfolioGroupContainer = styled.div`
 `;
 
 const ProjectListContainer = styled.div`
+
+  max-width: 100%;
   display: flex;
 
-  overflow: hidden;
+  overflow-x: auto;
 `;
 
 const ProjectContainer = styled.div`
+
   border: .15vw solid ${({ theme }) => theme.color.main.fadeTextColor};
   border-radius: ${({ theme }) => theme.metric.borderRadius};
   box-shadow: ${({ theme }) => theme.effect.containerShadow};
@@ -27,19 +33,22 @@ const ProjectContainer = styled.div`
 
   position: relative;
 
-  width: 21vw;
-  height: 20vw;
+  min-width: 25rem;
+  min-width: 32rem;
+  height: 35rem;
 
-  margin-right: 2vw;
+  margin: 0 2vw 1vw 0;
 
   overflow: hidden;
 
   .main-image {
+
     width: 100%;
     height: 100%;
     position: relative;
 
     img {
+
       border-radius: ${({ theme }) => theme.metric.borderRadius};
 
       width: 100%;
@@ -49,6 +58,7 @@ const ProjectContainer = styled.div`
   }
 
   .overlay {
+
     background: #00000000;
     border-radius: ${({ theme }) => theme.metric.borderRadius};
 
@@ -62,6 +72,7 @@ const ProjectContainer = styled.div`
   }
 
   .info {
+
     background: ${({ theme }) => theme.color.main.reverseAccent};
     border-top: .15vw solid ${({ theme }) => theme.color.main.fadeTextColor};
     border-radius: ${({ theme }) => theme.metric.borderRadius};
@@ -80,18 +91,21 @@ const ProjectContainer = styled.div`
     transition: transform .25s ease-in;
 
     header {
+
       display: flex;
       justify-content: space-between;
       align-items: flex-start;
     }
 
     h3 {
+
       font-size: 1.2vw;
       font-weight: 600;
       margin-bottom: .8vw;
     }
 
     .icon {
+
       background: none;
       border: 0;
       border-radius: ${({ theme }) => theme.metric.borderRadius};
@@ -104,6 +118,7 @@ const ProjectContainer = styled.div`
       transition: background .25s ease-in;
 
       img {
+
         width: 1.6vw;
         transform: rotateX(180deg); // 0 to turn it the other way
         transition: transform .25s ease-in;
@@ -111,15 +126,18 @@ const ProjectContainer = styled.div`
       }
 
       &:hover {
+
         background: ${({ theme }) => theme.color.main.selection};
 
         img {
+
           transform: rotateX(0);
         }
       }
     }
 
     .description {
+
       width: 100%;
       height: 2.2vw;
       color: ${({ theme }) => theme.color.main.fadeTextColor};
@@ -136,13 +154,16 @@ const ProjectContainer = styled.div`
     }
 
     .tech-container {
+
       height: 7.6vw;
 
       h3 {
+
         margin-bottom: .8vw;
       }
 
       .techs {
+
         display: flex;
         flex-wrap: wrap;
 
@@ -171,16 +192,21 @@ const ProjectContainer = styled.div`
   }
 
   &.open {
+
     .info {
+
       transform: translateY(-90%);
     }
 
     .overlay {
+
       background: #00000055;
     }
 
     .icon {
+
       img {
+
         transform: rotateX(0);
       }
     }
@@ -188,6 +214,7 @@ const ProjectContainer = styled.div`
 `;
 
 const TechContainer = styled.div`
+
   background: ${({ theme }) => theme.color.main.selection};
   border-radius: ${({ theme }) => theme.metric.borderRadius};
   box-shadow: ${({ theme }) => theme.effect.itemShadow};
