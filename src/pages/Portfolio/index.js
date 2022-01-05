@@ -7,7 +7,7 @@ import PageBorder from '../../components/PageBorder';
 import PageView from '../../components/PageView';
 import PageTitle from '../../components/PageTitle';
 
-import PortfolioContainer from './styles';
+import { PortfolioContainer } from './styles';
 import PortfolioGroup from '../../components/portfolioComponents/PortfolioGroup';
 
 function Portfolio() {
@@ -24,14 +24,12 @@ function Portfolio() {
       >
         Home
       </PageBorder>
-
       <PageView>
         <PageTitle className="no-select">Portfolio</PageTitle>
         <PortfolioContainer>
           <PortfolioGroup />
         </PortfolioContainer>
       </PageView>
-
       <PageBorder
         borderSide="right"
         handleNavigation={handleNavigation}

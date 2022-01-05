@@ -1,5 +1,12 @@
 import styled from 'styled-components';
 
-export default styled.div`
+const PortfolioContainer = styled.div`
 
+  flex: 1;
+  
+  min-height: 100vh;
+  
+  overflow: auto;
 `;
+
+export { PortfolioContainer };
