@@ -48,8 +48,9 @@ const Container = styled.div`
     border-radius:  ${({ theme }) => theme.metric.borderRadius};
     box-shadow: ${({ theme }) => theme.effect.elementShadow};
 
-    display: grid;
-    place-items:center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     position:relative;
     top:0;
@@ -70,6 +71,8 @@ const Container = styled.div`
       filter: drop-shadow(${({ theme }) => theme.effect.itemShadow});
       width: 1vw;
       width: clamp(1rem, 1vw, 6rem);
+
+      margin: auto;
     }
 
     &:hover {
@@ -141,7 +144,7 @@ const File = styled.li`
 
     height: 100%;
 
-    padding: .6vw 1.1vw;
+    padding: .6vw 1.3vw;
     margin-right: -.4vw;
 
     transition: background .3s ease-in;
@@ -179,7 +182,6 @@ const FileSelector = styled.div`
   .option-link {
 
     background: transparent;
-    border: none;
     color: inherit;
     font-size: inherit;
     font-weight: inherit;
@@ -194,10 +196,26 @@ const FileSelector = styled.div`
     width: 6vw;
 
     transition: background .3s ease-in;
+    overflow: hidden;
+
+    &:first-of-type {
+
+      border-radius:  ${({ theme }) => theme.metric.borderRadius} 0 0 ${({ theme }) => theme.metric.borderRadius}  ;
+    }
+    &:last-of-type {
+
+      border-radius:  0 ${({ theme }) => theme.metric.borderRadius} ${({ theme }) => theme.metric.borderRadius} 0  ;
+    }
 
     &:hover {
 
       background:${({ theme }) => theme.color.main.reverseAccent};
+    }
+    &:focus {
+
+      background:${({ theme }) => theme.color.main.reverseAccent};
+      border: solid .25vw ${({ theme }) => theme.color.main.comment} ;
+      outline: none;
     }
   }
 
