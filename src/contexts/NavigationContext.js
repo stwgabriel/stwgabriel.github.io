@@ -155,6 +155,11 @@ function NavigationProvider({ children }) {
 
     const target = el.target.classList;
 
+    if (target.contains('nav-menu-option')) {
+
+      setDefaultAnim();
+    }
+
     if (target.contains('page-border')) {
 
       setDefaultAnim();
