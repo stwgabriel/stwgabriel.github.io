@@ -243,6 +243,10 @@ const ProjectContainer = styled.div`
       }
     }
   }
+
+  &:last-child {
+    margin-right: 0;
+  }
 `;
 
 const Tag = styled.span`
