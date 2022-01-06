@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
+import { v4 as uuidv4 } from 'uuid';
 
 import { ProjectContainer, Tag } from './styles';
 
@@ -50,7 +51,7 @@ function Project({ item }) {
           <h3>Techs</h3>
 
           <div className="techs">
-            { techs && techs.map((tech) => <Tag>{tech}</Tag>) }
+            { techs && techs.map((tech) => <Tag key={uuidv4()}>{tech}</Tag>) }
           </div>
         </div>
 
@@ -77,7 +78,8 @@ Project.propTypes = {
     description: PropTypes.string.isRequired,
     techs: PropTypes.shape([]).isRequired,
     image: PropTypes.string.isRequired,
-    projectAddress: PropTypes.string.isRequired,
+    id: PropTypes.string.isRequired,
+    projectAddress: PropTypes.string, // mark as required later
   }).isRequired,
 };
 

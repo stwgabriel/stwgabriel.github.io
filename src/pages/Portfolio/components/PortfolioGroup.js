@@ -13,7 +13,7 @@ function PortfolioGroup({ title, items }) {
 
       <ProjectListContainer>
 
-        { items && items.map((item) => <Project item={item} />) }
+        { items && items.map((item) => <Project item={item} key={item.id} />) }
       </ProjectListContainer>
     </PortfolioGroupContainer>
   );
