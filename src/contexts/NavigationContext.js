@@ -119,6 +119,7 @@ function NavigationProvider({ children }) {
       leave: fromLeftAnimation.leave,
     });
   }
+
   function setFromRightAnim() {
 
     setPageTransition({
@@ -128,6 +129,7 @@ function NavigationProvider({ children }) {
       leave: fromRightAnimation.leave,
     });
   }
+
   function setDefaultAnim() {
 
     setPageTransition({

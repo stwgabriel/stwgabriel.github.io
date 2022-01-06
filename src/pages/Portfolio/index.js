@@ -1,4 +1,5 @@
 import { useContext } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 
 import { NavigationContext } from '../../contexts/NavigationContext';
 
@@ -6,17 +7,95 @@ import PageContainer from '../../components/PageContainer';
 import PageBorder from '../../components/PageBorder';
 import PageView from '../../components/PageView';
 import PageTitle from '../../components/PageTitle';
-import { HorizontalScrollView, Project } from './styles';
+
+import { PortfolioContainer } from './styles';
+import PortfolioGroup from './components/PortfolioGroup';
+import NavMenu from '../../components/NavMenu';
+
+import moveIt from '../../assets/images/move-it-project.png';
+
+const frontEndProjectsArray = [
+  {
+    title: 'Project',
+    description: 'just a brief description of my incredible project, lorem ipsum silor domor amet lorem ipsum lorem ipsum',
+    techs: ['HTML', 'CSS', 'Javascript', 'React', 'Git', 'Bash'],
+    image: moveIt,
+    id: uuidv4(),
+  },
+  {
+    title: 'Project',
+    description: 'brief description',
+    techs: ['HTML', 'CSS', 'Javascript'],
+    image: moveIt,
+    id: uuidv4(),
+  },
+  {
+    title: 'Project',
+    description: 'just a brief description of my incredible project, lorem ipsum silor domor amet lorem ipsum lorem ipsum',
+    techs: ['HTML', 'CSS', 'Javascript', 'React', 'Git', 'Bash'],
+    image: moveIt,
+    id: uuidv4(),
+  },
+  {
+    title: 'Project',
+    description: 'brief description',
+    techs: ['HTML', 'CSS', 'Javascript'],
+    image: moveIt,
+    id: uuidv4(),
+  },
+  {
+    title: 'Project',
+    description: 'brief description',
+    techs: ['HTML', 'CSS', 'Javascript'],
+    image: moveIt,
+    id: uuidv4(),
+  },
+];
+
+const designProjectsArray = [
+  {
+    title: 'Project',
+    description: 'just a brief description of my incredible project, lorem ipsum silor domor amet lorem ipsum lorem ipsum',
+    techs: ['HTML', 'CSS', 'Javascript', 'React', 'Git', 'Bash'],
+    image: moveIt,
+    id: uuidv4(),
+  },
+  {
+    title: 'Project',
+    description: 'brief description',
+    techs: ['HTML', 'CSS', 'Javascript'],
+    image: moveIt,
+    id: uuidv4(),
+  },
+  {
+    title: 'Project',
+    description: 'just a brief description of my incredible project, lorem ipsum silor domor amet lorem ipsum lorem ipsum',
+    techs: ['HTML', 'CSS', 'Javascript', 'React', 'Git', 'Bash'],
+    image: moveIt,
+    id: uuidv4(),
+  },
+  {
+    title: 'Project',
+    description: 'brief description',
+    techs: ['HTML', 'CSS', 'Javascript'],
+    image: moveIt,
+    id: uuidv4(),
+  },
+  {
+    title: 'Project',
+    description: 'brief description',
+    techs: ['HTML', 'CSS', 'Javascript'],
+    image: moveIt,
+    id: uuidv4(),
+  },
+];
 
 function Portfolio() {
-
   const navigation = useContext(NavigationContext);
   const { handleNavigation } = navigation;
 
   return (
-
     <PageContainer>
-
       <PageBorder
         borderSide="left"
         handleNavigation={handleNavigation}
@@ -25,32 +104,14 @@ function Portfolio() {
       >
         Home
       </PageBorder>
-
       <PageView>
+        <NavMenu />
         <PageTitle className="no-select">Portfolio</PageTitle>
-        <HorizontalScrollView>
-          <h2>Front-end Projects</h2>
-          <Project>
-            <div className="project__image">
-              {/* <img src="" alt="Project Preview" /> */}
-            </div>
-            <div className="project__content--overlay">
-              <div className="project__content">
-                <header>
-                  <h3>Title</h3>
-                  <button className="expand-close-info" type="button">{' '}</button>
-                </header>
-                <p className="content__description">description</p>
-                <h3>Tech</h3>
-                <div className="tech-tags">
-                  <span className="tech-tag">HTML</span>
-                </div>
-              </div>
-            </div>
-          </Project>
-        </HorizontalScrollView>
+        <PortfolioContainer>
+          <PortfolioGroup title="Front end projects" items={frontEndProjectsArray} />
+          <PortfolioGroup title="Design projects" items={designProjectsArray} />
+        </PortfolioContainer>
       </PageView>
-
       <PageBorder
         borderSide="right"
         handleNavigation={handleNavigation}
@@ -59,7 +120,6 @@ function Portfolio() {
       >
         Skills
       </PageBorder>
-
     </PageContainer>
   );
 }
