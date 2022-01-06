@@ -53,9 +53,12 @@ const InputContainer = styled.div`
   position: relative;
 
   width: 100%;
-  height: 5vw;
 
-  input {
+  margin-bottom: 1vw;
+
+  overflow: hidden;
+
+  input, textarea {
     background: none;
     border: 0;
     color: ${({ theme }) => theme.color.main.fadeTextColor};
@@ -78,6 +81,38 @@ const InputContainer = styled.div`
     &:focus + label span, &:valid + label span {
       transform: translateY(-180%);
       font-size: 1vw;
+    }
+  }
+
+  input {
+    height: 5vw;
+  }
+
+  textarea {
+    resize: vertical;
+    min-height: 5vw;
+    height: 25vw;
+
+    padding-top: 2.8vw;
+
+    & + label::after {
+      content: '';
+
+      background: ${({ theme }) => theme.color.main.selection};
+
+      display: flex;
+      width: 100%;
+      height: 2.4vw;
+
+      position: absolute;
+      top: 0;
+    }
+
+    & + label span {
+      height: fit-content;
+      top: 3vw;
+
+      z-index: 1000;
     }
   }
 

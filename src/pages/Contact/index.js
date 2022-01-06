@@ -30,7 +30,7 @@ function Contact() {
       >
         Skills
       </PageBorder>
-      <PageView>
+      <PageView marginRight>
         <NavMenu />
         <PageTitle className="no-select">Contact</PageTitle>
         <ContactContainer>
