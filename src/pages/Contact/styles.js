@@ -1,8 +1,7 @@
 import styled from 'styled-components';
 
-const MainView = styled.div`
+const ContactContainer = styled.div``;
 
-  width:100%;
-`;
+const FormContainer = styled.form``;
 
-export { MainView };
+export { ContactContainer, FormContainer };
