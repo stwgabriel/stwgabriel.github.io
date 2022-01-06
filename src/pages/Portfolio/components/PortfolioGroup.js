@@ -2,8 +2,6 @@ import PropTypes from 'prop-types';
 import Project from './Project';
 import { PortfolioGroupContainer, ProjectListContainer } from './styles';
 
-import moveIt from '../../../assets/images/move-it-project.png';
-
 function PortfolioGroup({ title, items }) {
 
   return (
@@ -21,45 +19,10 @@ function PortfolioGroup({ title, items }) {
   );
 }
 
-PortfolioGroup.defaultProps = {
-  items: [
-    {
-      title: 'Project',
-      description: 'just a brief description of my incredible project, lorem ipsum silor domor amet lorem ipsum lorem ipsum',
-      techs: ['HTML', 'CSS', 'Javascript', 'React', 'Git', 'Bash'],
-      image: moveIt,
-    },
-    {
-      title: 'Project',
-      description: 'brief description',
-      techs: ['HTML', 'CSS', 'Javascript'],
-      image: moveIt,
-    },
-    {
-      title: 'Project',
-      description: 'just a brief description of my incredible project, lorem ipsum silor domor amet lorem ipsum lorem ipsum',
-      techs: ['HTML', 'CSS', 'Javascript', 'React', 'Git', 'Bash'],
-      image: moveIt,
-    },
-    {
-      title: 'Project',
-      description: 'brief description',
-      techs: ['HTML', 'CSS', 'Javascript'],
-      image: moveIt,
-    },
-    {
-      title: 'Project',
-      description: 'brief description',
-      techs: ['HTML', 'CSS', 'Javascript'],
-      image: moveIt,
-    },
-  ],
-};
-
 PortfolioGroup.propTypes = {
 
   title: PropTypes.string.isRequired,
-  items: PropTypes.shape(),
+  items: PropTypes.shape([]).isRequired,
 };
 
 export default PortfolioGroup;

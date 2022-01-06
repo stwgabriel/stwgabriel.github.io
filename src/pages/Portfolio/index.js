@@ -11,6 +11,40 @@ import { PortfolioContainer } from './styles';
 import PortfolioGroup from './components/PortfolioGroup';
 import NavMenu from '../../components/NavMenu';
 
+import moveIt from '../../assets/images/move-it-project.png';
+
+const items = [
+  {
+    title: 'Project',
+    description: 'just a brief description of my incredible project, lorem ipsum silor domor amet lorem ipsum lorem ipsum',
+    techs: ['HTML', 'CSS', 'Javascript', 'React', 'Git', 'Bash'],
+    image: moveIt,
+  },
+  {
+    title: 'Project',
+    description: 'brief description',
+    techs: ['HTML', 'CSS', 'Javascript'],
+    image: moveIt,
+  },
+  {
+    title: 'Project',
+    description: 'just a brief description of my incredible project, lorem ipsum silor domor amet lorem ipsum lorem ipsum',
+    techs: ['HTML', 'CSS', 'Javascript', 'React', 'Git', 'Bash'],
+    image: moveIt,
+  },
+  {
+    title: 'Project',
+    description: 'brief description',
+    techs: ['HTML', 'CSS', 'Javascript'],
+    image: moveIt,
+  },
+  {
+    title: 'Project',
+    description: 'brief description',
+    techs: ['HTML', 'CSS', 'Javascript'],
+    image: moveIt,
+  }];
+
 function Portfolio() {
   const navigation = useContext(NavigationContext);
   const { handleNavigation } = navigation;
@@ -29,8 +63,8 @@ function Portfolio() {
         <NavMenu />
         <PageTitle className="no-select">Portfolio</PageTitle>
         <PortfolioContainer>
-          <PortfolioGroup title="Front end projects" />
-          <PortfolioGroup title="Design projects" />
+          <PortfolioGroup title="Front end projects" items={items} />
+          <PortfolioGroup title="Design projects" items={items} />
         </PortfolioContainer>
       </PageView>
       <PageBorder
