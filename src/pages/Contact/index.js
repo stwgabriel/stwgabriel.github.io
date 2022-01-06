@@ -12,6 +12,7 @@ import Form from './components/Form';
 import linkedinIcon from '../../assets/images/icons/linkedin.svg';
 import githubIcon from '../../assets/images/icons/github.svg';
 import instagramIcon from '../../assets/images/icons/instagram.svg';
+import NavMenu from '../../components/NavMenu';
 
 function Contact() {
 
@@ -30,6 +31,7 @@ function Contact() {
         Skills
       </PageBorder>
       <PageView>
+        <NavMenu />
         <PageTitle className="no-select">Contact</PageTitle>
         <ContactContainer>
           <div className="socials">
