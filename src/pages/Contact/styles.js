@@ -5,7 +5,9 @@ const ContactContainer = styled.div`
   flex-direction: column;
   align-items: center;
 
-  margin-top: 3vw;
+  width: 45vw;
+
+  margin: 3vw auto 0;
 
   .socials {
     display: flex;
@@ -33,13 +35,73 @@ const ContactContainer = styled.div`
     }
   }
 
-  span {
+  > span {
     font-size: 1.2vw;
     
     margin: 2vw 0;
   }
 `;
 
-const FormContainer = styled.form``;
+const FormContainer = styled.form`
+  width: 100%;
+`;
 
-export { ContactContainer, FormContainer };
+const InputContainer = styled.div`
+  background: ${({ theme }) => theme.color.main.selection};
+  border-radius: ${({ theme }) => theme.metric.borderRadius};
+
+  width: 100%;
+  height: 5vw;
+
+  padding: .8vw;
+
+  cursor: pointer;
+
+  input {
+    background: none;
+    border: 0;
+    color: ${({ theme }) => theme.color.main.fadeTextColor};
+    font-size: 1.2vw;
+
+    opacity: 0;
+
+    width: 100%;
+
+    transition: opacity .25s ease-in;
+
+    cursor: pointer;
+
+    &:focus {
+      outline: 0;
+      opacity: 1;
+    }
+
+    &:focus + span {
+      transform: translateY(-180%);
+
+      font-size: 1vw;
+    }
+  }
+
+  label {
+    display: flex;
+    align-items: flex-end;
+
+    height: 100%;
+
+    position: relative;
+
+    cursor: pointer;
+  }
+
+  span {
+    position: absolute;
+    bottom: 0;
+
+    font-size: 1.6vw;
+
+    transition: all .25s ease-in;
+  }
+`;
+
+export { ContactContainer, FormContainer, InputContainer };
