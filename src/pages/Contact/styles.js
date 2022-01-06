@@ -50,57 +50,56 @@ const InputContainer = styled.div`
   background: ${({ theme }) => theme.color.main.selection};
   border-radius: ${({ theme }) => theme.metric.borderRadius};
 
+  position: relative;
+
   width: 100%;
   height: 5vw;
-
-  padding: .8vw;
-
-  cursor: pointer;
 
   input {
     background: none;
     border: 0;
     color: ${({ theme }) => theme.color.main.fadeTextColor};
-    font-size: 1.2vw;
 
     opacity: 0;
 
     width: 100%;
+    height: 100%;
+    font-size: 1.4vw;
+
+    padding: 1.6vw .8vw 0;
 
     transition: opacity .25s ease-in;
 
-    cursor: pointer;
-
-    &:focus {
+    &:focus, &:valid {
       outline: 0;
       opacity: 1;
     }
 
-    &:focus + span {
+    &:focus + label span, &:valid + label span {
       transform: translateY(-180%);
-
       font-size: 1vw;
     }
   }
 
   label {
-    display: flex;
-    align-items: flex-end;
+    position: absolute;
+    bottom: 0;
+    left: 0;
 
+    width: 100%;
     height: 100%;
 
-    position: relative;
-
-    cursor: pointer;
+    padding-top: .6vw;
   }
 
   span {
     position: absolute;
-    bottom: 0;
+    bottom: .8vw;
+    left: .8vw;
 
-    font-size: 1.6vw;
+    font-size: 1.4vw;
 
-    transition: all .25s ease-in;
+    transition: transform, font-size, .25s ease-in;
   }
 `;
 
