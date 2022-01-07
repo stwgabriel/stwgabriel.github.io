@@ -56,6 +56,14 @@ const FormContainer = styled.form`
 
     padding: 1.4vw 0;
   }
+
+  #error {
+    color: ${({ theme }) => theme.color.hot.redBright};
+
+    display: block;
+
+    margin: -.6vw 0 1vw 1vw;
+  }
 `;
 
 const InputContainer = styled.div`
@@ -147,6 +155,11 @@ const InputContainer = styled.div`
     font-size: 1.4vw;
 
     transition: transform, font-size, .25s ease-in;
+  }
+
+  &.error {
+    border: 2px solid ${({ theme }) => theme.color.hot.redBright};
+    color: ${({ theme }) => theme.color.hot.redBright};
   }
 `;
 

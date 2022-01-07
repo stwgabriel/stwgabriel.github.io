@@ -11,6 +11,17 @@ function Form() {
     message: '',
   });
 
+  const [errors] = useState([
+    {
+      name: 'email',
+      message: 'Invalid email',
+    },
+    {
+      name: 'message',
+      message: 'This field is empty',
+    },
+  ]);
+
   function handleChange(e) {
     const { target } = e;
 
@@ -24,6 +35,18 @@ function Form() {
     e.preventDefault();
   }
 
+  function getError(prop) {
+    let message = '';
+
+    errors.forEach((error) => {
+      if (error.name === prop) {
+        message = error.message;
+      }
+    });
+
+    return message;
+  }
+
   return (
     <FormContainer onSubmit={(e) => handleSubmit(e)} autoComplete="off">
       <Input
@@ -31,24 +54,28 @@ function Form() {
         name="name"
         value={formValues.name}
         handle={(e) => handleChange(e)}
+        error={(name) => getError(name)}
       />
       <Input
         type="text"
         name="email"
         value={formValues.email}
         handle={(e) => handleChange(e)}
+        error={(name) => getError(name)}
       />
       <Input
         type="text"
         name="subject"
         value={formValues.subject}
         handle={(e) => handleChange(e)}
+        error={(name) => getError(name)}
       />
       <Input
         type="text"
         name="message"
         value={formValues.message}
         handle={(e) => handleChange(e)}
+        error={(name) => getError(name)}
         textarea
       />
       <button type="submit">Submit</button>

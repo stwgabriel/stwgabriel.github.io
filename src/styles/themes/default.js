@@ -37,7 +37,7 @@ const defaultStyles = {
     },
 
     hot: {
-
+      redBright: '#FFAA99',
     },
 
     social: {
