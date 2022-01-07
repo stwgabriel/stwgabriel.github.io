@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 import { FormContainer } from '../styles';
 import Input from './Input';
@@ -23,7 +23,6 @@ function Form() {
   }
 
   function createError(errorName, errorMessage) {
-    console.log('created');
     setErrors((prevState) => ([
       ...prevState, {
         errorName, errorMessage,
@@ -80,10 +79,6 @@ function Form() {
 
   function handleSubmit(e) {
     e.preventDefault();
-
-    console.log({
-      name, email, subject, message,
-    });
   }
 
   function getError(prop) {
@@ -97,10 +92,6 @@ function Form() {
 
     return errorMessage;
   }
-
-  useEffect(() => {
-    console.log(errors);
-  }, [errors]);
 
   return (
     <FormContainer onSubmit={(e) => handleSubmit(e)} autoComplete="off">
