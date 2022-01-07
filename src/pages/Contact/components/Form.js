@@ -1,15 +1,53 @@
+import { useState } from 'react';
+
 import { FormContainer } from '../styles';
 import Input from './Input';
 
 function Form() {
+  const [formValues, setFormValues] = useState({
+    name: '',
+    email: '',
+    subject: '',
+    message: '',
+  });
+
+  function handleChange(e) {
+    const { target } = e;
+
+    setFormValues((prevState) => ({
+      ...prevState,
+      [target.name]: target.value,
+    }));
+  }
 
   return (
     <FormContainer autoComplete="off">
-      <Input type="text" name="name" label="Name" />
-      <Input type="text" name="email" label="Email" />
-      <Input type="text" name="subject" label="Subject" />
-      <Input type="text" name="message" label="Message" textarea />
-      <button type="button">Submit</button>
+      <Input
+        type="text"
+        name="name"
+        value={formValues.name}
+        handle={(e) => handleChange(e)}
+      />
+      <Input
+        type="text"
+        name="email"
+        value={formValues.email}
+        handle={(e) => handleChange(e)}
+      />
+      <Input
+        type="text"
+        name="subject"
+        value={formValues.subject}
+        handle={(e) => handleChange(e)}
+      />
+      <Input
+        type="text"
+        name="message"
+        value={formValues.message}
+        handle={(e) => handleChange(e)}
+        textarea
+      />
+      <button type="submit">Submit</button>
     </FormContainer>
   );
 }

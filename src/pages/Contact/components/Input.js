@@ -1,33 +1,26 @@
-import { useState } from 'react';
 import PropTypes from 'prop-types';
 
 import { InputContainer } from '../styles';
 
 function Input(props) {
   const {
-    type, name, label, textarea,
+    type, name, textarea, value, handle,
   } = props;
-
-  const [inputValue, setInputValue] = useState('');
-
-  function handleChange(e) {
-    setInputValue(e.target.value);
-  }
 
   return (
     <InputContainer>
       {!textarea ? (
         <input
-          value={inputValue}
-          onChange={(e) => handleChange(e)}
+          value={value}
+          onChange={(e) => handle(e)}
           type={type}
           name={name}
           required
         />
       ) : (
         <textarea
-          value={inputValue}
-          onChange={(e) => handleChange(e)}
+          value={value}
+          onChange={(e) => handle(e)}
           type={type}
           name={name}
           cols="40"
@@ -36,7 +29,7 @@ function Input(props) {
       )}
       <label htmlFor={name} className="no-events">
         <span>
-          {label}
+          {name.charAt(0).toUpperCase() + name.slice(1)}
           :
         </span>
       </label>
@@ -51,8 +44,9 @@ Input.defaultProps = {
 Input.propTypes = {
   type: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
-  label: PropTypes.string.isRequired,
   textarea: PropTypes.bool,
+  value: PropTypes.string.isRequired,
+  handle: PropTypes.func.isRequired,
 };
 
 export default Input;
