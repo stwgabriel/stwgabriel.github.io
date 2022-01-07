@@ -79,6 +79,16 @@ function Form() {
 
   function handleSubmit(e) {
     e.preventDefault();
+
+    /*
+    this if statement defines the submit condition based on the error existence
+
+    if (errors.length !== 0) {
+      console.log('there is errors yet'); // here you treat the error
+    } else {
+      console.log('submit here'); // here is the actual submit
+    }
+    */
   }
 
   function getError(prop) {
