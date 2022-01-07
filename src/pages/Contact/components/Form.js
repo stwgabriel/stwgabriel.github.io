@@ -20,8 +20,14 @@ function Form() {
     }));
   }
 
+  function handleSubmit(e) {
+    e.preventDefault();
+
+    console.log(formValues);
+  }
+
   return (
-    <FormContainer autoComplete="off">
+    <FormContainer onSubmit={(e) => handleSubmit(e)} autoComplete="off">
       <Input
         type="text"
         name="name"
