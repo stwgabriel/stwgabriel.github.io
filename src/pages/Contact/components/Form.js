@@ -1,81 +1,136 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 import { FormContainer } from '../styles';
 import Input from './Input';
 
 function Form() {
-  const [formValues, setFormValues] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: '',
-  });
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [subject, setSubject] = useState('');
+  const [message, setMessage] = useState('');
+  const [errors, setErrors] = useState([]);
 
-  const [errors] = useState([
-    {
-      name: 'email',
-      message: 'Invalid email',
-    },
-    {
-      name: 'message',
-      message: 'This field is empty',
-    },
-  ]);
+  function checkIfItsEmpty(value) {
+    if (value === '') return true;
 
-  function handleChange(e) {
-    const { target } = e;
+    return false;
+  }
 
-    setFormValues((prevState) => ({
-      ...prevState,
-      [target.name]: target.value,
-    }));
+  function isEmailValid(value) {
+    const regex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+    return regex.test(value);
+  }
+
+  function createError(errorName, errorMessage) {
+    console.log('created');
+    setErrors((prevState) => ([
+      ...prevState, {
+        errorName, errorMessage,
+      },
+    ]));
+  }
+
+  function cleanError(errorName) {
+    setErrors((prevState) => prevState.filter((error) => error.errorName !== errorName));
+  }
+
+  function handleNameChange(e) {
+    setName(e.target.value);
+
+    if (checkIfItsEmpty(e.target.value)) {
+      createError('name', 'Empty field');
+    } else {
+      cleanError('name');
+    }
+  }
+
+  function handleEmailChange(e) {
+    setEmail(e.target.value);
+
+    if (checkIfItsEmpty(e.target.value)) {
+      createError('email', 'Empty field');
+    } else if (!isEmailValid(e.target.value)) {
+      cleanError('email');
+      createError('email', 'Invalid email');
+    } else {
+      cleanError('email');
+    }
+  }
+
+  function handleSubjectChange(e) {
+    setSubject(e.target.value);
+
+    if (checkIfItsEmpty(e.target.value)) {
+      createError('subject', 'Empty field');
+    } else {
+      cleanError('subject');
+    }
+  }
+
+  function handleMessageChange(e) {
+    setMessage(e.target.value);
+
+    if (checkIfItsEmpty(e.target.value)) {
+      createError('message', 'Empty field');
+    } else {
+      cleanError('message');
+    }
   }
 
   function handleSubmit(e) {
     e.preventDefault();
+
+    console.log({
+      name, email, subject, message,
+    });
   }
 
   function getError(prop) {
-    let message = '';
+    let errorMessage = '';
 
     errors.forEach((error) => {
-      if (error.name === prop) {
-        message = error.message;
+      if (error.errorName === prop) {
+        errorMessage = error.errorMessage;
       }
     });
 
-    return message;
+    return errorMessage;
   }
+
+  useEffect(() => {
+    console.log(errors);
+  }, [errors]);
 
   return (
     <FormContainer onSubmit={(e) => handleSubmit(e)} autoComplete="off">
       <Input
         type="text"
         name="name"
-        value={formValues.name}
-        handle={(e) => handleChange(e)}
-        error={(name) => getError(name)}
+        value={name}
+        handle={(e) => handleNameChange(e)}
+        error={(property) => getError(property)}
       />
       <Input
         type="text"
         name="email"
-        value={formValues.email}
-        handle={(e) => handleChange(e)}
-        error={(name) => getError(name)}
+        value={email}
+        handle={(e) => handleEmailChange(e)}
+        error={(property) => getError(property)}
       />
       <Input
         type="text"
         name="subject"
-        value={formValues.subject}
-        handle={(e) => handleChange(e)}
-        error={(name) => getError(name)}
+        value={subject}
+        handle={(e) => handleSubjectChange(e)}
+        error={(property) => getError(property)}
       />
       <Input
         type="text"
         name="message"
-        value={formValues.message}
-        handle={(e) => handleChange(e)}
-        error={(name) => getError(name)}
+        value={message}
+        handle={(e) => handleMessageChange(e)}
+        error={(property) => getError(property)}
         textarea
       />
       <button type="submit">Submit</button>
