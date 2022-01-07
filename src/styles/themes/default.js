@@ -37,14 +37,14 @@ const defaultStyles = {
     },
 
     hot: {
-
+      redBright: '#FFAA99',
     },
 
     social: {
 
       linkedin: '#0A66C2',
       github: '#381B6E',
-      instagram: 'background-image: linear-gradient(to right bottom, #fa6e3b, #fb6542, #fb5c49, #fa5350, #f84a57, #f43d61, #ee316c, #e62776, #d61d87, #c02096, #a42aa4, #8134af);',
+      instagram: 'linear-gradient(to right bottom, #fa6e3b, #fb6542, #fb5c49, #fa5350, #f84a57, #f43d61, #ee316c, #e62776, #d61d87, #c02096, #a42aa4, #8134af);',
     },
   },
 
