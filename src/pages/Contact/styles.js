@@ -44,6 +44,18 @@ const ContactContainer = styled.div`
 
 const FormContainer = styled.form`
   width: 100%;
+
+  button {
+    background: ${({ theme }) => theme.color.cold.blue};
+    border-radius: ${({ theme }) => theme.metric.borderRadius};
+    color: ${({ theme }) => theme.color.main.white};
+    font-size: 1.2vw;
+    font-weight: 700;
+
+    width: 100%;
+
+    padding: 1.4vw 0;
+  }
 `;
 
 const InputContainer = styled.div`

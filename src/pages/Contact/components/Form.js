@@ -9,6 +9,7 @@ function Form() {
       <Input type="text" name="email" label="Email" />
       <Input type="text" name="subject" label="Subject" />
       <Input type="text" name="message" label="Message" textarea />
+      <button type="button">Submit</button>
     </FormContainer>
   );
 }
