@@ -2,8 +2,8 @@ import styled from 'styled-components';
 
 const Container = styled.nav`
 
-  margin-bottom: 5vw;
-  margin-bottom: max(6rem, 5vw);
+  margin-bottom: 3vw;
+  margin-bottom: max(4.5rem, 3vw);
 
   ul {
 
@@ -75,7 +75,7 @@ const Container = styled.nav`
       box-shadow: 0 0 0 10px ${({ theme }) => theme.color.main.background};
 
       position: absolute;
-      top: -6vw;
+      top: -4.6vw;
 
       margin-right: 0!important;
 
