@@ -34,6 +34,7 @@ const defaultStyles = {
     cold: {
 
       blue: '#6272A4',
+      blueBright: '#95A2CD',
     },
 
     hot: {
