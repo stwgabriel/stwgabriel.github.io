@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 const Container = styled.div`
 
+
   position: sticky;
   top: 0;
   bottom: 0;
@@ -77,6 +78,11 @@ const Container = styled.div`
 
     ${({ borderSide }) => borderSide}: 0px;
    }
+  }
+
+  @media (max-width: 999px) {
+
+    display: none;
   }
 `;
 
