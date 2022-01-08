@@ -49,7 +49,7 @@ const ProjectListContainer = styled.div`
 
 const ProjectContainer = styled.div`
 
-  border: .15vw solid ${({ theme }) => theme.color.main.fadeTextColor};
+  border: .15vw solid ${({ theme }) => theme.color.gray.default};
   border-radius: ${({ theme }) => theme.metric.borderRadius};
   box-shadow: ${({ theme }) => theme.effect.containerShadow};
   font-family: 'Montserrat', sans-serif;
@@ -61,9 +61,9 @@ const ProjectContainer = styled.div`
   min-width: 21rem;
   min-height: 20.5rem;
   width: 21vw;
-  width: clamp(21rem, 21vw, 90.5rem);
+  width: clamp(21rem, 20.5vw, 90.5rem);
   height: 20.5vw;
-  height: clamp(20.5rem, 20.2vw, 90rem);
+  height: clamp(20.5rem, 20vw, 90rem);
 
   margin: 1vw 2vw 1vw 1vw;
 
@@ -102,8 +102,8 @@ const ProjectContainer = styled.div`
   .info {
 
     background: ${({ theme }) => theme.color.main.reverseAccent};
-    outline: .15vw solid ${({ theme }) => theme.color.main.fadeTextColor};
     border-radius: ${({ theme }) => theme.metric.borderRadius};
+    outline: .15vw solid ${({ theme }) => theme.color.gray.default};
 
     position: absolute;
     top: 100%;
@@ -224,7 +224,7 @@ const ProjectContainer = styled.div`
 
         font-size: .82vw;
         padding: .6vw 1.3vw;
-        margin-top: .5vw;
+        margin-top: .3vw;
 
         transition: background .25s ease-in;
 
@@ -258,7 +258,7 @@ const ProjectContainer = styled.div`
   }
 
   &:last-child {
-    
+
     margin-right: 1vw;
   }
 `;
