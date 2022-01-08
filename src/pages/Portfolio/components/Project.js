@@ -21,7 +21,10 @@ function Project({ item }) {
   }
 
   return (
-    <ProjectContainer className={isInfoSectionOpen ? 'open' : undefined}>
+    <ProjectContainer
+      className={isInfoSectionOpen ? 'open' : undefined}
+      title={`Project ${title} | ${description}`}
+    >
 
       <div className="main-image">
         <img src={image} alt="Project" />
@@ -54,13 +57,13 @@ function Project({ item }) {
             {tags && tags.map((tag) => <Tag key={uuidv4()}>{tag}</Tag>)}
           </div>
         </div>
-
-        <div className="address-container">
-
+        <div className="see-project-button-container">
           <a
+            className="see-project-button"
             href={projectUrl}
             target="_blank"
             rel="noreferrer"
+            tabIndex="-1"
           >
             See project
           </a>

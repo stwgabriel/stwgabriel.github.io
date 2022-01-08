@@ -13,9 +13,16 @@ const PortfolioGroupContainer = styled.div`
 
   max-width: 100%;
 
+  margin-bottom: 4vw;
+
+  &+& {
+
+    margin-bottom: 0;
+  }
+
   header#portfolio-group-header {
 
-    margin: 5vh 0 4vh;
+    margin-bottom: 8vh;
 
     h2 {
 
@@ -56,9 +63,9 @@ const ProjectContainer = styled.div`
   width: 21vw;
   width: clamp(21rem, 21vw, 90.5rem);
   height: 20.5vw;
-  height: clamp(20.5rem, 20.5vw, 90rem);
+  height: clamp(20.5rem, 20.2vw, 90rem);
 
-  margin: 0 2vw 1vw 0;
+  margin: 1vw 2vw 1vw 1vw;
 
   overflow: hidden;
 
@@ -95,7 +102,7 @@ const ProjectContainer = styled.div`
   .info {
 
     background: ${({ theme }) => theme.color.main.reverseAccent};
-    border-top: .15vw solid ${({ theme }) => theme.color.main.fadeTextColor};
+    outline: .15vw solid ${({ theme }) => theme.color.main.fadeTextColor};
     border-radius: ${({ theme }) => theme.metric.borderRadius};
 
     position: absolute;
@@ -123,6 +130,12 @@ const ProjectContainer = styled.div`
       font-size: 1.2vw;
       font-weight: 600;
       margin-bottom: .8vw;
+
+      display: -webkit-box;
+      -webkit-line-clamp: 1;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
     .expand-close-button {
@@ -197,27 +210,27 @@ const ProjectContainer = styled.div`
       }
     }
 
-    .address-container {
+    .see-project-button-container {
 
       display: flex;
       justify-content: center;
 
-      a {
+      .see-project-button {
 
         background: ${({ theme }) => theme.color.main.selection};
         border-radius: ${({ theme }) => theme.metric.borderRadius};
-        box-shadow: ${({ theme }) => theme.effect.elementShadow};
+        box-shadow: ${({ theme }) => theme.effect.containerShadow};
         color: ${({ theme }) => theme.color.main.fadeTextColor};
 
         font-size: .82vw;
         padding: .6vw 1.3vw;
-        margin-top: .6vw;
+        margin-top: .5vw;
 
         transition: background .25s ease-in;
 
         &:hover {
 
-           background: ${({ theme }) => theme.color.cold.blue};
+          background: ${({ theme }) => theme.color.cold.blue};
         }
       }
     }
@@ -245,7 +258,8 @@ const ProjectContainer = styled.div`
   }
 
   &:last-child {
-    margin-right: .1vw;
+    
+    margin-right: 1vw;
   }
 `;
 
@@ -253,6 +267,7 @@ const Tag = styled.span`
 
   background: ${({ theme }) => theme.color.main.selection};
   border-radius: ${({ theme }) => theme.metric.borderRadius};
+  box-shadow: ${({ theme }) => theme.effect.itemShadow};
   color: ${({ theme }) => theme.color.main.fadeTextColor};
 
   padding: .5vw .8vw;
