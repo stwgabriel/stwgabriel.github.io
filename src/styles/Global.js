@@ -80,12 +80,12 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
 
     text-shadow: ${({ theme }) => theme.effect.textShadow};
-    scrollbar-color: ${({ theme }) => theme.color.selection} ${({ theme }) => theme.color.black};
+    scrollbar-color: ${({ theme }) => theme.color.main.background} ${({ theme }) => theme.color.main.selection};
   }
 
-  @supports (scrollbar-color: ${({ theme }) => theme.color.main.selection} ${({ theme }) => theme.color.main.background}) {
+  @supports (scrollbar-color: ${({ theme }) => theme.color.main.selection} ${({ theme }) => theme.color.main.selection}) {
 
-    scrollbar-color: ${({ theme }) => theme.color.background} ${({ theme }) => theme.color.black};
+    scrollbar-color: ${({ theme }) => theme.color.main.background} ${({ theme }) => theme.color.main.selection};
   }
   &::-webkit-scrollbar {
 
@@ -104,7 +104,7 @@ const GlobalStyle = createGlobalStyle`
 
     &:hover {
 
-      border:solid .1vw ${({ theme }) => theme.color.main.selection};
+      border: solid .1vw ${({ theme }) => theme.color.main.selection};
     }
   }
 
