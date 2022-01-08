@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import Project from './Project';
-import { PortfolioGroupContainer, ProjectListContainer } from './styles';
+import { PortfolioGroupContainer, ProjectListContainer } from '../styles';
 
 function PortfolioGroup({ title, items }) {
 

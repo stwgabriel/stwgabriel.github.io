@@ -2,22 +2,22 @@ import { useState } from 'react';
 import PropTypes from 'prop-types';
 import { v4 as uuidv4 } from 'uuid';
 
-import { ProjectContainer, Tag } from './styles';
+import { ProjectContainer, Tag } from '../styles';
 
 import dropdownArrow from '../../../assets/images/icons/dropdown-arrow.svg';
 
 function Project({ item }) {
 
   const {
-
-    title, description, techs, image, projectAddress,
+    title, description, subtitle, tags, image, projectUrl,
   } = item;
 
   const [isInfoSectionOpen, setIsInfoSectionOpen] = useState(false);
 
-  function toggleInfoSectionState() {
+  function toggleInfoSectionState(event) {
 
     setIsInfoSectionOpen((prevState) => !prevState);
+    event.target.blur();
   }
 
   return (
@@ -28,13 +28,13 @@ function Project({ item }) {
         <div className="overlay" />
       </div>
 
-      <div className="info">
+      <div className="info no-select">
 
         <header>
 
           <h3>{title}</h3>
 
-          <button onClick={toggleInfoSectionState} className="icon" type="button">
+          <button onClick={toggleInfoSectionState} className="expand-close-button" type="button">
 
             <img
               className="no-select no-events"
@@ -46,19 +46,19 @@ function Project({ item }) {
 
         <p className="description">{description}</p>
 
-        <div className="tech-container">
+        <div className="tags-container">
 
-          <h3>Techs</h3>
+          <h3>{subtitle}</h3>
 
-          <div className="techs">
-            { techs && techs.map((tech) => <Tag key={uuidv4()}>{tech}</Tag>) }
+          <div className="tags">
+            {tags && tags.map((tag) => <Tag key={uuidv4()}>{tag}</Tag>)}
           </div>
         </div>
 
         <div className="address-container">
 
           <a
-            href={projectAddress}
+            href={projectUrl}
             target="_blank"
             rel="noreferrer"
           >
@@ -76,10 +76,11 @@ Project.propTypes = {
 
     title: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
-    techs: PropTypes.shape([]).isRequired,
+    subtitle: PropTypes.string.isRequired,
+    tags: PropTypes.shape([]).isRequired,
     image: PropTypes.string.isRequired,
     id: PropTypes.string.isRequired,
-    projectAddress: PropTypes.string, // mark as required later
+    projectUrl: PropTypes.string.isRequired, // mark as required later
   }).isRequired,
 };
 
