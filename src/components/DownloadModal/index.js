@@ -4,6 +4,8 @@ import reactDOM from 'react-dom';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
+import clickToExit from '../../utils/clickToExit';
+
 import {
   Overlay, Container, DownloadOptions, File, FileSelector,
 } from './styles';
@@ -19,10 +21,14 @@ function DownloadModal({ handleRenderDownloadModal, renderDownloadModal }) {
   const [portugueseOption, setPortugueseOption] = useState(false);
   const [englishOption, setEnglishOption] = useState(false);
 
-  function handleClick(e) {
+  function handleClick(element) {
 
-    const { target } = e;
+    const { target } = element;
 
+    if (clickToExit(target, 'click-to-exit')) {
+
+      (handleRenderDownloadModal())();
+    }
     if (target.classList.contains('pt-br')) { setPortugueseOption(!portugueseOption); }
     if (target.classList.contains('en-us')) { setEnglishOption(!englishOption); }
   }
@@ -50,8 +56,8 @@ function DownloadModal({ handleRenderDownloadModal, renderDownloadModal }) {
 
   return reactDOM.createPortal(
 
-    <Overlay className="no-select">
-      <Container>
+    <Overlay className="no-select click-to-exit">
+      <Container className="download-modal">
 
         <button
           onClick={handleRenderDownloadModal()}
