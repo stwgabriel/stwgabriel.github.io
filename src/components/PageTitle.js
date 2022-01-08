@@ -7,6 +7,8 @@ const PageTitle = styled.h2`
   font-family: "ProDisplay", -apple-system, BlinkMacSystemFont, Tahoma, Arial Black,Verdana, Helvetica, Montserrat, sans-seif;
   font-weight:800;
   -webkit-text-stroke: .12vw ${({ theme }) => theme.color.main.textColor};
+
+  margin-bottom: 4vw;
 `;
 
 export default PageTitle;
