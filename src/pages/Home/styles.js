@@ -33,7 +33,7 @@ const MainView = styled.section`
 
     color: ${({ theme }) => theme.color.main.fadeTextColor};
     font-size: 10vw;
-    font-size: clamp(4rem, 10vw, 40rem);
+    font-size: clamp(4rem, 11vw, 40rem);
     font-family: "ProDisplay", -apple-system, BlinkMacSystemFont, Tahoma, Arial Black,Verdana, Helvetica, Montserrat, sans-seif;
     letter-spacing: small;
     line-height: 1.6ch;

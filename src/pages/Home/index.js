@@ -40,8 +40,8 @@ function Home() {
   });
 
   return (
-
     <PageContainer id="page-container">
+
       <PageView marginLeft>
         <MainView>
 
@@ -108,7 +108,6 @@ function Home() {
             renderDownloadModal={renderDownloadModal}
           />
         </AboutView>
-
       </PageView>
 
       <PageBorder
@@ -119,7 +118,6 @@ function Home() {
       >
         Portfolio
       </PageBorder>
-
     </PageContainer>
   );
 }
