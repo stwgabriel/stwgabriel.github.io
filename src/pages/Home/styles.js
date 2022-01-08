@@ -113,7 +113,7 @@ const MainView = styled.section`
 
 const AboutView = styled.section`
 
-  padding: clamp(12rem, 10vh, 30rem) 0;
+  padding: clamp(12rem, 10vh, 30rem) 0 0;
 
   .me-content {
 

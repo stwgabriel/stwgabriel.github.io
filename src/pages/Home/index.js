@@ -2,6 +2,8 @@ import { useContext, useEffect, useState } from 'react';
 
 import { NavigationContext } from '../../contexts/NavigationContext';
 
+import { addScrollListener, removeScrollListener } from '../../utils/smoothScroll';
+
 import { MainView, AboutView } from './styles';
 
 import PageContainer from '../../components/PageContainer';
@@ -22,19 +24,6 @@ function Home() {
 
   const [renderDownloadModal, setRenderDownloadModal] = useState(false);
 
-  function handleScroll(e) {
-
-    e.preventDefault();
-    const { target } = e;
-    const finalTargetId = target.getAttribute('href');
-    const finalTarget = document.querySelector(finalTargetId).offsetTop;
-
-    document.getElementById('page-container').scroll({
-      top: finalTarget + 90,
-      behavior: 'smooth',
-    });
-  }
-
   function handleModalVisibility() {
 
     setRenderDownloadModal(() => (!renderDownloadModal));
@@ -42,15 +31,13 @@ function Home() {
 
   useEffect(() => {
 
-    const intenalLinks = document.querySelectorAll('a[href^="#"]');
-
-    intenalLinks.forEach((item) => { item.addEventListener('click', handleScroll); });
+    addScrollListener();
 
     return () => {
 
-      intenalLinks.forEach((item) => { item.removeEventListener('click', handleScroll); });
+      removeScrollListener();
     };
-  }, []);
+  });
 
   return (
 
