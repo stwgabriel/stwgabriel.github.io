@@ -80,14 +80,12 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
 
     text-shadow: ${({ theme }) => theme.effect.textShadow};
-    scrollbar-width: thin;
     scrollbar-color: ${({ theme }) => theme.color.selection} ${({ theme }) => theme.color.black};
   }
 
-  @supports (scrollbar-color: ${({ theme }) => theme.color.background} ${({ theme }) => theme.color.black}) and (scrollbar-width: thin) {
+  @supports (scrollbar-color: ${({ theme }) => theme.color.main.selection} ${({ theme }) => theme.color.main.background}) {
 
     scrollbar-color: ${({ theme }) => theme.color.background} ${({ theme }) => theme.color.black};
-    scrollbar-width: thin;
   }
   &::-webkit-scrollbar {
 
@@ -162,7 +160,7 @@ const GlobalStyle = createGlobalStyle`
 
   &:focus{
 
-    outline: solid .25vw ${({ theme }) => theme.color.main.comment} ;
+    outline: solid .25vw ${({ theme }) => theme.color.cold.blue} ;
   }
 
   button#main-content {
@@ -173,6 +171,16 @@ const GlobalStyle = createGlobalStyle`
 
     outline: none !important;
   }
+  }
+
+  input,
+  textarea {
+
+    &::selection {
+
+      background: ${({ theme }) => theme.color.main.comment};
+      color: ${({ theme }) => theme.color.main.textColor};
+    }
   }
 `;
 
