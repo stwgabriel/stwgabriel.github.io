@@ -7,30 +7,32 @@ function NavigationProvider({ children }) {
 
   const [pageTransition, setPageTransition] = useState({
     initial: {
-      width: '100%',
-      height: '100%',
-      flex: 1,
+
+      position: 'absolute',
+      top: '5rem',
+      left: '0',
+
       opacity: 0,
     },
     enter: {
-      width: '100%',
-      height: '100%',
-      flex: 1,
+
       position: 'absolute',
+      top: '0',
       left: '0',
-      zIndex: '100',
+
       opacity: 1,
     },
-    leave: {},
+    leave: {
+      position: 'absolute',
+      top: '5rem',
+      left: '0',
+
+      opacity: 0,
+    },
   });
   const fromLeftAnimation = {
 
     from: {
-
-      flex: 1,
-
-      width: '100%',
-      height: '100%',
 
       position: 'absolute',
       left: '-100vw',
@@ -39,11 +41,6 @@ function NavigationProvider({ children }) {
     },
 
     enter: {
-
-      flex: 1,
-
-      width: '100%',
-      height: '100%',
 
       position: 'absolute',
       left: '0',
@@ -54,11 +51,6 @@ function NavigationProvider({ children }) {
     leave: {
 
       delay: 150,
-
-      width: '100%',
-      height: '100%',
-
-      flex: 1,
 
       position: 'absolute',
       left: '100vw',
@@ -70,11 +62,6 @@ function NavigationProvider({ children }) {
 
     from: {
 
-      flex: 1,
-
-      width: '100%',
-      height: '100%',
-
       position: 'absolute',
       left: '100vw',
 
@@ -82,11 +69,6 @@ function NavigationProvider({ children }) {
     },
 
     enter: {
-
-      flex: 1,
-
-      width: '100%',
-      height: '100%',
 
       position: 'absolute',
       left: '0',
@@ -97,11 +79,6 @@ function NavigationProvider({ children }) {
     leave: {
 
       delay: 150,
-
-      width: '100%',
-      height: '100%',
-
-      flex: 1,
 
       position: 'absolute',
       left: '-100vw',
@@ -135,21 +112,28 @@ function NavigationProvider({ children }) {
     setPageTransition({
 
       initial: {
-        width: '100%',
-        height: '100%',
-        flex: 1,
+
+        position: 'absolute',
+        top: '5rem',
+        left: '0',
+
         opacity: 0,
       },
       enter: {
-        width: '100%',
-        height: '100%',
-        flex: 1,
+
         position: 'absolute',
+        top: '0',
         left: '0',
-        zIndex: '100',
+
         opacity: 1,
       },
-      leave: {},
+      leave: {
+        position: 'absolute',
+        top: '5rem',
+        left: '0',
+
+        opacity: 0,
+      },
     });
   }
 
