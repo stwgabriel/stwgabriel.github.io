@@ -25,7 +25,7 @@ const Container = styled.div`
 
   background:${({ theme }) => theme.color.main.modalBackground};
   border-radius: ${({ theme }) => theme.metric.borderRadius};
-  box-shadow: ${({ theme }) => theme.effect.elementShadow};
+  box-shadow: ${({ theme }) => theme.effect.containerShadow};
 
   pointer-events: all;
 
@@ -46,7 +46,7 @@ const Container = styled.div`
     background: ${({ theme }) => theme.color.selection};
     border:none;
     border-radius:  ${({ theme }) => theme.metric.borderRadius};
-    box-shadow: ${({ theme }) => theme.effect.elementShadow};
+    box-shadow: ${({ theme }) => theme.effect.itemShadow};
 
     display: flex;
     align-items: center;
@@ -93,7 +93,7 @@ const File = styled.li`
 
   background: ${({ theme }) => theme.color.main.selection};
   border-radius:  ${({ theme }) => theme.metric.borderRadius};
-  box-shadow: ${({ theme }) => theme.effect.elementShadow};
+  box-shadow: ${({ theme }) => theme.effect.itemShadow};
 
   font-size: 1.2vw;
   font-size:  clamp(1.6rem, 1.2vw, 8rem);
