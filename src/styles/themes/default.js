@@ -51,10 +51,10 @@ const defaultStyles = {
 
   effect: {
 
-    containerShadow: '15px 15px 50px #00000015',
-    elementShadow: '0 5px 25px #00000030',
-    itemShadow: '0 0 10px  #00000015',
-    textShadow: '2px 2px 5px #00000015',
+    containerShadow: '0 0 1.8rem #00000010',
+    elementShadow: '0 0 1.8rem red', // do not use
+    itemShadow: '0 0 1rem #00000015',
+    textShadow: '.1rem .1rem .5rem #00000015',
   },
 
   metric: {
