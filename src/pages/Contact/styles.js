@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 const ContactContainer = styled.div`
+
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -10,54 +11,75 @@ const ContactContainer = styled.div`
   margin: 3vw auto 0;
 
   .socials {
+
     display: flex;
 
     a {
+
       border-radius: ${({ theme }) => theme.metric.borderRadius};
-      
+
       display: flex;
       align-items: center;
+      justify-content: center;
+
+      height: 4vw;
+      width: 4vw;
 
       padding: .8vw;
 
+
+      img {
+
+        width: 80%;
+
+        transition: width .25s ease-in;
+      }
+
       &:first-child {
+
         background: ${({ theme }) => theme.color.social.linkedin};
       }
 
       &:nth-child(2) {
+
         background: ${({ theme }) => theme.color.social.github};
         margin: 0 1.4vw;
       }
 
       &:last-child {
+
         background: ${({ theme }) => theme.color.social.instagram};
+      }
+
+      &:focus {
+
+        outline: solid .3vw ${({ theme }) => theme.color.main.comment};
+      }
+
+      &:hover {
+
+        img {
+
+          width: 70%;
+        }
       }
     }
   }
 
   > span {
+
     font-size: 1.2vw;
-    
+
     margin: 2vw 0;
   }
 `;
 
 const FormContainer = styled.form`
+
   width: 100%;
 
-  button {
-    background: ${({ theme }) => theme.color.cold.blue};
-    border-radius: ${({ theme }) => theme.metric.borderRadius};
-    color: ${({ theme }) => theme.color.main.white};
-    font-size: 1.2vw;
-    font-weight: 700;
-
-    width: 100%;
-
-    padding: 1.4vw 0;
-  }
-
   #error {
+
     color: ${({ theme }) => theme.color.hot.redBright};
 
     display: block;
@@ -67,6 +89,7 @@ const FormContainer = styled.form`
 `;
 
 const InputContainer = styled.div`
+
   background: ${({ theme }) => theme.color.main.selection};
   border-radius: ${({ theme }) => theme.metric.borderRadius};
 
@@ -79,8 +102,10 @@ const InputContainer = styled.div`
   overflow: hidden;
 
   input, textarea {
+
     background: none;
     border: 0;
+    border-radius: ${({ theme }) => theme.metric.borderRadius};
     color: ${({ theme }) => theme.color.main.fadeTextColor};
 
     opacity: 0;
@@ -94,41 +119,52 @@ const InputContainer = styled.div`
     transition: opacity .25s ease-in;
 
     &:focus, &:valid {
+
+      border: solid .25vw ${({ theme }) => theme.color.cold.blue};
       outline: 0;
       opacity: 1;
     }
 
     &:focus + label span, &:valid + label span {
+
       transform: translateY(-180%);
       font-size: 1vw;
     }
   }
 
   input {
+
     height: 5vw;
   }
 
   textarea {
+
+    border-radius: ${({ theme }) => theme.metric.borderRadius};
     resize: vertical;
     min-height: 5vw;
-    height: 25vw;
+    height: 20vw;
 
     padding-top: 2.8vw;
+    overflow: hidden;
 
     & + label::after {
+
       content: '';
 
       background: ${({ theme }) => theme.color.main.selection};
-
+      border-radius: ${({ theme }) => theme.metric.borderRadius};
       display: flex;
-      width: 100%;
+      /* width: 100%; */
       height: 2.4vw;
 
       position: absolute;
-      top: 0;
+      top: .25vw;
+      left: .25vw;
+      right: .25vw;
     }
 
     & + label span {
+
       height: fit-content;
       top: 3vw;
 
@@ -137,6 +173,7 @@ const InputContainer = styled.div`
   }
 
   label {
+
     position: absolute;
     bottom: 0;
     left: 0;
@@ -148,6 +185,7 @@ const InputContainer = styled.div`
   }
 
   span {
+
     position: absolute;
     bottom: .8vw;
     left: .8vw;
@@ -158,7 +196,8 @@ const InputContainer = styled.div`
   }
 
   &.error {
-    border: 2px solid ${({ theme }) => theme.color.hot.redBright};
+
+    outline: .2vw solid ${({ theme }) => theme.color.hot.redBright};
     color: ${({ theme }) => theme.color.hot.redBright};
   }
 `;

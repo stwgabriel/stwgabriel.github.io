@@ -1,6 +1,8 @@
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 
 import { NavigationContext } from '../../contexts/NavigationContext';
+
+import { addScrollListener, removeScrollListener } from '../../utils/smoothScroll';
 
 import PageContainer from '../../components/PageContainer';
 import PageBorder from '../../components/PageBorder';
@@ -19,9 +21,19 @@ function Contact() {
   const navigation = useContext(NavigationContext);
   const { handleNavigation } = navigation;
 
+  useEffect(() => {
+
+    addScrollListener();
+
+    return () => {
+
+      removeScrollListener();
+    };
+  });
+
   return (
 
-    <PageContainer>
+    <PageContainer id="page-container">
       <PageBorder
         borderSide="left"
         handleNavigation={handleNavigation}
@@ -32,6 +44,9 @@ function Contact() {
       </PageBorder>
       <PageView marginRight>
         <NavMenu />
+        <button type="button" id="main-content">
+          {' '}
+        </button>
         <PageTitle className="no-select">Contact</PageTitle>
         <ContactContainer>
           <div className="socials">

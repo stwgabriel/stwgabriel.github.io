@@ -26,14 +26,13 @@ function Input(props) {
             onChange={(e) => handle(e)}
             type={type}
             name={name}
-            cols="40"
             required
           />
         )}
         <label htmlFor={name} className="no-events">
           <span>
             {name.charAt(0).toUpperCase() + name.slice(1)}
-            :
+            :*
           </span>
         </label>
       </InputContainer>
@@ -43,10 +42,12 @@ function Input(props) {
 }
 
 Input.defaultProps = {
+
   textarea: false,
 };
 
 Input.propTypes = {
+
   type: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   textarea: PropTypes.bool,

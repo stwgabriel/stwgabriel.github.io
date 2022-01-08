@@ -1,9 +1,12 @@
 import { useState } from 'react';
 
-import { FormContainer } from '../styles';
 import Input from './Input';
+import Button from './Button';
+
+import { FormContainer } from '../styles';
 
 function Form() {
+
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [subject, setSubject] = useState('');
@@ -11,30 +14,32 @@ function Form() {
   const [errors, setErrors] = useState([]);
 
   function checkIfItsEmpty(value) {
+
     if (value === '') return true;
 
     return false;
   }
-
   function isEmailValid(value) {
+
     const regex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
     return regex.test(value);
   }
-
   function createError(errorName, errorMessage) {
+
     setErrors((prevState) => ([
       ...prevState, {
         errorName, errorMessage,
       },
     ]));
   }
-
   function cleanError(errorName) {
+
     setErrors((prevState) => prevState.filter((error) => error.errorName !== errorName));
   }
 
   function handleNameChange(e) {
+
     setName(e.target.value);
 
     if (checkIfItsEmpty(e.target.value)) {
@@ -43,8 +48,8 @@ function Form() {
       cleanError('name');
     }
   }
-
   function handleEmailChange(e) {
+
     setEmail(e.target.value);
 
     if (checkIfItsEmpty(e.target.value)) {
@@ -56,8 +61,8 @@ function Form() {
       cleanError('email');
     }
   }
-
   function handleSubjectChange(e) {
+
     setSubject(e.target.value);
 
     if (checkIfItsEmpty(e.target.value)) {
@@ -66,8 +71,8 @@ function Form() {
       cleanError('subject');
     }
   }
-
   function handleMessageChange(e) {
+
     setMessage(e.target.value);
 
     if (checkIfItsEmpty(e.target.value)) {
@@ -78,6 +83,7 @@ function Form() {
   }
 
   function handleSubmit(e) {
+
     e.preventDefault();
 
     /*
@@ -92,6 +98,7 @@ function Form() {
   }
 
   function getError(prop) {
+
     let errorMessage = '';
 
     errors.forEach((error) => {
@@ -134,7 +141,7 @@ function Form() {
         error={(property) => getError(property)}
         textarea
       />
-      <button type="submit">Submit</button>
+      <Button disabled type="submit">Submit</Button>
     </FormContainer>
   );
 }
