@@ -50,13 +50,13 @@ function Contact() {
         <PageTitle className="no-select">Contact</PageTitle>
         <ContactContainer>
           <div className="socials">
-            <a href="https://linkedin.com" className="linkedin" target="_blank" rel="noreferrer">
+            <a href="https://linkedin.com/in/stwgabriel" className="linkedin" target="_blank" rel="noreferrer">
               <img src={linkedinIcon} alt="Linkedin Icon" />
             </a>
-            <a href="https://github.com" className="github" target="_blank" rel="noreferrer">
+            <a href="https://github.com/stwgabriel" className="github" target="_blank" rel="noreferrer">
               <img src={githubIcon} alt="Github Icon" />
             </a>
-            <a href="https://instagram.com" className="instagram" target="_blank" rel="noreferrer">
+            <a href="https://instagram.com/stwgabriel" className="instagram" target="_blank" rel="noreferrer">
               <img src={instagramIcon} alt="Instagram Icon" />
             </a>
           </div>
