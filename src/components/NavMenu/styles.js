@@ -10,6 +10,8 @@ const Container = styled.nav`
     display: flex;
     align-items: center;
     justify-content: flex-start;
+
+    position :relative;
   }
 
   li {
@@ -77,9 +79,9 @@ const Container = styled.nav`
 
       margin-right: 0!important;
 
-      outline: solid .2vw ${({ theme }) => theme.color.main.comment} ;
+      outline: solid .25vw ${({ theme }) => theme.color.cold.blue} ;
 
-      transform: translateY(-13vw);
+      transform: translateY(-16vw);
       transition: transform .25s ease-in;
 
       &:focus {
