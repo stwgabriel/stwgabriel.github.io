@@ -12,28 +12,14 @@ const MainView = styled.section`
 
   position:relative;
 
-  @media (min-width: 1400px) {
-
-    min-height: 45rem;
-  }
-  @media (min-width: 1800px) {
-
-    min-height: 60rem;
-    max-height: 200rem;
-  }
-  @media (min-width: 2500px) {
-
-    min-height: 80rem;
-  }
-
-  padding-bottom: 12vh;
-  padding-bottom: clamp(10rem, 12vh, 30rem);
+  padding-bottom: 8vh;
+  padding-bottom: clamp(5rem, 8vh, 30rem);
 
   h1#home-title {
 
     color: ${({ theme }) => theme.color.main.fadeTextColor};
     font-size: 10vw;
-    font-size: clamp(4rem, 11vw, 40rem);
+    font-size: clamp(9rem, 11vw, 40rem);
     font-family: "ProDisplay", -apple-system, BlinkMacSystemFont, Tahoma, Arial Black,Verdana, Helvetica, Montserrat, sans-seif;
     letter-spacing: small;
     line-height: 1.6ch;
@@ -44,12 +30,6 @@ const MainView = styled.section`
     flex-direction: column;
 
     margin-left: -.8%;
-
-    @media (min-width: 2300px) {
-
-      font-size: 10vw;
-      font-size: clamp(25rem, 11vw, 40rem);
-    }
 
     span {
 
@@ -77,6 +57,11 @@ const MainView = styled.section`
     flex-direction: column;
 
     margin-left: -.8%;
+
+    @media (max-width: 999px) {
+
+      display: none;
+    }
   }
 
   .scroll-down {
@@ -109,6 +94,40 @@ const MainView = styled.section`
       width: clamp(1rem, .9vw, 4rem);
     }
   }
+
+  @media (max-width: 999px) {
+
+    h1#home-title {
+
+      font-size: clamp(7rem, 25vw, 13rem);
+    }
+
+    .scroll-down {
+
+      border-radius: ${({ theme }) => theme.metric.mobileBorderRadius};
+    }
+  }
+
+  @media (min-width: 1400px) {
+
+    min-height: 45rem;
+  }
+  @media (min-width: 1800px) {
+
+    min-height: 60rem;
+    max-height: 200rem;
+  }
+  @media (min-width: 2300px) {
+
+    h1#home-title {
+
+      font-size: clamp(25rem, 11vw, 40rem);
+    }
+  }
+  @media (min-width: 2500px) {
+
+    min-height: 80rem;
+  }
 `;
 
 const AboutView = styled.section`
@@ -126,19 +145,22 @@ const AboutView = styled.section`
 
     .content__text {
 
-      font-size: 1.5vw;
-      font-size: clamp(1.6rem, 1.5vw, 6.5rem);
+      font-size: 1.3vw;
+      font-size: clamp(1.9rem, 1.3vw, 6.5rem);
+      font-weight: 500;
 
       display: flex;
       flex-direction: column;
       justify-content: center;
+      grid-area: meText;
 
       padding-right: 10vw;
       padding-right: clamp(5rem, 10vw, 15rem);
 
       p {
 
-        margin: 1.1vw 0;
+        line-height: 2.3ch;
+        margin: 1vw 0;
       }
     }
 
@@ -149,6 +171,7 @@ const AboutView = styled.section`
       flex-direction: column;
       align-items: center;
       justify-content: flex-start;
+      grid-area: meImage;
 
       .download-resume {
 
@@ -156,30 +179,25 @@ const AboutView = styled.section`
         backdrop-filter: blur(4px);
         border: none;
         border-radius: ${({ theme }) => theme.metric.borderRadius};
+
         color: ${({ theme }) => theme.color.main.textColor};
         font-size: 1.4vw;
-        font-size: clamp(1.6rem, 1.4vw, 2.5rem);
+        font-size: clamp(1.6rem, 1.4vw, 5rem);
 
         display: flex;
         align-items:center;
         justify-content: center;
 
-        padding: 1.8rem 1.4rem;
-        padding: 1vw 2vw;
+        padding: 1.6vw 2vw;
+        padding: clamp(1.6rem, 1vw, 4rem) clamp(2.4rem, 2vw, 8rem);
         margin-top: 2vw;
         margin-top: clamp(3rem, 2vw, 6rem);
 
         transition: background .3s;
 
-        @media (min-width: 2300px) {
-
-          font-size: 1.4vw;
-          font-size: clamp(1.6rem, 1.4vw, 5rem);
-        }
-
         span {
 
-          margin-right: 1vw;
+          margin-right: 2vw;
         }
 
         img {
@@ -198,6 +216,57 @@ const AboutView = styled.section`
 
         width: clamp(20rem, 30vw, 130rem);
       }
+    }
+  }
+
+  @media(max-width: 1150px) {
+
+    .me-content {
+
+      display: grid;
+      grid-template-areas:
+      'meImage'
+      'meText';
+
+      .content__picture {
+
+        .download-resume {
+
+          border-radius: ${({ theme }) => theme.metric.mobileBorderRadius};
+
+          padding: 1.6vw 2vw;
+          padding: clamp(1.8rem, 1vw, 4rem) clamp(3rem, 2vw, 8rem);
+          margin-bottom: 5rem;
+        }
+      }
+
+      .content__text {
+
+        padding-right: 5vw;
+        padding-right: clamp(4rem, 5vw, 15rem);
+
+        p {
+
+          margin: 1.4rem 0;
+        }
+      }
+    }
+  }
+  @media (max-width:595px) {
+
+    .me-content {
+
+      .content__text {
+
+        padding-right: 0;
+      }
+    }
+  }
+  @media (max-width: 300px) {
+
+    .content__text {
+
+      font-size: clamp(1.6rem, 1.5vw, 6.5rem);
     }
   }
 `;

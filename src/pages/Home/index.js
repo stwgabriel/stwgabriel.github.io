@@ -5,13 +5,13 @@ import { NavigationContext } from '../../contexts/NavigationContext';
 import { addScrollListener, removeScrollListener } from '../../utils/smoothScroll';
 
 import { MainView, AboutView } from './styles';
+import DownloadModal from './components/DownloadModal';
 
 import PageContainer from '../../components/PageContainer';
 import PageBorder from '../../components/PageBorder';
 import PageView from '../../components/PageView';
 import NavMenu from '../../components/NavMenu';
 import PageTitle from '../../components/PageTitle';
-import DownloadModal from '../../components/DownloadModal';
 
 import scroll from '../../assets/images/icons/mouse-scroll.svg';
 import mePicture from '../../assets/images/me-picture.png';
@@ -74,15 +74,14 @@ function Home() {
 
             <div className="content__text">
               <p>
-                Hi, I&lsquo;m Gabriel and I&lsquo;ll tell you a little bit about myself, I&lsquo;m
-                18 years old and I&lsquo;m a Front-End Developer located in Brazil, passionate about
-                web development, graphic arts, and helping! I&lsquo;m always interested in cool
-                stuff.
+                Hello, I&lsquo;m Gabriel, I&lsquo;m 18 and I&lsquo;m a Front-End
+                Developer located in Brazil, passionate about web development,
+                graphic arts, and helping! I&lsquo;m always interested in cool stuff.
               </p>
               <p>
-                Currently self-taught in web development and design, I always try to keep myself
+                Currently self-taught in Web Development and UX Design, I always try to keep myself
                 updated and organized in subjects of the area so I can always offer the best of
-                myself in my creations.
+                myself in my creation 🧙‍♂️.
               </p>
               <p>
                 I am interested in the whole spectrum of front-end development and am
