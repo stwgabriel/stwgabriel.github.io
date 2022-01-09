@@ -60,6 +60,7 @@ const defaultStyles = {
   metric: {
 
     borderRadius: '1.2vw',
+    mobileBorderRadius: '1.8rem',
   },
 };
 
