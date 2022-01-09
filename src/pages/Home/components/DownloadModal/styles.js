@@ -6,8 +6,9 @@ const Overlay = styled.div`
   backdrop-filter: blur(3px);
   -webkit-backdrop-filter: blur(3px);
 
-  display: grid;
-  place-items: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   position: fixed;
   top: 0;
@@ -33,7 +34,7 @@ const Container = styled.div`
   flex-direction: column;
   align-items: flex-end;
 
-  max-width: 90%;
+  max-width: 95%;
   width: 40vw;
   width: clamp(45rem, 35vw, 180rem);
 
@@ -77,7 +78,25 @@ const Container = styled.div`
 
     &:hover {
 
-      background: #fff3;
+      border: solid .25vw ${({ theme }) => theme.color.cold.blue};
+    }
+  }
+
+  @media (max-width: 999px) {
+
+    border-radius: ${({ theme }) => theme.metric.mobileBorderRadius};
+    padding: 3rem 2rem;
+    .close-button {
+
+      border-radius:  ${({ theme }) => theme.metric.mobileBorderRadius};
+
+      height: 4.5rem;
+      width: 4.5rem;
+
+      img {
+
+        width: 35%;
+      }
     }
   }
 `;
@@ -116,7 +135,7 @@ const File = styled.li`
 
     filter: drop-shadow(${({ theme }) => theme.effect.itemShadow});
     width: 1.3vw;
-    width: clamp(1.6rem, 1.3vw, 9rem);
+    width: clamp(2rem, 1.3vw, 9rem);
   }
 
   &:last-of-type {
@@ -154,9 +173,27 @@ const File = styled.li`
       pointer-events: none;
     }
 
-    &:hover {
+    &:hover, &:focus {
 
       background:  ${({ theme }) => theme.color.main.reverseAccent};
+    }
+  }
+
+  @media (max-width:999px) {
+
+    border-radius:  ${({ theme }) => theme.metric.mobileBorderRadius};
+    padding: 1.1rem 1.5rem;
+    margin-bottom: 1.4rem;
+
+    .download-button {
+
+      border-radius:  ${({ theme }) => theme.metric.mobileBorderRadius};
+      padding: .6rem 1.8rem;
+
+      img {
+
+        width: 90%;
+      }
     }
   }
 `;
@@ -192,7 +229,7 @@ const FileSelector = styled.div`
     flex: 1;
 
     height: 100%;
-    min-width:6rem;
+    min-width:6.5rem;
     width: 6vw;
 
     transition: background .3s ease-in;
@@ -226,6 +263,17 @@ const FileSelector = styled.div`
     opacity: .7;
     width: .2rem;
     height: 35%;
+  }
+
+  @media (max-width: 999px) {
+
+    border-radius:  ${({ theme }) => theme.metric.mobileBorderRadius};
+    box-shadow: 0 0 1.5rem #0003;
+
+    .option-link {
+
+      width: 8rem;
+    }
   }
 `;
 

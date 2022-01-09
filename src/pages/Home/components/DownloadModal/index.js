@@ -4,15 +4,15 @@ import reactDOM from 'react-dom';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-import clickToExit from '../../utils/clickToExit';
+import clickToExit from '../../../../utils/clickToExit';
 
 import {
   Overlay, Container, DownloadOptions, File, FileSelector,
 } from './styles';
 
-import close from '../../assets/images/icons/close.svg';
-import downloadIcon from '../../assets/images/icons/download-arrow.svg';
-import docIcon from '../../assets/images/icons/document.svg';
+import close from '../../../../assets/images/icons/close.svg';
+import downloadIcon from '../../../../assets/images/icons/download-arrow.svg';
+import docIcon from '../../../../assets/images/icons/document.svg';
 
 function DownloadModal({ handleRenderDownloadModal, renderDownloadModal }) {
 
