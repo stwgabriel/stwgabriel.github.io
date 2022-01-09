@@ -90,6 +90,11 @@ const Container = styled.nav`
       }
     }
   }
+
+  @media (max-width: 999px) {
+
+    display: none;
+  }
 `;
 
 export { Container };
