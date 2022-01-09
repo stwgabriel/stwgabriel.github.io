@@ -9,7 +9,8 @@ const PageView = styled.div`
 
   overflow: auto;
 
-  padding: clamp(8rem, 10vh, 20rem) clamp(5rem, 5vw, 10rem);
+  padding: 10vh 5vw;
+  padding: clamp(8rem, 10vh, 20rem) clamp(1.2rem, 5vw, 10rem);
   margin-right: ${({ marginRight }) => (marginRight ? '10vw' : 0)};
   margin-right: ${({ marginRight }) => (marginRight ? 'clamp(12rem, 10vw, 30rem)' : 0)};
   margin-left: ${({ marginLeft }) => (marginLeft ? '10vw' : 0)};
