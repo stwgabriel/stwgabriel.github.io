@@ -91,6 +91,11 @@ const GlobalStyle = createGlobalStyle`
 
     width: 1vw;
     height: 0;
+
+    @media (max-width: 999px) {
+
+      width: 0vw;
+    }
   }
   &::-webkit-scrollbar-track {
 
