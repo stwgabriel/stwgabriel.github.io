@@ -6,13 +6,13 @@ import { NavigationContext } from '../../contexts/NavigationContext';
 import { addScrollListener, removeScrollListener } from '../../utils/smoothScroll';
 
 import PageContainer from '../../components/PageContainer';
-import PageBorder from '../../components/PageBorder';
+import PageBorderNav from '../../components/PageBorderNav';
 import PageView from '../../components/PageView';
+import NavMenu from '../../components/NavMenu';
 import PageTitle from '../../components/PageTitle';
+import PortfolioGroup from './components/PortfolioGroup';
 
 import { PortfolioContainer } from './styles';
-import PortfolioGroup from './components/PortfolioGroup';
-import NavMenu from '../../components/NavMenu';
 
 import moveItPreview from '../../assets/images/projectsPreview/move-it-preview.webp';
 import devFinancePreview from '../../assets/images/projectsPreview/dev-finance-preview.webp';
@@ -88,14 +88,16 @@ function Portfolio() {
 
   return (
     <PageContainer id="page-container">
-      <PageBorder
+
+      <PageBorderNav
         borderSide="left"
         handleNavigation={handleNavigation}
         from="from-left"
         to=""
       >
         Home
-      </PageBorder>
+      </PageBorderNav>
+
       <PageView>
         <NavMenu />
         <button type="button" id="main-content">
@@ -107,14 +109,15 @@ function Portfolio() {
           <PortfolioGroup title="Design projects" items={designProjectsArray} />
         </PortfolioContainer>
       </PageView>
-      <PageBorder
+
+      <PageBorderNav
         borderSide="right"
         handleNavigation={handleNavigation}
         from="from-right"
         to="skills"
       >
         Skills
-      </PageBorder>
+      </PageBorderNav>
     </PageContainer>
   );
 }
