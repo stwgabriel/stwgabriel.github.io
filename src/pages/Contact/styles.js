@@ -113,15 +113,26 @@ const FormContainer = styled.form`
 
     color: ${({ theme }) => theme.color.hot.redBright};
 
-    display: block;
+    display: flex;
+    align-items: center;
 
     font-size: 1.4vw;
 
-    margin: -.6vw 0 1vw 1vw;
+    margin: -.2vw 0 1vw 1vw;
+
+    #error-spec {
+      margin-left: .6vw;
+      font-size: 1.1vw;
+    }
 
     @media (max-width: 999px) {
       font-size: 1.3rem;
       margin-bottom: .8rem;
+
+      #error-spec {
+        margin-left: .6rem;
+        font-size: 1rem;
+      }
     }
   }
 `;
