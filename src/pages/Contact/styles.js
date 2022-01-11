@@ -93,8 +93,8 @@ const ContactContainer = styled.div`
     .socials a {
       border-radius: ${({ theme }) => theme.metric.mobileBorderRadius};
 
-      width: 4rem;
-      height: 4rem;
+      width: 4.4rem;
+      height: 4.4rem;
 
       padding: .8rem;
 
