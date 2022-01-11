@@ -1,6 +1,7 @@
 import Routes from '../../routes';
 
 import NavigationProvider from '../../contexts/NavigationContext';
+import MobileNavControls from '../MobileNavControls';
 import { Container } from './styles';
 
 function App() {
@@ -10,6 +11,7 @@ function App() {
       <Container>
         <Routes />
       </Container>
+      <MobileNavControls />
     </NavigationProvider>
   );
 }
