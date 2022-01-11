@@ -5,7 +5,7 @@ import rightArrow from '../../assets/images/icons/right-arrow.svg';
 import leftArrow from '../../assets/images/icons/left-arrow.svg';
 import { Container } from './styles';
 
-function PageBorder({
+function PageBorderNav({
   borderSide, handleNavigation, from, to, children,
 }) {
 
@@ -36,7 +36,7 @@ function PageBorder({
   );
 }
 
-PageBorder.propTypes = {
+PageBorderNav.propTypes = {
 
   borderSide: PropTypes.string.isRequired,
   handleNavigation: PropTypes.func.isRequired,
@@ -45,4 +45,4 @@ PageBorder.propTypes = {
   children: PropTypes.node.isRequired,
 };
 
-export default PageBorder;
+export default PageBorderNav;
