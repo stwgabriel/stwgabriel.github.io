@@ -5,13 +5,13 @@ import { NavigationContext } from '../../contexts/NavigationContext';
 import { addScrollListener, removeScrollListener } from '../../utils/smoothScroll';
 
 import { MainView, AboutView } from './styles';
-import DownloadModal from './components/DownloadModal';
 
 import PageContainer from '../../components/PageContainer';
-import PageBorder from '../../components/PageBorder';
+import PageBorderNav from '../../components/PageBorderNav';
 import PageView from '../../components/PageView';
 import NavMenu from '../../components/NavMenu';
 import PageTitle from '../../components/PageTitle';
+import DownloadModal from './components/DownloadModal';
 
 import scroll from '../../assets/images/icons/mouse-scroll.svg';
 import mePicture from '../../assets/images/me-picture.png';
@@ -44,7 +44,6 @@ function Home() {
 
       <PageView marginLeft>
         <MainView>
-
           <NavMenu />
           <button type="button" id="main-content">
             {' '}
@@ -109,14 +108,14 @@ function Home() {
         </AboutView>
       </PageView>
 
-      <PageBorder
+      <PageBorderNav
         borderSide="right"
         from="from-right"
         to="portfolio"
         handleNavigation={handleNavigation}
       >
         Portfolio
-      </PageBorder>
+      </PageBorderNav>
     </PageContainer>
   );
 }
