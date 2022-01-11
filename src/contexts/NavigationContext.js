@@ -137,16 +137,17 @@ function NavigationProvider({ children }) {
     });
   }
 
-  function handleNavigation(el) {
+  function handleNavigation(clickedElement) {
 
-    const target = el.target.classList;
+    const target = clickedElement.target.classList;
+    clickedElement.target.blur();
 
     if (target.contains('nav-menu-option')) {
 
       setDefaultAnim();
     }
 
-    if (target.contains('page-border')) {
+    if (target.contains('page-border') || target.contains('mobile-control')) {
 
       setDefaultAnim();
 
