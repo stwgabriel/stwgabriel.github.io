@@ -5,10 +5,10 @@ import { NavigationContext } from '../../contexts/NavigationContext';
 import { addScrollListener, removeScrollListener } from '../../utils/smoothScroll';
 
 import PageContainer from '../../components/PageContainer';
-import PageBorder from '../../components/PageBorder';
 import PageView from '../../components/PageView';
-import PageTitle from '../../components/PageTitle';
+import PageBorderNav from '../../components/PageBorderNav';
 import NavMenu from '../../components/NavMenu';
+import PageTitle from '../../components/PageTitle';
 
 function Portfolio() {
   const navigation = useContext(NavigationContext);
@@ -26,14 +26,14 @@ function Portfolio() {
 
   return (
     <PageContainer id="page-container">
-      <PageBorder
+      <PageBorderNav
         borderSide="left"
         handleNavigation={handleNavigation}
         from="from-left"
         to="portfolio"
       >
         Portfolio
-      </PageBorder>
+      </PageBorderNav>
       <PageView>
         <NavMenu />
         <button type="button" id="main-content">
@@ -41,14 +41,14 @@ function Portfolio() {
         </button>
         <PageTitle className="no-select">Skills</PageTitle>
       </PageView>
-      <PageBorder
+      <PageBorderNav
         borderSide="right"
         handleNavigation={handleNavigation}
         from="from-right"
         to="contact"
       >
         Contact
-      </PageBorder>
+      </PageBorderNav>
     </PageContainer>
   );
 }
