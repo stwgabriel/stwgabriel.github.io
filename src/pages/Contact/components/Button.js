@@ -9,8 +9,7 @@ const Button = styled.button`
   font-weight: 700;
 
   width: 100%;
-
-  padding: 1.4vw 0;
+  height: 6rem;
 
   margin-top: 1vw;
 
@@ -38,6 +37,15 @@ const Button = styled.button`
       background: gray;
       outline: 0;
     }
+  }
+
+  @media (max-width: 999px) {
+    border-radius: ${({ theme }) => theme.metric.mobileBorderRadius};
+
+    font-size: 1.3rem;
+
+    margin-top: 1rem;
+    padding: 1.4rem 0;
   }
 `;
 

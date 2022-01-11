@@ -19,20 +19,23 @@ function Form() {
 
     return false;
   }
+
   function isEmailValid(value) {
 
     const regex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
     return regex.test(value);
   }
-  function createError(errorName, errorMessage) {
+
+  function createError(errorName, errorMessage, errorSpecification = null) {
 
     setErrors((prevState) => ([
       ...prevState, {
-        errorName, errorMessage,
+        errorName, errorMessage, errorSpecification,
       },
     ]));
   }
+
   function cleanError(errorName) {
 
     setErrors((prevState) => prevState.filter((error) => error.errorName !== errorName));
@@ -43,17 +46,18 @@ function Form() {
     setName(e.target.value);
 
     if (checkIfItsEmpty(e.target.value)) {
-      createError('name', 'Empty field');
+      createError('name', 'Empty field', 'This field is required');
     } else {
       cleanError('name');
     }
   }
+
   function handleEmailChange(e) {
 
     setEmail(e.target.value);
 
     if (checkIfItsEmpty(e.target.value)) {
-      createError('email', 'Empty field');
+      createError('email', 'Empty field', 'This field is required');
     } else if (!isEmailValid(e.target.value)) {
       cleanError('email');
       createError('email', 'Invalid email');
@@ -61,22 +65,24 @@ function Form() {
       cleanError('email');
     }
   }
+
   function handleSubjectChange(e) {
 
     setSubject(e.target.value);
 
     if (checkIfItsEmpty(e.target.value)) {
-      createError('subject', 'Empty field');
+      createError('subject', 'Empty field', 'This field is required');
     } else {
       cleanError('subject');
     }
   }
+
   function handleMessageChange(e) {
 
     setMessage(e.target.value);
 
     if (checkIfItsEmpty(e.target.value)) {
-      createError('message', 'Empty field');
+      createError('message', 'Empty field', 'This field is required');
     } else {
       cleanError('message');
     }
@@ -100,14 +106,16 @@ function Form() {
   function getError(prop) {
 
     let errorMessage = '';
+    let errorSpecification = '';
 
     errors.forEach((error) => {
       if (error.errorName === prop) {
         errorMessage = error.errorMessage;
+        errorSpecification = error.errorSpecification;
       }
     });
 
-    return errorMessage;
+    return { errorMessage, errorSpecification };
   }
 
   return (

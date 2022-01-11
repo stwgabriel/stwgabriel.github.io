@@ -7,11 +7,11 @@ function Input(props) {
     type, name, textarea, value, handle, error,
   } = props;
 
-  const errorText = error(name);
+  const { errorMessage, errorSpecification } = error(name);
 
   return (
     <>
-      <InputContainer className={errorText ? 'error' : undefined}>
+      <InputContainer className={errorMessage ? 'error' : undefined}>
         {!textarea ? (
           <input
             value={value}
@@ -36,7 +36,20 @@ function Input(props) {
           </span>
         </label>
       </InputContainer>
-      {errorText && <span id="error">{errorText}</span>}
+      <div className="errors">
+        {errorMessage && (
+        <span id="error">
+          {errorMessage}
+          {errorSpecification && (
+          <span id="error-spec">
+            (
+            {errorSpecification}
+            )
+          </span>
+          )}
+        </span>
+        )}
+      </div>
     </>
   );
 }

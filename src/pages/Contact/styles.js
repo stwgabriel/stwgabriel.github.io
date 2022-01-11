@@ -72,6 +72,37 @@ const ContactContainer = styled.div`
 
     margin: 2vw 0;
   }
+
+  @media (max-width: 999px) {
+    max-width: 40rem;
+    width: 90vw;
+
+    margin-bottom: 10rem;
+
+    > span {
+
+      font-size: 1.3rem;
+
+      margin: 1.6rem 0;
+    }
+
+    .socials {
+      margin-top: 1rem;
+    }
+
+    .socials a {
+      border-radius: ${({ theme }) => theme.metric.mobileBorderRadius};
+
+      width: 4.4rem;
+      height: 4.4rem;
+
+      padding: .8rem;
+
+      &:nth-child(2) {
+        margin: 0 1.4rem;
+      }
+    }
+  }
 `;
 
 const FormContainer = styled.form`
@@ -82,9 +113,27 @@ const FormContainer = styled.form`
 
     color: ${({ theme }) => theme.color.hot.redBright};
 
-    display: block;
+    display: flex;
+    align-items: center;
 
-    margin: -.6vw 0 1vw 1vw;
+    font-size: 1.4vw;
+
+    margin: -.2vw 0 1vw 1vw;
+
+    #error-spec {
+      margin-left: .6vw;
+      font-size: 1.1vw;
+    }
+
+    @media (max-width: 999px) {
+      font-size: 1.3rem;
+      margin-bottom: .8rem;
+
+      #error-spec {
+        margin-left: .6rem;
+        font-size: 1rem;
+      }
+    }
   }
 `;
 
@@ -129,12 +178,25 @@ const InputContainer = styled.div`
 
       transform: translateY(-180%);
       font-size: 1vw;
+
+      @media (max-width: 999px) {
+        font-size: 1rem;
+      }
+    }
+
+    @media (max-width: 999px) {
+      font-size: 1.3rem;
+      padding: 1.6rem 1.2rem 0;
     }
   }
 
   input {
 
     height: 5vw;
+
+    @media (max-width: 999px) {
+      height: 6rem;
+    }
   }
 
   textarea {
@@ -169,6 +231,17 @@ const InputContainer = styled.div`
       top: 3vw;
 
       z-index: 1000;
+
+      @media (max-width: 999px) {
+        top: 3rem;
+      }
+    }
+
+    @media (max-width: 999px) {
+      min-height: 4rem;
+      height: 16rem;
+      
+      padding-top: 2.8rem;
     }
   }
 
@@ -182,6 +255,10 @@ const InputContainer = styled.div`
     height: 100%;
 
     padding-top: .6vw;
+
+    @media (max-width: 999px) {
+      padding-top: .6rem;
+    }
   }
 
   span {
@@ -193,12 +270,25 @@ const InputContainer = styled.div`
     font-size: 1.4vw;
 
     transition: transform, font-size, .25s ease-in;
+
+    @media (max-width: 900px) {
+      bottom: 1.3rem;
+      left: 1.2rem;
+
+      font-size: 1.4rem;
+    }
   }
 
   &.error {
 
     outline: .2vw solid ${({ theme }) => theme.color.hot.redBright};
     color: ${({ theme }) => theme.color.hot.redBright};
+  }
+
+  @media (max-width: 999px) {
+    border-radius: ${({ theme }) => theme.metric.mobileBorderRadius};
+
+    margin-bottom: 1rem;
   }
 `;
 
