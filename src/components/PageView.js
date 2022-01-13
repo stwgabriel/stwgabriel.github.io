@@ -19,6 +19,8 @@ const PageView = styled.div`
   @media (max-width: 999px) {
 
     margin: 0 !important;
+
+    padding: 2rem clamp(1rem, 5vw, 10rem) 10rem;
   }
 
   @media (min-width: 280rem) {
