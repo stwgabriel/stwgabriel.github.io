@@ -20,7 +20,7 @@ const MainView = styled.section`
     color: ${({ theme }) => theme.color.main.fadeTextColor};
     font-size: 10vw;
     font-size: clamp(9rem, 11vw, 40rem);
-    font-family: "ProDisplay", -apple-system, BlinkMacSystemFont, Tahoma, Arial Black,Verdana, Helvetica, Montserrat, sans-seif;
+    font-family: "ProDisplay", -apple-system, BlinkMacSystemFont, Helvetica, Tahoma, Arial Black,Verdana, Montserrat, sans-serif;
     letter-spacing: small;
     line-height: 1.6ch;
     font-weight: 800;
@@ -133,6 +133,7 @@ const MainView = styled.section`
 const AboutView = styled.section`
 
   padding: clamp(12rem, 10vh, 30rem) 0 0;
+  margin-bottom: 10rem;
 
   .me-content {
 
