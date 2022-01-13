@@ -1,9 +1,9 @@
 import { useContext, useEffect, useState } from 'react';
-import reactDOM from 'react-dom';
+// import reactDOM from 'react-dom';
 import { Link, useLocation } from 'react-router-dom';
 import { NavigationContext } from '../../contexts/NavigationContext';
 
-import { Container } from './styles';
+import { Container, Underlayer } from './styles';
 
 import toRightArrow from '../../assets/images/icons/right-arrow.svg';
 import toLeftArrow from '../../assets/images/icons/left-arrow.svg';
@@ -82,50 +82,53 @@ function MobileNavControls() {
     }
   }, [location.pathname, pathname]);
 
-  return reactDOM.createPortal(
+  return (
 
-    <Container className="no-select">
+    <>
+      <Underlayer />
+      <Container className="no-select">
 
-      {leftControl.render && (
+        {leftControl.render && (
 
-        <Link
-          to={leftControl.goToPath}
-          className="onLeft mobile-control from-left"
-          onClick={handleNavigation}
-        >
-          <img
-            src={toLeftArrow}
-            alt="arrow-icon"
-            className="no-events"
-          />
-          <span className="no-events">
-            {leftControl.goToName}
-          </span>
-        </Link>
-      )}
+          <Link
+            to={leftControl.goToPath}
+            className="onLeft mobile-control from-left"
+            onClick={handleNavigation}
+          >
+            <img
+              src={toLeftArrow}
+              alt="arrow-icon"
+              className="no-events"
+            />
+            <span className="no-events">
+              {leftControl.goToName}
+            </span>
+          </Link>
+        )}
 
-      {(leftControl.render === true && rightControl.render === true) && <hr />}
+        {(leftControl.render === true && rightControl.render === true) && <hr />}
 
-      {rightControl.render && (
+        {rightControl.render && (
 
-        <Link
-          to={rightControl.goToPath}
-          className="onRight mobile-control from-right"
-          onClick={handleNavigation}
-        >
-          <span className="no-events">
-            {rightControl.goToName}
-          </span>
-          <img
-            src={toRightArrow}
-            alt="arrow-icon"
-            className="no-events"
-          />
-        </Link>
-      )}
+          <Link
+            to={rightControl.goToPath}
+            className="onRight mobile-control from-right"
+            onClick={handleNavigation}
+          >
+            <span className="no-events">
+              {rightControl.goToName}
+            </span>
+            <img
+              src={toRightArrow}
+              alt="arrow-icon"
+              className="no-events"
+            />
+          </Link>
+        )}
 
-    </Container>,
-    document.getElementById('navigation-root'),
+      </Container>
+    </>
+
   );
 }
 
