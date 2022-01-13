@@ -1,19 +1,39 @@
 import styled from 'styled-components';
 
+const Underlayer = styled.div`
+
+  background: ${({ theme }) => theme.color.main.background};
+
+  position: fixed;
+  bottom: -9rem;
+  left: 0;
+
+  height: 19rem;
+  width: 100%;
+
+  z-index: -1;
+
+
+  @media (min-width: 1000px) {
+
+    display: none;
+  }
+`;
+
 const Container = styled.div`
 
   background: ${({ theme }) => theme.color.main.reverseAccent};
-  border-radius: ${({ theme }) => theme.metric.mobileBorderRadius} ${({ theme }) => theme.metric.mobileBorderRadius} 0 0;
-  outline: solid .25rem ${({ theme }) => theme.color.main.selection};
+  border-radius: ${({ theme }) => theme.metric.mobileBorderRadius};
+  border: solid .25rem ${({ theme }) => theme.color.main.selection};
 
   display: flex;
+  pointer-events: all;
 
   height: 9rem;
+  width: 100%;
+  max-width: 95vw;
 
-  position: fixed;
-  bottom: 0;
-  right: 0;
-  left: 0;
+  margin: 0 auto 1rem;
 
   z-index: 2000;
 
@@ -21,20 +41,21 @@ const Container = styled.div`
 
     content:  '';
 
-    background: ${({ theme }) => theme.color.main.reverseAccent};
-    border-top: solid .25rem ${({ theme }) => theme.color.main.selection};
+    background: ${({ theme }) => theme.color.main.background};
     display: block;
 
     width: 100%;
-    height: 100%;
+    height: 200%;
 
     position: absolute;
     top: 100%;
+    left: -.5rem;
+    right: -.5rem;
   }
 
   a {
 
-    border-radius: ${({ theme }) => theme.metric.mobileBorderRadius} ${({ theme }) => theme.metric.mobileBorderRadius} 0 0;
+    border-radius:${({ theme }) => theme.metric.mobileBorderRadius};
     color: inherit;
     cursor: default;
     flex: 1;
@@ -47,12 +68,14 @@ const Container = styled.div`
 
     span {
 
+      font-family: 'Montserrat', sans-serif;
       font-size: 1.7rem;
     }
 
     &.onRight {
 
       span {
+
         margin-right: 1rem;
       }
     }
@@ -60,6 +83,7 @@ const Container = styled.div`
     &.onLeft {
 
       span {
+
         margin-left: 1rem;
       }
     }
@@ -73,8 +97,8 @@ const Container = styled.div`
     &:focus {
 
       background: ${({ theme }) => theme.color.cold.blue};
-      border: solid .3rem ${({ theme }) => theme.color.main.comment};
-      outline: 0;
+      outline: solid .3rem ${({ theme }) => theme.color.cold.blue};
+      /* outline: 0; */
     }
   }
 
@@ -84,7 +108,7 @@ const Container = styled.div`
     border: none;
     border-radius: 1rem;
 
-    margin: auto;
+    margin: auto .25rem;
 
     width: .3rem;
     height: 45%;
@@ -96,4 +120,4 @@ const Container = styled.div`
   }
 `;
 
-export { Container };
+export { Container, Underlayer };

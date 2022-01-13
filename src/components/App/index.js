@@ -2,16 +2,23 @@ import Routes from '../../routes';
 
 import NavigationProvider from '../../contexts/NavigationContext';
 import MobileNavControls from '../MobileNavControls';
-import { Container } from './styles';
+import { Container, MainContent, NavigationContainer } from './styles';
 
 function App() {
 
   return (
     <NavigationProvider>
       <Container>
-        <Routes />
+
+        <MainContent>
+          <Routes />
+        </MainContent>
+
+        <NavigationContainer>
+          <MobileNavControls />
+        </NavigationContainer>
+
       </Container>
-      <MobileNavControls />
     </NavigationProvider>
   );
 }

@@ -8,7 +8,6 @@ const PageContainer = styled.section`
   display: flex;
   flex-direction: row;
 
-
   max-height: 100vh;
   width: 100vw;
 

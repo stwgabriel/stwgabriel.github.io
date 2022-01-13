@@ -73,7 +73,7 @@ const GlobalStyle = createGlobalStyle`
   * {
 
     box-sizing: border-box;
-    font-family: "ProText", -apple-system, BlinkMacSystemFont, Tahoma, Arial Black,Verdana, Helvetica, Montserrat, sans-serif;
+    font-family: "ProText", -apple-system, BlinkMacSystemFont, Helvetica, Tahoma, Arial Black,Verdana, Montserrat, sans-serif;
     text-shadow: ${({ theme }) => theme.effect.textShadow};
 
     padding: 0;
@@ -121,10 +121,39 @@ const GlobalStyle = createGlobalStyle`
 
   :root {
 
-    background: ${({ theme }) => theme.color.main.background};
+    background:  ${({ theme }) => theme.color.main.background};
     font-size: 62.5%;
 
+    overflow: hidden;
+  }
+
+  #root {
+
+    height: 100%;
+  }
+
+  #navigation-root {
+
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    height: 95vh;
+    max-height: 100vh;
     max-width: 100vw;
+
+    z-index: 1000;
+    pointer-events: none;
+
+    @media (max-width: 595px) {
+
+      height: 87.2vh;
+    }
   }
 
   body {
@@ -132,6 +161,8 @@ const GlobalStyle = createGlobalStyle`
     color: ${({ theme }) => theme.color.main.textColor};
     font-size: 1.6rem;
     font-weight: 600;
+
+    height: 100vh;
   }
 
   a,
