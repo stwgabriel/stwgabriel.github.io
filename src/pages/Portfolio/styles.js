@@ -22,7 +22,7 @@ const PortfolioGroupContainer = styled.div`
 
   header#portfolio-group-header {
 
-    margin-bottom: 8vh;
+    margin-bottom: 3.6vw;
 
     h2 {
 
@@ -30,6 +30,14 @@ const PortfolioGroupContainer = styled.div`
       font-weight: 600;
       font-size: 1.6vw;
       font-size: clamp(1.8rem, 1.6vw, 7rem);
+    }
+  }
+
+  @media (max-width: 999px) {
+    margin-bottom: 4rem;
+
+    header#portfolio-group-header {
+      margin: 1.2rem 0 2rem;
     }
   }
 `;
@@ -42,8 +50,11 @@ const ProjectListContainer = styled.div`
   overflow: auto;
 
   &::-webkit-scrollbar {
-
     height: 1vw;
+
+    @media (max-width: 999px) {
+      height: 0;
+    }
   }
 `;
 
@@ -180,7 +191,7 @@ const ProjectContainer = styled.div`
 
       font-size: .9vw;
 
-      margin-bottom: 1.6vh;
+      margin-bottom: 1vw;
 
       display: -webkit-box;
       -webkit-line-clamp: 2;
@@ -261,6 +272,74 @@ const ProjectContainer = styled.div`
 
     margin-right: 1vw;
   }
+
+  @media (max-width: 999px) {
+    border-radius: ${({ theme }) => theme.metric.mobileBorderRadius};
+
+    margin-bottom: 1rem;
+
+    .main-image {
+
+      img {
+        border-radius: ${({ theme }) => theme.metric.mobileBorderRadius};
+      }
+    }
+
+    .info {
+      border-radius: ${({ theme }) => theme.metric.mobileBorderRadius};
+
+      padding: 1.2rem;
+
+      h3 {
+        font-size: 1.4rem;
+        margin-bottom: .8rem;
+      }
+
+      .description {
+        height: 2.8rem;
+        font-size: 1.1rem;
+
+        margin-bottom: .8rem;
+      }
+
+      .expand-close-button {
+        border-radius: ${({ theme }) => theme.metric.mobileBorderRadius};
+
+        padding: .6rem .8rem;
+
+        img {
+          width: 1.6rem;
+        }
+      }
+
+      .tags-container {
+        height: 8rem;
+
+        h3 {
+          margin-bottom: 1.1rem;
+        }
+
+        .tags {
+          font-size: 1.1rem;
+        }
+      }
+
+      .see-project-button-container {
+        .see-project-button {
+          border-radius: ${({ theme }) => theme.metric.mobileBorderRadius};
+          font-size: 1.2rem;
+
+          padding: .6rem 1.2rem;
+        }
+      }
+    }
+
+    &.open {
+      .info {
+        transform: translateY(-94%);
+      }
+    }
+  }
 `;
 
 const Tag = styled.span`
@@ -272,6 +351,13 @@ const Tag = styled.span`
 
   padding: .5vw .8vw;
   margin: 0 .6vw .69vw 0;
+
+  @media (max-width: 999px) {
+    border-radius: ${({ theme }) => theme.metric.mobileBorderRadius};
+
+    padding: .5rem .8rem;
+    margin: 0 .6rem .7rem 0;
+  }
 `;
 
 export {
