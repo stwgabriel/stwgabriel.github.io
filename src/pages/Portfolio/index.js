@@ -26,7 +26,7 @@ const frontEndProjectsArray = [
     title: 'MoveIt',
     description: 'MoveIt is a pomodoro app with challenges developed at NLW.',
     subtitle: 'Techs',
-    tags: ['Typescript', 'Next', 'CSS', 'Git'],
+    tags: ['Typescript', 'Next', 'CSS', 'Git', 'GitHub'],
     image: moveItPreview,
     projectUrl: 'https://github.com/stwgabriel/moveit-next',
   },
