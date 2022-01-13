@@ -276,6 +276,9 @@ const ProjectContainer = styled.div`
   @media (max-width: 999px) {
     border-radius: ${({ theme }) => theme.metric.mobileBorderRadius};
 
+    width: clamp(28rem, 20.5vw, 90.5rem);
+    height: clamp(26rem, 20vw, 90rem);
+
     margin-bottom: 1rem;
 
     .main-image {
@@ -288,22 +291,86 @@ const ProjectContainer = styled.div`
     .info {
       border-radius: ${({ theme }) => theme.metric.mobileBorderRadius};
 
-      padding: 1.2rem;
+      padding: 1.4rem;
 
       h3 {
-        font-size: 1.4rem;
-        margin-bottom: .8rem;
+        font-size: 1.6rem;
+        margin-bottom: 1.5rem;
       }
 
       .description {
-        height: 2.8rem;
+        height: 3rem;
+        font-size: 1.3rem;
+
+        margin-bottom: 1.2rem;
+      }
+
+      .expand-close-button {
+        border-radius: ${({ theme }) => theme.metric.mobileBorderRadius};
+
+        padding: .8rem 1rem;
+
+        img {
+          width: 2rem;
+        }
+      }
+
+      .tags-container {
+        height: 10rem;
+
+        h3 {
+          margin-bottom: 1.1rem;
+        }
+
+        .tags {
+          font-size: 1.3rem;
+        }
+      }
+
+      .see-project-button-container {
+        .see-project-button {
+          border-radius: ${({ theme }) => theme.metric.mobileBorderRadius};
+          font-size: 1.4rem;
+
+          padding: .8rem 1.4rem;
+        }
+      }
+    }
+
+    &.open {
+      .info {
+        transform: translateY(-94%);
+      }
+    }
+  }
+
+  @media (max-width: 340px) {
+    width: 21.5rem;
+    height: 21rem;
+
+    .info {
+      padding: 1.1rem;
+
+      h3 {
+        font-size: 1.4rem;
+        margin-bottom: 1rem;
+      }
+
+      .description {
         font-size: 1.1rem;
 
         margin-bottom: .8rem;
       }
 
+      .tags-container {
+        height: 8rem;
+
+        .tags {
+          font-size: 1.1rem;
+        }
+      }
+
       .expand-close-button {
-        border-radius: ${({ theme }) => theme.metric.mobileBorderRadius};
 
         padding: .6rem .8rem;
 
@@ -312,31 +379,12 @@ const ProjectContainer = styled.div`
         }
       }
 
-      .tags-container {
-        height: 8rem;
-
-        h3 {
-          margin-bottom: 1.1rem;
-        }
-
-        .tags {
-          font-size: 1.1rem;
-        }
-      }
-
       .see-project-button-container {
         .see-project-button {
-          border-radius: ${({ theme }) => theme.metric.mobileBorderRadius};
           font-size: 1.2rem;
 
-          padding: .6rem 1.2rem;
+          padding: .6rem 1rem;
         }
-      }
-    }
-
-    &.open {
-      .info {
-        transform: translateY(-94%);
       }
     }
   }
@@ -357,6 +405,10 @@ const Tag = styled.span`
 
     padding: .5rem .8rem;
     margin: 0 .6rem .7rem 0;
+  }
+
+  @media (max-width: 340px) {
+    padding: .4rem .6rem;
   }
 `;
 
