@@ -6,11 +6,13 @@ const NavigationContext = createContext();
 function NavigationProvider({ children }) {
 
   const [pageTransition, setPageTransition] = useState({
+
     initial: {
 
       position: 'absolute',
-      top: '5rem',
+      top: '0',
       left: '0',
+      transform: 'translateY(5rem)',
 
       opacity: 0,
     },
@@ -19,13 +21,15 @@ function NavigationProvider({ children }) {
       position: 'absolute',
       top: '0',
       left: '0',
+      transform: 'translateY(0)',
 
       opacity: 1,
     },
     leave: {
       position: 'absolute',
-      top: '5rem',
+      top: '0',
       left: '0',
+      transform: 'translateY(5rem)',
 
       opacity: 0,
     },
@@ -114,8 +118,9 @@ function NavigationProvider({ children }) {
       initial: {
 
         position: 'absolute',
-        top: '5rem',
+        top: '0',
         left: '0',
+        transform: 'translateY(5rem)',
 
         opacity: 0,
       },
@@ -124,13 +129,15 @@ function NavigationProvider({ children }) {
         position: 'absolute',
         top: '0',
         left: '0',
+        transform: 'translateY(0)',
 
         opacity: 1,
       },
       leave: {
         position: 'absolute',
-        top: '5rem',
+        top: '0',
         left: '0',
+        transform: 'translateY(5rem)',
 
         opacity: 0,
       },
