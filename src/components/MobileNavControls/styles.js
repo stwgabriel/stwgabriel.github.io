@@ -8,7 +8,7 @@ const Underlayer = styled.div`
   bottom: -9rem;
   left: 0;
 
-  height: 19rem;
+  height: 22.9vh;
   width: 100%;
 
   z-index: -1;
