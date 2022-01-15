@@ -63,7 +63,7 @@ const ProjectContainer = styled.div`
   border: .15vw solid ${({ theme }) => theme.color.gray.default};
   border-radius: ${({ theme }) => theme.metric.borderRadius};
   box-shadow: ${({ theme }) => theme.effect.containerShadow};
-  font-family: 'Montserrat', sans-serif;
+  font-family: "ProText", -apple-system, BlinkMacSystemFont, Helvetica, Tahoma, Arial Black,Verdana, Montserrat, sans-serif;
 
   flex: none;
 
@@ -139,6 +139,7 @@ const ProjectContainer = styled.div`
     h3 {
 
       font-size: 1.2vw;
+      font-family: "ProDisplay", -apple-system, BlinkMacSystemFont, Helvetica, Tahoma, Arial Black,Verdana, Montserrat, sans-serif;
       font-weight: 600;
       margin-bottom: .8vw;
 
@@ -235,7 +236,7 @@ const ProjectContainer = styled.div`
 
         font-size: .82vw;
         padding: .6vw 1.3vw;
-        margin-top: .3vw;
+        margin-top: .2vw;
 
         transition: background .25s ease-in;
 
@@ -268,18 +269,14 @@ const ProjectContainer = styled.div`
     }
   }
 
-  &:last-child {
+  @media (max-width: 1150px) {
 
-    margin-right: 1vw;
-  }
-
-  @media (max-width: 999px) {
+    border: .15rem solid ${({ theme }) => theme.color.gray.default};
     border-radius: ${({ theme }) => theme.metric.mobileBorderRadius};
+    width: 29rem;
+    height: 27.5rem;
 
-    width: clamp(28rem, 20.5vw, 90.5rem);
-    height: clamp(26rem, 20vw, 90rem);
-
-    margin-bottom: 1rem;
+    margin: 1rem 2rem 1rem 1rem;
 
     .main-image {
 
@@ -289,80 +286,100 @@ const ProjectContainer = styled.div`
     }
 
     .info {
-      border-radius: ${({ theme }) => theme.metric.mobileBorderRadius};
 
+      border-radius: ${({ theme }) => theme.metric.mobileBorderRadius};
+      outline: .15rem solid ${({ theme }) => theme.color.gray.default};
       padding: 1.4rem;
 
       h3 {
-        font-size: 1.6rem;
+
+        font-size: 1.8rem;
         margin-bottom: 1.5rem;
       }
 
       .description {
+
         height: 3rem;
         font-size: 1.3rem;
 
-        margin-bottom: 1.2rem;
+        margin: .1rem 0 1.2rem 0;
       }
 
       .expand-close-button {
+
         border-radius: ${({ theme }) => theme.metric.mobileBorderRadius};
 
-        padding: .8rem 1rem;
+        padding: 1.1rem 1.5rem;
 
         img {
+
           width: 2rem;
         }
       }
 
       .tags-container {
+
         height: 10rem;
 
         h3 {
+
           margin-bottom: 1.1rem;
         }
 
         .tags {
+
           font-size: 1.3rem;
         }
       }
 
       .see-project-button-container {
+
         .see-project-button {
+
           border-radius: ${({ theme }) => theme.metric.mobileBorderRadius};
           font-size: 1.4rem;
 
-          padding: .8rem 1.4rem;
+          padding: 1rem 1.8rem;
+          margin-top: .7rem;
         }
       }
     }
 
     &.open {
+
       .info {
+
         transform: translateY(-94%);
       }
     }
   }
 
-  @media (max-width: 340px) {
+  @media (max-width: 390px) {
+
     width: 21.5rem;
     height: 21rem;
 
+    margin: 1rem;
+
     .info {
+
       padding: 1.1rem;
 
       h3 {
+
         font-size: 1.4rem;
         margin-bottom: 1rem;
       }
 
       .description {
+
         font-size: 1.1rem;
 
         margin-bottom: .8rem;
       }
 
       .tags-container {
+
         height: 8rem;
 
         .tags {
@@ -375,12 +392,15 @@ const ProjectContainer = styled.div`
         padding: .6rem .8rem;
 
         img {
+
           width: 1.6rem;
         }
       }
 
       .see-project-button-container {
+
         .see-project-button {
+
           font-size: 1.2rem;
 
           padding: .6rem 1rem;
