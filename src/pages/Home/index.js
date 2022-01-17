@@ -43,11 +43,11 @@ function Home() {
     <PageContainer id="page-container">
 
       <PageView marginLeft>
+        <NavMenu />
+        <button type="button" id="main-content" aria-hidden="true">
+          {' '}
+        </button>
         <MainView>
-          <NavMenu />
-          <button type="button" id="main-content">
-            {' '}
-          </button>
           <h1 id="home-title">
             <span>Hello,</span>
             <span>I&apos;m Gabriel</span>
@@ -80,7 +80,7 @@ function Home() {
               <p>
                 Currently self-taught in Web Development and UX Design, I always try to keep myself
                 updated and organized in subjects of the area so I can always offer the best of
-                myself in my creation 🧙‍♂️.
+                myself in my creations 🧙‍♂️.
               </p>
               <p>
                 I am interested in the whole spectrum of front-end development and am

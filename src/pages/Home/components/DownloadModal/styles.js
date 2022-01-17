@@ -76,7 +76,7 @@ const Container = styled.div`
       margin: auto;
     }
 
-    &:hover {
+    &:hover, &:active {
 
       border: solid .25vw ${({ theme }) => theme.color.cold.blue};
     }
@@ -86,6 +86,7 @@ const Container = styled.div`
 
     border-radius: ${({ theme }) => theme.metric.mobileBorderRadius};
     padding: 3rem 2rem;
+
     .close-button {
 
       border-radius:  ${({ theme }) => theme.metric.mobileBorderRadius};
@@ -96,6 +97,12 @@ const Container = styled.div`
       img {
 
         width: 35%;
+      }
+
+
+      &:hover, &:active {
+
+        border: solid .25rem ${({ theme }) => theme.color.cold.blue};
       }
     }
   }
@@ -173,7 +180,7 @@ const File = styled.li`
       pointer-events: none;
     }
 
-    &:hover, &:focus {
+    &:hover, &:focus, &:active {
 
       background:  ${({ theme }) => theme.color.main.reverseAccent};
     }
@@ -244,14 +251,15 @@ const FileSelector = styled.div`
       border-radius:  0 ${({ theme }) => theme.metric.borderRadius} ${({ theme }) => theme.metric.borderRadius} 0  ;
     }
 
-    &:hover {
+    &:hover , &:active {
 
       background:${({ theme }) => theme.color.main.reverseAccent};
     }
-    &:focus {
+
+    &:focus, &:active {
 
       background:${({ theme }) => theme.color.main.reverseAccent};
-      border: solid .25vw ${({ theme }) => theme.color.main.comment} ;
+      border: solid .25vw ${({ theme }) => theme.color.cold.blue} ;
       outline: none;
     }
   }
@@ -273,6 +281,21 @@ const FileSelector = styled.div`
     .option-link {
 
       width: 8rem;
+
+      &:first-of-type {
+
+        border-radius:  ${({ theme }) => theme.metric.mobileBorderRadius} 0 0 ${({ theme }) => theme.metric.mobileBorderRadius}  ;
+      }
+
+      &:last-of-type {
+
+        border-radius:  0 ${({ theme }) => theme.metric.mobileBorderRadius} ${({ theme }) => theme.metric.mobileBorderRadius} 0  ;
+      }
+
+      &:focus, &:active {
+
+        border: solid .25rem ${({ theme }) => theme.color.cold.blue} ;
+      }
     }
   }
 `;

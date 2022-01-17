@@ -7,20 +7,19 @@ const MainView = styled.section`
   justify-content: space-between;
 
   max-height: 80rem;
-  height: clamp(38rem, 85vh, 250rem);
+  height: clamp(38rem, 80vh, 250rem);
   min-height: 30rem;
 
   position:relative;
 
-  padding-bottom: 8vh;
-  padding-bottom: clamp(5rem, 8vh, 30rem);
+  padding: 5rem 0 9rem;
+  padding: clamp(4rem, 6vh, 30rem) 0 clamp(5rem, 12vh, 30rem);
 
   h1#home-title {
 
     color: ${({ theme }) => theme.color.main.fadeTextColor};
-    font-size: 10vw;
-    font-size: clamp(9rem, 11vw, 40rem);
-    font-family: "ProDisplay", -apple-system, BlinkMacSystemFont, Helvetica, Tahoma, Arial Black,Verdana, Montserrat, sans-serif;
+    font-size: 13rem;
+    font-size: clamp (13rem, 15vw, 40rem);
     letter-spacing: small;
     line-height: 1.6ch;
     font-weight: 800;
@@ -29,7 +28,7 @@ const MainView = styled.section`
     display:flex;
     flex-direction: column;
 
-    margin-left: -.8%;
+    margin: 0 0 2rem -.8%;
 
     span {
 
@@ -97,14 +96,19 @@ const MainView = styled.section`
 
   @media (max-width: 999px) {
 
+    padding: 10rem 0;
+    padding: clamp(5rem, 12vh, 30rem) 0;
+
     h1#home-title {
 
-      font-size: clamp(7rem, 25vw, 13rem);
+      font-size: min(22vw, 12rem);
+      font-size: clamp(7.5rem, 24vw, 13rem);
     }
 
     .scroll-down {
 
-      border-radius: ${({ theme }) => theme.metric.mobileBorderRadius};
+      border:0;
+      outline: 0;
     }
   }
 
@@ -146,7 +150,7 @@ const AboutView = styled.section`
 
     .content__text {
 
-      font-size: 1.3vw;
+      font-size: 1.9rem;
       font-size: clamp(1.9rem, 1.3vw, 6.5rem);
       font-weight: 500;
 
