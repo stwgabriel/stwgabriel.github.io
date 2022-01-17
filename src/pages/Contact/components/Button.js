@@ -9,7 +9,7 @@ const Button = styled.button`
   font-weight: 700;
 
   width: 100%;
-  height: 6rem;
+  height: 4.8vw;
 
   margin-top: 1vw;
 
@@ -40,9 +40,12 @@ const Button = styled.button`
   }
 
   @media (max-width: 999px) {
+
     border-radius: ${({ theme }) => theme.metric.mobileBorderRadius};
 
     font-size: 1.3rem;
+
+    height: 6rem;
 
     margin-top: 1rem;
     padding: 1.4rem 0;
