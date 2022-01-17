@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 const Underlayer = styled.div`
 
-  background: ${({ theme }) => theme.color.main.background};
+  background: red;
 
   position: fixed;
   bottom: -9rem;
@@ -13,11 +13,7 @@ const Underlayer = styled.div`
 
   z-index: -1;
 
-
-  @media (min-width: 1000px) {
-
-    display: none;
-  }
+  display: none;
 `;
 
 const Container = styled.div`
