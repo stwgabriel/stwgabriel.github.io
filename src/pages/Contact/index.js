@@ -11,7 +11,7 @@ import NavMenu from '../../components/NavMenu';
 import PageTitle from '../../components/PageTitle';
 import Form from './components/Form';
 
-import { ContactContainer } from './styles';
+import { ContactView } from './styles';
 
 import linkedinIcon from '../../assets/images/icons/linkedin.svg';
 import githubIcon from '../../assets/images/icons/github.svg';
@@ -45,11 +45,11 @@ function Contact() {
       </PageBorderNav>
       <PageView marginRight>
         <NavMenu />
-        <button type="button" id="main-content">
+        <button type="button" id="main-content" aria-hidden="true">
           {' '}
         </button>
         <PageTitle className="no-select">Contact</PageTitle>
-        <ContactContainer>
+        <ContactView>
           <div className="socials">
             <a href="https://linkedin.com/in/stwgabriel" className="linkedin" target="_blank" rel="noreferrer">
               <img src={linkedinIcon} alt="Linkedin Icon" />
@@ -61,9 +61,9 @@ function Contact() {
               <img src={instagramIcon} alt="Instagram Icon" />
             </a>
           </div>
-          <span>or</span>
+          <span className="alternativeContactFormText">or</span>
           <Form />
-        </ContactContainer>
+        </ContactView>
       </PageView>
     </PageContainer>
   );

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const ContactContainer = styled.div`
+const ContactView = styled.section`
 
   display: flex;
   flex-direction: column;
@@ -66,25 +66,25 @@ const ContactContainer = styled.div`
     }
   }
 
-  > span {
+  .alternativeContactFormText {
 
-    font-size: 1.2vw;
+    font-size: 1.6vw;
 
     margin: 2vw 0;
   }
 
   @media (max-width: 999px) {
 
-    max-width: 40rem;
+    max-width: 55rem;
     width: 90vw;
 
     margin-bottom: 10rem;
 
-    > span {
+    .alternativeContactFormText {
 
-      font-size: 1.3rem;
+      font-size: 1.9rem;
 
-      margin: 1.6rem 0;
+      margin: 2rem 0 3rem;
     }
 
     .socials {
@@ -106,6 +106,7 @@ const ContactContainer = styled.div`
       }
     }
   }
+
 `;
 
 const FormContainer = styled.form`
@@ -119,14 +120,14 @@ const FormContainer = styled.form`
     display: flex;
     align-items: center;
 
-    font-size: 1.4vw;
+    font-size: 1.1vw;
 
     margin: -.2vw 0 1vw 1vw;
 
     #error-spec {
 
       margin-left: .6vw;
-      font-size: 1.1vw;
+      font-size: .9vw;
     }
 
     @media (max-width: 999px) {
@@ -234,11 +235,13 @@ const InputContainer = styled.div`
       z-index: 1000;
 
       @media (max-width: 999px) {
+
         top: 3rem;
       }
     }
 
     @media (max-width: 999px) {
+
       min-height: 4rem;
       height: 16rem;
 
@@ -266,7 +269,7 @@ const InputContainer = styled.div`
 
     font-size: 1.4vw;
 
-    transition: transform, font-size, .25s ease-in;
+    transition: transform, font-size, .25s ease-out;
   }
 
   &.error {
@@ -295,7 +298,7 @@ const InputContainer = styled.div`
 
       padding: 1.8rem 1.2rem 0;
       border-radius: ${({ theme }) => theme.metric.mobileBorderRadius};
-      font-size: 1.7rem;
+      font-size: 1.9rem;
 
       &:focus, &:valid {
 
@@ -326,9 +329,9 @@ const InputContainer = styled.div`
       bottom: 1.7rem;
       left: 1.5rem;
 
-      font-size: 1.4rem;
+      font-size: 1.6rem;
     }
   }
 `;
 
-export { ContactContainer, FormContainer, InputContainer };
+export { ContactView, FormContainer, InputContainer };
