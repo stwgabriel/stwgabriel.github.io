@@ -73,13 +73,12 @@ const GlobalStyle = createGlobalStyle`
   * {
 
     box-sizing: border-box;
-    font-family: "ProText", -apple-system, BlinkMacSystemFont, Helvetica, Tahoma, Arial Black,Verdana, Montserrat, sans-serif;
+    font-family: -apple-system, "ProDisplay", BlinkMacSystemFont, Helvetica, Tahoma, Arial Black,Verdana, Montserrat, sans-serif;
     text-shadow: ${({ theme }) => theme.effect.textShadow};
 
     padding: 0;
     margin: 0;
 
-    text-shadow: ${({ theme }) => theme.effect.textShadow};
     scrollbar-color: ${({ theme }) => theme.color.main.background} ${({ theme }) => theme.color.main.selection};
   }
 
@@ -104,12 +103,17 @@ const GlobalStyle = createGlobalStyle`
   &::-webkit-scrollbar-thumb {
 
     background: ${({ theme }) => theme.color.main.background};
-    border-radius:1vw;
+    border-radius: ${({ theme }) => theme.metric.borderRadius};
     border:solid .3vw ${({ theme }) => theme.color.main.selection};
 
     &:hover {
 
       border: solid .1vw ${({ theme }) => theme.color.main.selection};
+    }
+
+    @media (max-width: 999px) {
+
+      border-radius: ${({ theme }) => theme.metric.mobileBorderRadius};
     }
   }
 
@@ -160,9 +164,24 @@ const GlobalStyle = createGlobalStyle`
 
     color: ${({ theme }) => theme.color.main.textColor};
     font-size: 1.6rem;
-    font-weight: 600;
+    font-weight: 500;
 
     height: 100vh;
+  }
+
+  p,
+  a,
+  li,
+  span,
+  label,
+  button {
+
+    font-family: -apple-system, "ProDisplay", BlinkMacSystemFont, Helvetica, Tahoma, Arial Black,Verdana, Montserrat, sans-serif;
+
+    @media (max-width: 1300px) {
+
+      font-family: -apple-system, "ProText", BlinkMacSystemFont, Helvetica, Tahoma, Arial Black,Verdana, Montserrat, sans-serif;
+    }
   }
 
   a,
@@ -171,6 +190,11 @@ const GlobalStyle = createGlobalStyle`
     border: none;
     text-decoration:none;
     cursor: pointer;
+
+    @media (max-width: 999px) {
+
+      cursor: default;
+    }
   }
 
   li {
