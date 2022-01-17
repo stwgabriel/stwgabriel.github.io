@@ -62,7 +62,7 @@ const frontEndProjectsArray = [
 const designProjectsArray = [
   {
     id: uuidv4(),
-    title: 'My Personal Website ',
+    title: 'Personal Website ',
     description: 'Website made to show my projects and tell a little about me and my work.',
     subtitle: 'Tags',
     tags: ['Figma', 'UX Design'],
@@ -100,7 +100,7 @@ function Portfolio() {
 
       <PageView>
         <NavMenu />
-        <button type="button" id="main-content">
+        <button type="button" id="main-content" aria-hidden="true">
           {' '}
         </button>
         <PageTitle className="no-select">Portfolio</PageTitle>

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const PortfolioContainer = styled.div`
+const PortfolioContainer = styled.section`
 
   flex: 1;
 
@@ -26,18 +26,24 @@ const PortfolioGroupContainer = styled.div`
 
     h2 {
 
-      font-family: "ProDisplay", -apple-system, BlinkMacSystemFont, Tahoma, Arial Black,Verdana, Helvetica, Montserrat, sans-serif;
       font-weight: 600;
       font-size: 1.6vw;
-      font-size: clamp(1.8rem, 1.6vw, 7rem);
+      font-size: clamp(1.9rem, 1.6vw, 7rem);
     }
   }
 
   @media (max-width: 999px) {
+
     margin-bottom: 4rem;
 
     header#portfolio-group-header {
+
       margin: 1.2rem 0 2rem;
+
+      h2 {
+
+         font-family: -apple-system, "ProText", BlinkMacSystemFont, Helvetica, Tahoma, Arial Black,Verdana, Montserrat, sans-serif;
+      }
     }
   }
 `;
@@ -50,10 +56,12 @@ const ProjectListContainer = styled.div`
   overflow: auto;
 
   &::-webkit-scrollbar {
-    height: 1vw;
+
+    height: 1.4vw;
 
     @media (max-width: 999px) {
-      height: 0;
+
+      height: 1.4rem;
     }
   }
 `;
@@ -63,7 +71,6 @@ const ProjectContainer = styled.div`
   border: .15vw solid ${({ theme }) => theme.color.gray.default};
   border-radius: ${({ theme }) => theme.metric.borderRadius};
   box-shadow: ${({ theme }) => theme.effect.containerShadow};
-  font-family: "ProText", -apple-system, BlinkMacSystemFont, Helvetica, Tahoma, Arial Black,Verdana, Montserrat, sans-serif;
 
   flex: none;
 
@@ -116,6 +123,7 @@ const ProjectContainer = styled.div`
     border-radius: ${({ theme }) => theme.metric.borderRadius};
     outline: .15vw solid ${({ theme }) => theme.color.gray.default};
 
+
     position: absolute;
     top: 100%;
     left: 0;
@@ -139,7 +147,7 @@ const ProjectContainer = styled.div`
     h3 {
 
       font-size: 1.2vw;
-      font-family: "ProDisplay", -apple-system, BlinkMacSystemFont, Helvetica, Tahoma, Arial Black,Verdana, Montserrat, sans-serif;
+      font-family: -apple-system,"ProText", BlinkMacSystemFont, Helvetica, Tahoma, Arial Black,Verdana, Montserrat, sans-serif;
       font-weight: 600;
       margin-bottom: .8vw;
 
@@ -189,8 +197,9 @@ const ProjectContainer = styled.div`
       width: 100%;
       height: 2.2vw;
       color: ${({ theme }) => theme.color.main.fadeTextColor};
-
-      font-size: .9vw;
+      font-family: -apple-system,"ProText", BlinkMacSystemFont, Helvetica, Tahoma, Arial Black,Verdana, Montserrat, sans-serif;
+      font-size: 1vw;
+      font-weight: 600;
 
       margin-bottom: 1vw;
 
@@ -214,11 +223,14 @@ const ProjectContainer = styled.div`
 
       .tags {
 
+        font-size: .93vw;
         display: flex;
         flex-wrap: wrap;
 
-        font-size: .82vw;
+        span {
 
+          font-family: -apple-system, "ProText", BlinkMacSystemFont, Helvetica, Tahoma, Arial Black,Verdana, Montserrat, sans-serif;
+        }
       }
     }
 
@@ -233,7 +245,7 @@ const ProjectContainer = styled.div`
         border-radius: ${({ theme }) => theme.metric.borderRadius};
         box-shadow: ${({ theme }) => theme.effect.containerShadow};
         color: ${({ theme }) => theme.color.main.fadeTextColor};
-
+        font-family: -apple-system, "ProText", BlinkMacSystemFont, Helvetica, Tahoma, Arial Black, Verdana, Montserrat, sans-serif;
         font-size: .82vw;
         padding: .6vw 1.3vw;
         margin-top: .2vw;
