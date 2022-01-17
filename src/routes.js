@@ -21,10 +21,10 @@ function Routes() {
     leave: pageTransition.leave,
   });
 
-  return transition((styles, item) => (
+  return transition((styles, routeLocation) => (
 
     <animated.div style={styles}>
-      <Switch location={item}>
+      <Switch location={routeLocation}>
         <Route exact path="/" component={Home} />
         <Route path="/portfolio" component={Portfolio} />
         <Route path="/skills" component={Skills} />
