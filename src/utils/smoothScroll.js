@@ -6,7 +6,7 @@ function handleScroll(e) {
   const finalTarget = document.querySelector(finalTargetId).offsetTop;
 
   document.getElementById('page-container').scroll({
-    top: finalTarget + 90,
+    top: finalTarget,
     behavior: 'smooth',
   });
 }
