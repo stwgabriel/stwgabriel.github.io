@@ -137,7 +137,6 @@ const MainView = styled.section`
 const AboutView = styled.section`
 
   padding: clamp(12rem, 10vh, 30rem) 0 0;
-  margin-bottom: 10rem;
 
   .me-content {
 
@@ -150,8 +149,8 @@ const AboutView = styled.section`
 
     .content__text {
 
-      font-size: 1.9rem;
-      font-size: clamp(1.9rem, 1.3vw, 6.5rem);
+      font-size: 2rem;
+      font-size: clamp(2rem, 1.25vw, 6.5rem);
       font-weight: 500;
 
       display: flex;
@@ -160,7 +159,7 @@ const AboutView = styled.section`
       grid-area: meText;
 
       padding-right: 10vw;
-      padding-right: clamp(5rem, 10vw, 15rem);
+      padding-right: clamp(5rem, 10vw, 80rem);
 
       p {
 
@@ -219,7 +218,7 @@ const AboutView = styled.section`
 
       img {
 
-        width: clamp(20rem, 30vw, 130rem);
+        width: clamp(20rem, 30vw, 140rem);
       }
     }
   }

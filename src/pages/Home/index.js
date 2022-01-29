@@ -60,7 +60,7 @@ function Home() {
 
             <div className="position">
               <span>Front-end Developer</span>
-              <span>&amp; UX Design Student</span>
+              <span>&amp; UX Designer</span>
             </div>
           </div>
         </MainView>
