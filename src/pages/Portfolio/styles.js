@@ -15,7 +15,7 @@ const PortfolioGroupContainer = styled.div`
 
   margin-bottom: 4vw;
 
-  &+& {
+  &:last-child {
 
     margin-bottom: 0;
   }
@@ -26,9 +26,9 @@ const PortfolioGroupContainer = styled.div`
 
     h2 {
 
-      font-weight: 600;
       font-size: 1.6vw;
       font-size: clamp(1.9rem, 1.6vw, 7rem);
+      font-weight: 700;
     }
   }
 
@@ -42,7 +42,7 @@ const PortfolioGroupContainer = styled.div`
 
       h2 {
 
-         font-family: -apple-system, "ProText", BlinkMacSystemFont, Helvetica, Tahoma, Arial Black,Verdana, Montserrat, sans-serif;
+        font-size: 2.4rem;
       }
     }
   }
@@ -121,7 +121,7 @@ const ProjectContainer = styled.div`
 
     background: ${({ theme }) => theme.color.main.reverseAccent};
     border-radius: ${({ theme }) => theme.metric.borderRadius};
-    outline: .15vw solid ${({ theme }) => theme.color.gray.default};
+    box-shadow: 0 0 0 .15vw  ${({ theme }) => theme.color.gray.default};
 
 
     position: absolute;
@@ -300,7 +300,7 @@ const ProjectContainer = styled.div`
     .info {
 
       border-radius: ${({ theme }) => theme.metric.mobileBorderRadius};
-      outline: .15rem solid ${({ theme }) => theme.color.gray.default};
+      box-shadow: 0 0 0 .15rem ${({ theme }) => theme.color.gray.default};
       padding: 1.4rem;
 
       h3 {
