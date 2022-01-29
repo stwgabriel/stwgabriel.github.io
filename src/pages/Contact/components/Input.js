@@ -20,7 +20,7 @@ function Input(props) {
             type={type}
             name={name}
             required
-            disabled={true}
+            disabled
           />
         ) : (
           <textarea
@@ -29,7 +29,7 @@ function Input(props) {
             type={type}
             name={name}
             required
-            disabled={true}
+            disabled
           />
         )}
 
