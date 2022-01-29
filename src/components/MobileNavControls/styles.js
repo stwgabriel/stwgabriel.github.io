@@ -93,8 +93,8 @@ const Container = styled.div`
     &:focus {
 
       background: ${({ theme }) => theme.color.cold.blue};
-      outline: solid .3rem ${({ theme }) => theme.color.cold.blue};
-      /* outline: 0; */
+      box-shadow: 0 0 0 .3rem ${({ theme }) => theme.color.cold.blue};
+      outline: 0;
     }
   }
 

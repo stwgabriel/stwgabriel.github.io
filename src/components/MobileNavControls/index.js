@@ -3,7 +3,7 @@ import { useContext, useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { NavigationContext } from '../../contexts/NavigationContext';
 
-import { Container, Underlayer } from './styles';
+import { Container } from './styles';
 
 import toRightArrow from '../../assets/images/icons/right-arrow.svg';
 import toLeftArrow from '../../assets/images/icons/left-arrow.svg';
@@ -85,8 +85,7 @@ function MobileNavControls() {
   return (
 
     <>
-      <Underlayer />
-      <Container className="no-select">
+      <Container className="no-select" role="navigation" aria-label="Mobile">
 
         {leftControl.render && (
 
