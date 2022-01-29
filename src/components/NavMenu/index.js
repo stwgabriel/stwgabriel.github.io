@@ -19,7 +19,7 @@ function NavMenu() {
 
   return (
 
-    <Container>
+    <Container role="navigation" aria-label="Main">
       <ul id="nav-menu-options">
         <li className="skip-to-content-container">
           <a href="#main-content" id="skip-to-content" onClick={focusOnContent}> Skip to content</a>
