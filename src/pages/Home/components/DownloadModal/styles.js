@@ -44,7 +44,7 @@ const Container = styled.div`
 
   .close-button {
 
-    background: ${({ theme }) => theme.color.selection};
+    background: ${({ theme }) => theme.color.main.selection};
     border:none;
     border-radius:  ${({ theme }) => theme.metric.borderRadius};
     box-shadow: ${({ theme }) => theme.effect.itemShadow};
@@ -65,7 +65,7 @@ const Container = styled.div`
     margin-bottom: 2.5vw;
     margin-bottom: clamp(3.3rem, 2.5vw, 10rem);
 
-    transition: background .3s ease-in;
+    transition: filter .3s ease-in;
 
     img {
 
@@ -78,7 +78,7 @@ const Container = styled.div`
 
     &:hover, &:active {
 
-      border: solid .25vw ${({ theme }) => theme.color.cold.blue};
+      filter: brightness(1.4);
     }
   }
 
@@ -97,12 +97,6 @@ const Container = styled.div`
       img {
 
         width: 35%;
-      }
-
-
-      &:hover, &:active {
-
-        border: solid .25rem ${({ theme }) => theme.color.cold.blue};
       }
     }
   }
