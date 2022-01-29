@@ -3,10 +3,10 @@ import styled from 'styled-components';
 const PageTitle = styled.h2`
 
   color: transparent;
-  font-size: clamp(4rem, 4vw, 16rem);
+  font-size: clamp(5rem, 4vw, 16rem);
   font-family: "ProDisplay", -apple-system, BlinkMacSystemFont, Tahoma, Arial Black,Verdana, Helvetica, Montserrat, sans-serif;
   font-weight: 800;
-  -webkit-text-stroke: .1vw ${({ theme }) => theme.color.main.textColor};
+  -webkit-text-stroke: .15vw ${({ theme }) => theme.color.main.textColor};
 
   margin-bottom: 4vw;
   margin-bottom: clamp(5rem, 4vw, 8rem);
@@ -14,7 +14,7 @@ const PageTitle = styled.h2`
   @media (max-width: 999px) {
 
     font-size: clamp(4rem, 13vw, 6rem);
-    -webkit-text-stroke: .1rem ${({ theme }) => theme.color.main.textColor};
+    -webkit-text-stroke: .15rem ${({ theme }) => theme.color.main.textColor};
   }
 `;
 
