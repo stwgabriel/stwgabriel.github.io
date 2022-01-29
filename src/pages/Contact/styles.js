@@ -22,38 +22,49 @@ const ContactView = styled.section`
       align-items: center;
       justify-content: center;
 
-      height: 4vw;
-      width: 4vw;
+      height: 3.5vw;
+      width: 3.5vw;
 
-      padding: .8vw;
+      padding: .5vw;
+      margin-right: 1vw;
 
+      &:last-child {
+
+        margin: 0;
+      }
 
       img {
+
+        filter: drop-shadow(0 0 .2vw #0003);
 
         width: 80%;
 
         transition: width .25s ease-in;
       }
 
-      &:first-child {
+      &.LinkedIn {
 
         background: ${({ theme }) => theme.color.social.linkedin};
       }
 
-      &:nth-child(2) {
+      &.Github {
 
         background: ${({ theme }) => theme.color.social.github};
-        margin: 0 1.4vw;
       }
 
-      &:last-child {
+      &.Instagram {
 
         background: ${({ theme }) => theme.color.social.instagram};
       }
 
+      &.Link-Free {
+
+        background: ${({ theme }) => theme.color.main.selection};
+      }
+
       &:focus {
 
-        outline: solid .3vw ${({ theme }) => theme.color.main.comment};
+        box-shadow: 0 0 0 .3vw ${({ theme }) => theme.color.main.comment};
       }
 
       &:hover {
@@ -68,17 +79,25 @@ const ContactView = styled.section`
 
   .alternativeContactFormText {
 
-    font-size: 1.6vw;
+    font-size: 1.8vw;
+    font-weight: 600;
 
     margin: 2vw 0;
+  }
+
+  .user-agreement {
+
+    color: ${({ theme }) => theme.color.main.comment};
+    font-size: 1.3vw;
+
+    display: inline-block;
+    margin-bottom: 1vw;
   }
 
   @media (max-width: 999px) {
 
     max-width: 55rem;
     width: 90vw;
-
-    margin-bottom: 10rem;
 
     .alternativeContactFormText {
 
@@ -90,20 +109,34 @@ const ContactView = styled.section`
     .socials {
 
       margin-top: 1rem;
+
+      a {
+
+        border-radius: ${({ theme }) => theme.metric.mobileBorderRadius};
+
+        width: 4.4rem;
+        height: 4.4rem;
+
+        padding: .8rem;
+        margin-right: 1.4rem ;
+
+        img {
+
+          filter: drop-shadow(0 0 .2rem #0003);
+
+        }
+
+        &:last-child {
+
+          margin: 0;
+        }
+      }
     }
 
-    .socials a {
+    .user-agreement {
 
-      border-radius: ${({ theme }) => theme.metric.mobileBorderRadius};
-
-      width: 4.4rem;
-      height: 4.4rem;
-
-      padding: .8rem;
-
-      &:nth-child(2) {
-        margin: 0 1.4rem;
-      }
+      font-size: 1.4rem ;
+      margin-bottom: 1rem;
     }
   }
 
@@ -121,24 +154,31 @@ const FormContainer = styled.form`
     align-items: center;
 
     font-size: 1.1vw;
+    font-weight: 700;
 
     margin: -.2vw 0 1vw 1vw;
 
     #error-spec {
 
-      margin-left: .6vw;
       font-size: .9vw;
-    }
 
-    @media (max-width: 999px) {
+      margin-left: .6vw;
+    }
+  }
+
+  @media (max-width: 999px) {
+
+    #error {
 
       font-size: 1.3rem;
+      font-weight: 500;
+
       margin-bottom: .8rem;
 
       #error-spec {
 
         margin-left: .6rem;
-        font-size: 1rem;
+        font-size: 1.1rem;
       }
     }
   }
@@ -156,6 +196,31 @@ const InputContainer = styled.div`
   margin-bottom: 1vw;
 
   overflow: hidden;
+
+  label {
+
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+  }
+
+  span {
+
+    font-size: 1.4vw;
+    font-weight: 700;
+
+    position: absolute;
+    top: 0vw;
+    left: 1vw;
+
+    transform: translateY(150%);
+
+    transition: transform, font-size, .25s;
+    z-index: 500;
+  }
 
   input, textarea {
 
@@ -177,28 +242,19 @@ const InputContainer = styled.div`
     &:focus, &:valid {
 
       border: solid .25vw ${({ theme }) => theme.color.cold.blue};
-      outline: 0;
       opacity: 1;
     }
 
     &:focus + label span, &:valid + label span {
 
-      transform: translateY(-180%);
-      font-size: 1vw;
-
-      @media (max-width: 999px) {
-        font-size: 1rem;
-      }
+      transform: translateY(1rem);
+      font-size: 1.1vw;
     }
   }
 
   input {
 
     height: 5vw;
-
-    @media (max-width: 999px) {
-      height: 6rem;
-    }
   }
 
   textarea {
@@ -206,10 +262,11 @@ const InputContainer = styled.div`
     border-radius: ${({ theme }) => theme.metric.borderRadius};
     resize: vertical;
     min-height: 5vw;
-    height: 20vw;
+    height: 16vw;
 
-    padding-top: 2.8vw;
     overflow: hidden;
+
+    padding-top: 2vw;
 
     & + label::after {
 
@@ -217,27 +274,15 @@ const InputContainer = styled.div`
 
       background: ${({ theme }) => theme.color.main.selection};
       border-radius: ${({ theme }) => theme.metric.borderRadius};
+
       display: flex;
-      /* width: 100%; */
-      height: 2.4vw;
+
+      height: 1.8vw;
 
       position: absolute;
-      top: .25vw;
-      left: .25vw;
-      right: .25vw;
-    }
-
-    & + label span {
-
-      height: fit-content;
-      top: 3vw;
-
-      z-index: 1000;
-
-      @media (max-width: 999px) {
-
-        top: 3rem;
-      }
+      top: .20vw;
+      left: .20vw;
+      right: .20vw;
     }
 
     @media (max-width: 999px) {
@@ -249,36 +294,13 @@ const InputContainer = styled.div`
     }
   }
 
-  label {
-
-    position: absolute;
-    bottom: 0;
-    left: 0;
-
-    width: 100%;
-    height: 100%;
-
-    padding-top: .6vw;
-  }
-
-  span {
-
-    position: absolute;
-    bottom: .8vw;
-    left: .8vw;
-
-    font-size: 1.4vw;
-
-    transition: transform, font-size, .25s ease-out;
-  }
-
   &.error {
 
-    outline: .25vw solid ${({ theme }) => theme.color.hot.redBright};
+    box-shadow:  0 0 0 .25vw ${({ theme }) => theme.color.hot.redBright};
     color: ${({ theme }) => theme.color.hot.redBright};
   }
 
-  @media (max-width: 999px) {
+  @media (max-width: 1150px) {
 
     border-radius: ${({ theme }) => theme.metric.mobileBorderRadius};
 
@@ -286,17 +308,20 @@ const InputContainer = styled.div`
 
     &.error {
 
-      outline: .25rem solid ${({ theme }) => theme.color.hot.redBright};
+      box-shadow:  0 0 0 .25rem ${({ theme }) => theme.color.hot.redBright};
     }
 
-    label {
+    span {
 
-      padding-top: .6rem;
+      font-size: 1.8rem;
+
+      top: 0;
+      left: 1.5rem;
     }
 
     input, textarea {
 
-      padding: 1.8rem 1.2rem 0;
+      padding: 2.5rem 1.2rem 0;
       border-radius: ${({ theme }) => theme.metric.mobileBorderRadius};
       font-size: 1.9rem;
 
@@ -304,11 +329,21 @@ const InputContainer = styled.div`
 
         border: solid .3rem ${({ theme }) => theme.color.cold.blue};
       }
+
+      &:focus + label span, &:valid + label span {
+
+        font-size: 1.6rem;
+      }
+    }
+
+    input {
+
+      height: 6.5rem;
     }
 
     textarea {
 
-      padding-top: 2.5rem;
+      padding-top: 3rem;
 
       & + label::after {
 
@@ -316,20 +351,12 @@ const InputContainer = styled.div`
 
         background: ${({ theme }) => theme.color.main.selection};
         border-radius: ${({ theme }) => theme.metric.mobileBorderRadius};
-        height: 1.9rem;
+        height: 3rem;
 
         top: .25rem;
         left: 1rem;
         right: 1rem;
       }
-    }
-
-    span {
-
-      bottom: 1.7rem;
-      left: 1.5rem;
-
-      font-size: 1.6rem;
     }
   }
 `;

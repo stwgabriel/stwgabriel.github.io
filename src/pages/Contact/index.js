@@ -1,4 +1,5 @@
-import { useContext, useEffect } from 'react';
+import { useContext, useEffect, useState } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 
 import { NavigationContext } from '../../contexts/NavigationContext';
 
@@ -16,11 +17,14 @@ import { ContactView } from './styles';
 import linkedinIcon from '../../assets/images/icons/linkedin.svg';
 import githubIcon from '../../assets/images/icons/github.svg';
 import instagramIcon from '../../assets/images/icons/instagram.svg';
+import LinkFree from '../../assets/images/icons/link-free.svg';
+import Modal from '../../components/Modal';
 
 function Contact() {
 
   const navigation = useContext(NavigationContext);
   const { handleNavigation } = navigation;
+  const [renderEmailSentModal, setRenderEmailSentModal] = useState(false);
 
   useEffect(() => {
 
@@ -32,9 +36,71 @@ function Contact() {
     };
   });
 
+  const socialLinks = [
+    {
+      name: 'LinkedIn',
+      url: 'https://linkedin.com/in/stwgabriel',
+      image: linkedinIcon,
+    },
+    {
+      name: 'Github',
+      url: 'https://github.com/stwgabriel',
+      image: githubIcon,
+    },
+    {
+      name: 'Instagram',
+      url: 'https://instagram.com/stwgabriel',
+      image: instagramIcon,
+    },
+    {
+      name: 'Link-Free',
+      url: 'https://links.stwgabriel.space',
+      image: LinkFree,
+    },
+  ];
+  const modalLinks = [
+    {
+      id: uuidv4(),
+      name: 'LinkedIn',
+      url: 'https://linkedin.com/in/stwgabriel',
+    },
+    {
+      id: uuidv4(),
+      name: 'Github',
+      url: 'https://github.com/stwgabriel',
+    },
+    {
+      id: uuidv4(),
+      name: 'Instagram',
+      url: 'https://instagram.com/stwgabriel',
+    },
+    {
+      id: uuidv4(),
+      name: 'Email',
+      url: 'mailto:gabrielstw@pm.me',
+    },
+  ];
+
+  function handleRenderEmailSentModal() {
+
+    setRenderEmailSentModal(!renderEmailSentModal);
+  }
+
   return (
 
     <PageContainer id="page-container">
+      <Modal
+        renderModal={renderEmailSentModal}
+        handleRenderModal={() => handleRenderEmailSentModal()}
+        title="Request received!"
+        message={`
+            You will receive a confirmation email in a few minutes,
+            if you don’t receive it within 1 hour, please send the
+            request again!
+          `}
+        subMessage="be aware that you can contact me by other ways like:"
+        links={JSON.stringify(modalLinks)}
+      />
       <PageBorderNav
         borderSide="left"
         handleNavigation={handleNavigation}
@@ -48,21 +114,34 @@ function Contact() {
         <button type="button" id="main-content" aria-hidden="true">
           {' '}
         </button>
+
         <PageTitle className="no-select">Contact</PageTitle>
+
         <ContactView>
+
           <div className="socials">
-            <a href="https://linkedin.com/in/stwgabriel" className="linkedin" target="_blank" rel="noreferrer">
-              <img src={linkedinIcon} alt="Linkedin Icon" />
-            </a>
-            <a href="https://github.com/stwgabriel" className="github" target="_blank" rel="noreferrer">
-              <img src={githubIcon} alt="Github Icon" />
-            </a>
-            <a href="https://instagram.com/stwgabriel" className="instagram" target="_blank" rel="noreferrer">
-              <img src={instagramIcon} alt="Instagram Icon" />
-            </a>
+
+            {socialLinks.map((link) => (
+              <a
+                key={link.name}
+                href={link.url}
+                title={link.name}
+                className={link.name}
+                target="_blank"
+                rel="noreferrer"
+              >
+                <img
+                  src={link.image}
+                  alt={`${link.name} Icon`}
+                />
+              </a>
+            ))}
           </div>
+
           <span className="alternativeContactFormText">or</span>
-          <Form />
+
+          <Form handleRenderEmailSentModal={() => handleRenderEmailSentModal()} />
+
         </ContactView>
       </PageView>
     </PageContainer>
