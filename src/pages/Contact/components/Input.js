@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { InputContainer } from '../styles';
 
 function Input(props) {
+
   const {
     type, name, textarea, value, handle, error,
   } = props;
@@ -29,25 +30,28 @@ function Input(props) {
             required
           />
         )}
+
         <label htmlFor={name} className="no-events">
           <span>
             {name.charAt(0).toUpperCase() + name.slice(1)}
             :*
           </span>
         </label>
+
       </InputContainer>
+
       <div className="errors">
         {errorMessage && (
-        <span id="error">
-          {errorMessage}
-          {errorSpecification && (
-          <span id="error-spec">
-            (
-            {errorSpecification}
-            )
+          <span id="error">
+            {errorMessage}
+            {errorSpecification && (
+              <span id="error-spec">
+                (
+                {errorSpecification}
+                )
+              </span>
+            )}
           </span>
-          )}
-        </span>
         )}
       </div>
     </>
