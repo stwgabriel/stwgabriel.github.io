@@ -117,10 +117,7 @@ function Form({ handleRenderEmailSentModal }) {
       } else {
         return null;
       }
-    } catch (error) {
-
-      console.error(error);
-    } finally {
+    } catch (error) { /* */ } finally {
 
       cleanAllFields();
     }
