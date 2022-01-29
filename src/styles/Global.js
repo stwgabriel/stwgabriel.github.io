@@ -220,17 +220,18 @@ const GlobalStyle = createGlobalStyle`
 
   &:focus{
 
-    outline: solid .25vw ${({ theme }) => theme.color.cold.blue} ;
+    outline: none;
+    box-shadow: 0 0 0  .25vw ${({ theme }) => theme.color.cold.blue} ;
   }
 
   button#main-content {
 
-    outline: none;
+    box-shadow: none;
 
     &:focus, &:active, &:hover {
 
-    outline: none !important;
-  }
+      box-shadow: none !important;
+    }
   }
 
   input,
@@ -238,7 +239,7 @@ const GlobalStyle = createGlobalStyle`
 
     &::selection {
 
-      background: ${({ theme }) => theme.color.main.comment};
+      background: ${({ theme }) => theme.color.cold.blue};
       color: ${({ theme }) => theme.color.main.textColor};
     }
   }
