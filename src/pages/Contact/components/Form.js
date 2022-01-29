@@ -172,7 +172,7 @@ function Form({ handleRenderEmailSentModal }) {
         * By clicking submit, you allow the use of your data for future contact.
       </span>
 
-      <Button type="submit" disabled={!isAllFilled} onClick={(e) => handleSubmit(e)}>Submit</Button>
+      <Button type="submit" disabled={true} onClick={(e) => handleSubmit(e)}>Submit</Button>
     </FormContainer>
   );
 }
