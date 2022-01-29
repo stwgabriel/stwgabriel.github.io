@@ -2,14 +2,6 @@ const defaultStyles = {
 
   color: {
 
-    white: '#F8F8F2',
-    fadeWhite: 'rgba(248,248,242,.7)',
-    black: '#22212C',
-    background: '#282A36',
-    selection: '#454158',
-    brightBlack: '#6272A4',
-    hotPurple: '#8134AF',
-
     main: {
 
       background: '#22212C',
@@ -17,7 +9,7 @@ const defaultStyles = {
       comment: '#7970A9',
       white: '#F8F8F2',
 
-      textColor: '#E1E2E8',
+      textColor: '#F8F8F2',
       fadeTextColor: '#CDCFD1',
 
       reverseAccent: '#2D2A39',
