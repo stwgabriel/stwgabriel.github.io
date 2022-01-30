@@ -1,5 +1,5 @@
-import PropTypes from 'prop-types';
 import { createPortal } from 'react-dom';
+import PropTypes from 'prop-types';
 
 import { Overlay, Container } from './styles';
 
@@ -9,8 +9,6 @@ function Modal({
   renderModal, handleRenderModal,
   title, message, subMessage, links,
 }) {
-
-  const footerLinks = JSON.parse(links);
 
   if (!renderModal) { return null; }
 
@@ -33,7 +31,7 @@ function Modal({
         </main>
 
         <footer>
-          {footerLinks.map(({ id, name, url }) => (
+          {links.map(({ id, name, url }) => (
             <a
               key={id}
               href={url}
@@ -50,17 +48,22 @@ function Modal({
   );
 }
 
-Modal.prpTypes = {
+Modal.propTypes = {
   title: PropTypes.string,
   message: PropTypes.string.isRequired,
   subMessage: PropTypes.string,
-  links: PropTypes.string,
+  links: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string,
+      url: PropTypes.string,
+    }),
+  ),
 };
 
 Modal.defaultProps = {
   title: '',
   subMessage: '',
-  links: '',
+  links: [],
 };
 
 export default Modal;
