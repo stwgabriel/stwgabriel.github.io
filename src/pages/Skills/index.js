@@ -1,4 +1,5 @@
 import { useContext, useEffect } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 
 import { NavigationContext } from '../../contexts/NavigationContext';
 
@@ -17,10 +18,8 @@ import cssIcon from '../../assets/images/skills/css-icon.svg';
 import htmlIcon from '../../assets/images/skills/html-icon.svg';
 import gitIcon from '../../assets/images/skills/git-icon.svg';
 import figmaIcon from '../../assets/images/skills/figma-icon.svg';
-
 import typescriptIcon from '../../assets/images/skills/typescript-icon.svg';
 import nodejsIcon from '../../assets/images/skills/nodejs-icon.svg';
-
 import reduxIcon from '../../assets/images/skills/redux-icon.svg';
 import nextjsIcon from '../../assets/images/skills/nextjs-icon.svg';
 import swiftIcon from '../../assets/images/skills/swift-icon.svg';
@@ -35,24 +34,24 @@ function Skills() {
 
   const mainSkills = [
 
-    { imageUrl: reactIcon, name: 'React' },
-    { imageUrl: javascriptIcon, name: 'Javascript' },
-    { imageUrl: sassIcon, name: 'Sass' },
-    { imageUrl: cssIcon, name: 'CSS' },
-    { imageUrl: htmlIcon, name: 'HTML' },
-    { imageUrl: gitIcon, name: 'Git' },
-    { imageUrl: figmaIcon, name: 'Figma' },
+    { skillId: uuidv4(), skillImageUrl: reactIcon, skillName: 'React' },
+    { skillId: uuidv4(), skillImageUrl: javascriptIcon, skillName: 'Javascript' },
+    { skillId: uuidv4(), skillImageUrl: sassIcon, skillName: 'Sass' },
+    { skillId: uuidv4(), skillImageUrl: cssIcon, skillName: 'CSS' },
+    { skillId: uuidv4(), skillImageUrl: htmlIcon, skillName: 'HTML' },
+    { skillId: uuidv4(), skillImageUrl: gitIcon, skillName: 'Git' },
+    { skillId: uuidv4(), skillImageUrl: figmaIcon, skillName: 'Figma' },
   ];
   const learningSkills = [
 
-    { imageUrl: typescriptIcon, name: 'Typescript' },
-    { imageUrl: nodejsIcon, name: 'NodeJs' },
+    { skillId: uuidv4(), skillImageUrl: typescriptIcon, skillName: 'Typescript' },
+    { skillId: uuidv4(), skillImageUrl: nodejsIcon, skillName: 'NodeJs' },
   ];
   const intendToLearnSkills = [
-    { imageUrl: reduxIcon, name: 'Redux' },
-    { imageUrl: nextjsIcon, name: 'NextJs' },
-    { imageUrl: swiftIcon, name: 'Swift' },
-    { imageUrl: reactNativeIcon, name: 'React Native' },
+    { skillId: uuidv4(), skillImageUrl: reduxIcon, skillName: 'Redux' },
+    { skillId: uuidv4(), skillImageUrl: nextjsIcon, skillName: 'NextJs' },
+    { skillId: uuidv4(), skillImageUrl: swiftIcon, skillName: 'Swift' },
+    { skillId: uuidv4(), skillImageUrl: reactNativeIcon, skillName: 'React Native' },
   ];
 
   useEffect(() => { addScrollListener(); return () => { removeScrollListener(); }; });
@@ -86,13 +85,13 @@ function Skills() {
 
             <h2>Main Skills</h2>
             <div className="skillsRow">
-              {mainSkills.map((skill) => (
+              {mainSkills.map(({ skillId, skillName, skillImageUrl }) => (
 
-                <code>
+                <code key={skillId}>
                   <img
-                    title={skill.name}
-                    src={skill.imageUrl}
-                    alt={`${skill.name} icon`}
+                    title={skillName}
+                    src={skillImageUrl}
+                    alt={`${skillName} icon`}
                   />
                 </code>
               ))}
@@ -100,13 +99,13 @@ function Skills() {
 
             <h2>Currently learning</h2>
             <div className="skillsRow">
-              {learningSkills.map((skill) => (
+              {learningSkills.map(({ skillId, skillName, skillImageUrl }) => (
 
-                <code>
+                <code key={skillId}>
                   <img
-                    title={skill.name}
-                    src={skill.imageUrl}
-                    alt={`${skill.name} icon`}
+                    title={skillName}
+                    src={skillImageUrl}
+                    alt={`${skillName} icon`}
                   />
                 </code>
               ))}
@@ -114,13 +113,13 @@ function Skills() {
 
             <h2>I&lsquo;ll learn</h2>
             <div className="skillsRow">
-              {intendToLearnSkills.map((skill) => (
+              {intendToLearnSkills.map(({ skillId, skillName, skillImageUrl }) => (
 
-                <code>
+                <code key={skillId}>
                   <img
-                    title={skill.name}
-                    src={skill.imageUrl}
-                    alt={`${skill.name} icon`}
+                    title={skillName}
+                    src={skillImageUrl}
+                    alt={`${skillName} icon`}
                   />
                 </code>
               ))}
