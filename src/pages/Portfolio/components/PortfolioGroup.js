@@ -12,8 +12,26 @@ function PortfolioGroup({ title, items }) {
       </header>
 
       <ProjectListContainer>
+        {items && items.map(({
+          projectId,
+          projectTitle,
+          projectDescription,
+          projectSubtitle,
+          projectTags,
+          projectImage,
+          projectUrl,
 
-        { items && items.map((item) => <Project item={item} key={item.id} />) }
+        }) => (
+          <Project
+            projectTitle={projectTitle}
+            projectDescription={projectDescription}
+            projectSubtitle={projectSubtitle}
+            projectTags={projectTags}
+            projectImage={projectImage}
+            projectUrl={projectUrl}
+            key={projectId}
+          />
+        ))}
       </ProjectListContainer>
     </PortfolioGroupContainer>
   );
@@ -22,7 +40,21 @@ function PortfolioGroup({ title, items }) {
 PortfolioGroup.propTypes = {
 
   title: PropTypes.string.isRequired,
-  items: PropTypes.shape([]).isRequired,
+  items: PropTypes.arrayOf(
+    PropTypes.shape(
+      {
+        projectId: PropTypes.string,
+        projectTitle: PropTypes.string,
+        projectDescription: PropTypes.string,
+        projectSubtitle: PropTypes.string,
+        projectTags: PropTypes.PropTypes.arrayOf(
+          PropTypes.string,
+        ),
+        projectImage: PropTypes.string,
+        projectUrl: PropTypes.string,
+      },
+    ),
+  ).isRequired,
 };
 
 export default PortfolioGroup;
