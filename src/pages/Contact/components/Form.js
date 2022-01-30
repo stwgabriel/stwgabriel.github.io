@@ -106,7 +106,7 @@ function Form({ handleRenderEmailSentModal, handleRenderEmailNotSentModal }) {
             },
           })
           .request({
-            url: 'http://localhost:3001/contact-request',
+            url: 'http://18.230.148.167:3001/contact-request',
             method: 'POST',
             data: {
               name,
