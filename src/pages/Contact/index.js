@@ -25,6 +25,7 @@ function Contact() {
   const navigation = useContext(NavigationContext);
   const { handleNavigation } = navigation;
   const [renderEmailSentModal, setRenderEmailSentModal] = useState(false);
+  const [renderEmailNotSentModal, setRenderEmailNotSentModal] = useState(false);
 
   useEffect(() => {
 
@@ -85,6 +86,10 @@ function Contact() {
 
     setRenderEmailSentModal(!renderEmailSentModal);
   }
+  function handleRenderEmailNotSentModal() {
+
+    setRenderEmailNotSentModal(!renderEmailNotSentModal);
+  }
 
   return (
 
@@ -99,7 +104,15 @@ function Contact() {
             request again!
           `}
         subMessage="be aware that you can contact me by other ways like:"
-        links={JSON.stringify(modalLinks)}
+        links={modalLinks}
+      />
+      <Modal
+        renderModal={renderEmailNotSentModal}
+        handleRenderModal={() => handleRenderEmailNotSentModal()}
+        title="Error!"
+        message="An error occurred while sending the request, please reload the page and try again!"
+        subMessage="be aware that you can contact me by other ways like:"
+        links={modalLinks}
       />
       <PageBorderNav
         borderSide="left"
@@ -109,6 +122,7 @@ function Contact() {
       >
         Skills
       </PageBorderNav>
+
       <PageView marginRight>
         <NavMenu />
         <button type="button" id="main-content" aria-hidden="true">
@@ -140,7 +154,10 @@ function Contact() {
 
           <span className="alternativeContactFormText">or</span>
 
-          <Form handleRenderEmailSentModal={() => handleRenderEmailSentModal()} />
+          <Form
+            handleRenderEmailSentModal={() => handleRenderEmailSentModal()}
+            handleRenderEmailNotSentModal={() => handleRenderEmailNotSentModal()}
+          />
 
         </ContactView>
       </PageView>

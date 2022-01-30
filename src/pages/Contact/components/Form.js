@@ -5,14 +5,13 @@ import PropTypes from 'prop-types';
 import useFormErros from '../../../hooks/useFormErrors';
 
 import isEmailValid from '../../../utils/isEmailValid';
-import clickToExit from '../../../utils/clickToExit';
 
 import Input from './Input';
 import Button from './Button';
 
 import { FormContainer } from '../styles';
 
-function Form({ handleRenderEmailSentModal }) {
+function Form({ handleRenderEmailSentModal, handleRenderEmailNotSentModal }) {
 
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -25,7 +24,7 @@ function Form({ handleRenderEmailSentModal }) {
     cleanError,
     getError,
   } = useFormErros();
-  let isAllFilled = (
+  let isFormValid = (
     name !== ''
     && email !== ''
     && subject !== ''
@@ -85,39 +84,46 @@ function Form({ handleRenderEmailSentModal }) {
     setSubject('');
     setMessage('');
   }
-  function handleCLickToExit(event) {
 
-    if (clickToExit(event.target, 'click-to-exit')) {
-
-      handleRenderEmailSentModal();
-    }
-  }
-
-  useEffect(() => {
-
-    document.addEventListener('click', handleCLickToExit);
-    return () => document.removeEventListener('click', handleCLickToExit);
-  });
-
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
 
     e.preventDefault();
 
     try {
 
-      if (errors.length === 0 && isAllFilled) {
+      if (isFormValid) {
 
-        axios.post('http://18.230.148.167:3030/contact-resquest', {
-          name,
-          email,
-          subject,
-          message,
-        });
+        await axios
+          .create({
+            transformRequest: (data, headers) => {
+              if (data !== undefined) {
+                // eslint-disable-next-line no-param-reassign
+                headers['Content-Type'] = 'application/json';
+
+                return JSON.stringify(data);
+              }
+              return data;
+            },
+          })
+          .request({
+            url: 'http://localhost:3030/contact-request',
+            method: 'POST',
+            data: {
+              name,
+              email,
+              subject,
+              message,
+            },
+          });
         handleRenderEmailSentModal();
+
       } else {
         return null;
       }
-    } catch (error) { /* */ } finally {
+    } catch (error) {
+
+      handleRenderEmailNotSentModal();
+    } finally {
 
       cleanAllFields();
     }
@@ -126,7 +132,7 @@ function Form({ handleRenderEmailSentModal }) {
 
   useEffect(() => {
 
-    isAllFilled = (
+    isFormValid = (
       name !== ''
       && email !== ''
       && subject !== ''
@@ -172,7 +178,7 @@ function Form({ handleRenderEmailSentModal }) {
         * By clicking submit, you allow the use of your data for future contact.
       </span>
 
-      <Button type="submit" disabled={!isAllFilled} onClick={(e) => handleSubmit(e)}>Submit</Button>
+      <Button type="submit" disabled={!isFormValid} onClick={(e) => handleSubmit(e)}>Submit</Button>
     </FormContainer>
   );
 }
@@ -180,6 +186,7 @@ function Form({ handleRenderEmailSentModal }) {
 Form.propTypes = {
 
   handleRenderEmailSentModal: PropTypes.func.isRequired,
+  handleRenderEmailNotSentModal: PropTypes.func.isRequired,
 };
 
 export default Form;
