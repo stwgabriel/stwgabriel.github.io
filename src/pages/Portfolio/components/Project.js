@@ -6,11 +6,14 @@ import { ProjectContainer, Tag } from '../styles';
 
 import dropdownArrow from '../../../assets/images/icons/dropdown-arrow.svg';
 
-function Project({ item }) {
-
-  const {
-    title, description, subtitle, tags, image, projectUrl,
-  } = item;
+function Project({
+  projectTitle,
+  projectDescription,
+  projectSubtitle,
+  projectTags,
+  projectImage,
+  projectUrl,
+}) {
 
   const [isInfoSectionOpen, setIsInfoSectionOpen] = useState(false);
 
@@ -23,11 +26,11 @@ function Project({ item }) {
   return (
     <ProjectContainer
       className={isInfoSectionOpen ? 'open' : undefined}
-      title={`Project ${title} | ${description}`}
+      title={`Project ${projectTitle} | ${projectDescription}`}
     >
 
       <div className="main-image">
-        <img src={image} alt="Project" />
+        <img src={projectImage} alt="Project" />
         <div className="overlay" />
       </div>
 
@@ -35,7 +38,7 @@ function Project({ item }) {
 
         <header>
 
-          <h3>{title}</h3>
+          <h3>{projectTitle}</h3>
 
           <button onClick={toggleInfoSectionState} className="expand-close-button" type="button">
 
@@ -47,14 +50,14 @@ function Project({ item }) {
           </button>
         </header>
 
-        <p className="description">{description}</p>
+        <p className="description">{projectDescription}</p>
 
         <div className="tags-container">
 
-          <h3>{subtitle}</h3>
+          <h3>{projectSubtitle}</h3>
 
           <div className="tags">
-            {tags && tags.map((tag) => <Tag key={uuidv4()}>{tag}</Tag>)}
+            {projectTags && projectTags.map((tag) => <Tag key={uuidv4()}>{tag}</Tag>)}
           </div>
         </div>
         <div className="see-project-button-container">
@@ -75,16 +78,14 @@ function Project({ item }) {
 
 Project.propTypes = {
 
-  item: PropTypes.shape({
-
-    title: PropTypes.string.isRequired,
-    description: PropTypes.string.isRequired,
-    subtitle: PropTypes.string.isRequired,
-    tags: PropTypes.shape([]).isRequired,
-    image: PropTypes.string.isRequired,
-    id: PropTypes.string.isRequired,
-    projectUrl: PropTypes.string.isRequired, // mark as required later
-  }).isRequired,
+  projectTitle: PropTypes.string.isRequired,
+  projectDescription: PropTypes.string.isRequired,
+  projectSubtitle: PropTypes.string.isRequired,
+  projectTags: PropTypes.arrayOf(
+    PropTypes.string,
+  ).isRequired,
+  projectImage: PropTypes.string.isRequired,
+  projectUrl: PropTypes.string.isRequired,
 };
 
 export default Project;
