@@ -1,9 +1,13 @@
+import { useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import PropTypes from 'prop-types';
+
+import { v4 as uuid } from 'uuid';
 
 import { Overlay, Container } from './styles';
 
 import closeButton from '../../assets/images/icons/close.svg';
+import clickToExit from '../../utils/clickToExit';
 
 function Modal({
   renderModal, handleRenderModal,
@@ -12,8 +16,26 @@ function Modal({
 
   if (!renderModal) { return null; }
 
+  const ExitClassName = `click-to-exit_${uuid()}`;
+
+  function handleClick(element) {
+
+    const { target } = element;
+
+    if (clickToExit(target, ExitClassName)) {
+      handleRenderModal();
+    }
+  }
+
+  useEffect(() => {
+
+    document.addEventListener('click', handleClick);
+
+    return () => document.removeEventListener('click', handleClick);
+  });
+
   return createPortal(
-    <Overlay className="click-to-exit">
+    <Overlay className={ExitClassName}>
       <Container>
 
         <header>

@@ -24,7 +24,7 @@ function Contact() {
 
   const navigation = useContext(NavigationContext);
   const { handleNavigation } = navigation;
-  const [renderEmailSentModal, setRenderEmailSentModal] = useState(false);
+  const [renderEmailSentModal, setRenderEmailSentModal] = useState(true);
   const [renderEmailNotSentModal, setRenderEmailNotSentModal] = useState(false);
 
   useEffect(() => {
@@ -103,7 +103,7 @@ function Contact() {
             if you don’t receive it within 1 hour, please send the
             request again!
           `}
-        subMessage="be aware that you can contact me by other ways like:"
+        subMessage="Be aware that you can contact me by other ways like:"
         links={modalLinks}
       />
       <Modal
@@ -111,7 +111,7 @@ function Contact() {
         handleRenderModal={() => handleRenderEmailNotSentModal()}
         title="Error!"
         message="An error occurred while sending the request, please reload the page and try again!"
-        subMessage="be aware that you can contact me by other ways like:"
+        subMessage="Be aware that you can contact me by other ways like:"
         links={modalLinks}
       />
       <PageBorderNav
