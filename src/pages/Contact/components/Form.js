@@ -106,7 +106,7 @@ function Form({ handleRenderEmailSentModal, handleRenderEmailNotSentModal }) {
             },
           })
           .request({
-            url: 'http://18.230.148.167:3001/contact-request',
+            url: 'https://stwgabriel-backend.herokuapp.com/contact-request',
             method: 'POST',
             data: {
               name,
