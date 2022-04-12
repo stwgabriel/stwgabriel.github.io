@@ -24,7 +24,7 @@ function Contact() {
 
   const navigation = useContext(NavigationContext);
   const { handleNavigation } = navigation;
-  const [renderEmailSentModal, setRenderEmailSentModal] = useState(true);
+  const [renderEmailSentModal, setRenderEmailSentModal] = useState(false);
   const [renderEmailNotSentModal, setRenderEmailNotSentModal] = useState(false);
 
   useEffect(() => {
