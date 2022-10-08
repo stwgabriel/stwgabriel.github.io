@@ -12,8 +12,13 @@ import closeButton from '../../assets/images/icons/close.svg';
 import clickToExit from '../../utils/clickToExit';
 
 function Modal({
-  renderModal, handleRenderModal,
-  title, message, subMessage, links, unCloseable,
+  renderModal,
+  handleRenderModal,
+  title,
+  message,
+  subMessage,
+  links,
+  unCloseable,
 }) {
 
   if (!renderModal) { return null; }
@@ -130,6 +135,9 @@ Modal.propTypes = {
   title: PropTypes.string,
   message: PropTypes.string.isRequired,
   subMessage: PropTypes.string,
+  renderModal: PropTypes.bool,
+  unCloseable: PropTypes.bool,
+  handleRenderModal: PropTypes.func,
   links: PropTypes.arrayOf(
     PropTypes.shape({
       name: PropTypes.string,
@@ -142,6 +150,9 @@ Modal.defaultProps = {
   title: '',
   subMessage: '',
   links: [],
+  renderModal: false,
+  unCloseable: false,
+  handleRenderModal: () => '',
 };
 
 export default Modal;
