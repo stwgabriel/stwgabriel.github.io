@@ -78,7 +78,7 @@ function Contact() {
     {
       id: uuidv4(),
       name: 'Email',
-      url: 'mailto:gabrielstw@pm.me',
+      url: 'mailto:contact@stwgabriel.com',
     },
   ];
 
