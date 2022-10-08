@@ -95,6 +95,13 @@ function Contact() {
 
     <PageContainer id="page-container">
       <Modal
+        title="Under maintenance"
+        message="We are currently under maintenance! Contact by using the following links."
+        links={modalLinks}
+        unCloseable
+        renderModal
+      />
+      <Modal
         renderModal={renderEmailSentModal}
         handleRenderModal={() => handleRenderEmailSentModal()}
         title="Request received!"
