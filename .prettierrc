@@ -1,9 +1,10 @@
 {
   "tabWidth": 2,
   "useTabs": false,
-  "semi": true,
+  "semi": false,
   "singleQuote": true,
   "arrowParens": "avoid",
-  "trailingComa": true,
-  "endOfLine": "auto"
+  "trailingComma": "all",
+  "endOfLine": "auto",
+  "paddedBlocks": true
 }

@@ -5,24 +5,24 @@ import Document, {
   Head,
   Main,
   NextScript,
-} from 'next/document';
+} from 'next/document'
 
-import { ServerStyleSheet } from 'styled-components';
+import { ServerStyleSheet } from 'styled-components'
 
 class MyDocument extends Document {
   static async getInitialProps(
-    context: DocumentContext
+    context: DocumentContext,
   ): Promise<DocumentInitialProps> {
-    const sheet = new ServerStyleSheet();
-    const originalRenderPage = context.renderPage;
+    const sheet = new ServerStyleSheet()
+    const originalRenderPage = context.renderPage
 
     try {
       context.renderPage = () =>
         originalRenderPage({
           enhanceApp: App => props => sheet.collectStyles(<App {...props} />),
-        });
+        })
 
-      const initialProps = await Document.getInitialProps(context);
+      const initialProps = await Document.getInitialProps(context)
 
       return {
         ...initialProps,
@@ -32,9 +32,9 @@ class MyDocument extends Document {
             {sheet.getStyleElement()}
           </>,
         ],
-      };
+      }
     } finally {
-      sheet.seal();
+      sheet.seal()
     }
   }
 
@@ -47,7 +47,8 @@ class MyDocument extends Document {
           {/*  */}
           <meta
             name="description"
-            content="Gabriel's personal website - Gabriel is a front-end developer and a UX Designer."
+            content={`Gabriel's personal website -
+             Gabriel is a front-end developer and a UX Designer.`}
           />
           <meta name="robots" content="index" />
           <meta name="Googlebot" content="index" />
@@ -97,7 +98,7 @@ class MyDocument extends Document {
           <link rel="icon" sizes="32x32" href="favicon.ico" />
           <link rel="apple-touch-icon" sizes="32x32" href="favicon.ico" />
           <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
-          <link rel="apple-touch-icon" href="favicon.webp"></link>
+          <link rel="apple-touch-icon" href="favicon.webp" />
 
           {/* Icons */}
           <link
@@ -122,7 +123,14 @@ class MyDocument extends Document {
           <meta name="author" content="Gabriel Silva - stwabriel" />
           <meta
             name="keywords"
-            content="front-end developer, front-end, front end, frontend, stwgabriel, stwGabriel, StwGabriel, gabriel, Gabriel, gabriel silva, Gabriel Silva, gabriel souza, Gabriel Souza, Gabriel Silva Souza, gabriel silva souza, React, Developer, react, developer, UX Design, UX, ux, UX Designer, ux designer, ux design, react.js, reactjs,ReactJS"
+            content={`
+              front-end developer, front-end, front end, frontend, stwgabriel,
+              stwGabriel, StwGabriel, gabriel, Gabriel, gabriel silva,
+              Gabriel Silva, gabriel souza, Gabriel Souza, Gabriel Silva Souza,
+              gabriel silva souza, React, Developer, react, developer,
+              UX Design, UX, ux, UX Designer, ux designer, ux design, react.js,
+              reactjs,ReactJS
+            `}
           />
 
           <meta name="language" content="English" />
@@ -131,14 +139,14 @@ class MyDocument extends Document {
           {/* <!-- Open Graph / Facebook --> */}
           <meta property="og:type" content="website" />
           <meta property="og:title" content="Gabriel's personal website" />
-          <meta
-            property="og:site_name"
-            content="Gabriel's personal website"
-          ></meta>
+          <meta property="og:site_name" content="Gabriel's personal website" />
           <meta property="og:url" content="httś://stwgabriel.space" />
           <meta
             property="og:description"
-            content="Gabriel's personal website - Gabriel is a front-end developer and a UX Designer"
+            content={`
+              Gabriel's personal website - Gabriel is a front-end developer
+              and a UX Designer
+            `}
           />
           <meta property="og:image" content="images/open-graph-image.png" />
 
@@ -163,15 +171,15 @@ class MyDocument extends Document {
           />
 
           {/*  */}
-          <title>Gabriel's personal website</title>
+          <title>Gabriel&apos;s personal website</title>
         </Head>
         <body>
           <Main />
           <NextScript />
         </body>
       </Html>
-    );
+    )
   }
 }
 
-export default MyDocument;
+export default MyDocument

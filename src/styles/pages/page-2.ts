@@ -1,7 +1,8 @@
 import styled from 'styled-components'
 
-const HomeContainer = styled.div`
+const Page2Container = styled.div`
   border: solid 0.5rem #f90;
+  border-left: solid 10rem #f90;
   background: #fff;
   display: flex;
   flex-direction: column;
@@ -15,4 +16,4 @@ const HomeContainer = styled.div`
   height: 100vh;
 `
 
-export { HomeContainer }
+export { Page2Container }

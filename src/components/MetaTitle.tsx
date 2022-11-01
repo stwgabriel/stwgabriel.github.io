@@ -1,17 +1,17 @@
-import Head from 'next/head';
+import Head from 'next/head'
 
 interface MetaTitleProps {
-  page: string | undefined;
+  page: string | undefined
 }
 
 function MetaTitle({ page }: MetaTitleProps): JSX.Element | null {
-  if (!page) return null;
+  if (!page) return null
 
   return (
     <Head>
       <title>{`${page} - Gabriel's personal website`}</title>
     </Head>
-  );
+  )
 }
 
-export default MetaTitle;
+export default MetaTitle
