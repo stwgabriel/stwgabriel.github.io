@@ -17,8 +17,8 @@ const GlobalStyles = createGlobalStyle`
 
   body {
 
-    background: ${props => props.theme.colors.background};
-    color: ${props => props.theme.colors.text};
+    background: ${props => props.theme.color.main.background};
+    color: ${props => props.theme.color.main.textColor};
   }
 `
 

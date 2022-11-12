@@ -1,13 +1,26 @@
 import styled from 'styled-components'
 
 const AppContainer = styled.div`
-  width: 100vw;
-  height: 100vh;
+  display: flex;
+  flex-direction: column;
 
-  position: relative;
+  position: fixed;
   top: 0;
   left: 0;
+  right: 0;
+  bottom: 0;
 
-  overflow: auto;
+  width: 100vw;
 `
-export { AppContainer }
+const MainContent = styled.div`
+  flex: 1;
+`
+
+const NavigationContainer = styled.div`
+  height: fit-content;
+  width: 100%;
+
+  z-index: 2000;
+`
+
+export { AppContainer, MainContent, NavigationContainer }

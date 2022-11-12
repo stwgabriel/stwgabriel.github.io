@@ -1,10 +1,16 @@
+import { useContext } from 'react'
 import { ThemeProvider } from 'styled-components'
 import { animated, Transition } from '@react-spring/web'
+
+// Contexts
+import NavigationProvider, {
+  NavigationContext,
+} from 'src/contexts/NavigationContext'
 
 // Styles
 import GlobalStyles from 'src/styles/global'
 import { defaultTheme } from 'src/styles/theme'
-import { AppContainer } from 'src/styles/App'
+import { AppContainer, MainContent, NavigationContainer } from 'src/styles/App'
 
 function MyApp({ Component, pageProps, router }) {
   const theme = defaultTheme
@@ -17,25 +23,43 @@ function MyApp({ Component, pageProps, router }) {
     },
   ]
 
+  const context = useContext(NavigationContext)
+
+  console.debug(context)
+
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyles />
-      <AppContainer>
-        <Transition
-          items={items}
-          keys={item => item.id}
-          initial={{ opacity: 1 }}
-          from={{ opacity: 1, x: 500, position: 'absolute' }}
-          enter={{ opacity: 1, x: 0, position: 'absolute' }}
-          leave={{ opacity: 1, x: -500, delay: 150, position: 'absolute' }}
-        >
-          {(styles, { pageProps, Component }) => (
-            <animated.div style={{ ...styles, width: '100%' }}>
-              <Component {...pageProps} />
-            </animated.div>
-          )}
-        </Transition>
-      </AppContainer>
+
+      <NavigationProvider>
+        <AppContainer>
+          <MainContent>
+            <Transition
+              items={items}
+              keys={item => item.id}
+              initial={{ opacity: 1, position: 'absolute' }}
+              // from={pageTransition.from}
+              // enter={pageTransition.enter}
+              // leave={pageTransition.leave}
+            >
+              {(styles, { pageProps, Component }) => (
+                <animated.div
+                  style={{
+                    ...styles,
+                    width: '100%',
+                    display: 'flex',
+                    flexDirection: 'column',
+                  }}
+                >
+                  <Component {...pageProps} />
+                </animated.div>
+              )}
+            </Transition>
+          </MainContent>
+
+          <NavigationContainer>{''}</NavigationContainer>
+        </AppContainer>
+      </NavigationProvider>
     </ThemeProvider>
   )
 }
