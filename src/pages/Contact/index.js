@@ -78,7 +78,7 @@ function Contact() {
     {
       id: uuidv4(),
       name: 'Email',
-      url: 'mailto:gabrielstw@pm.me',
+      url: 'mailto:contact@stwgabriel.com',
     },
   ];
 
@@ -94,6 +94,13 @@ function Contact() {
   return (
 
     <PageContainer id="page-container">
+      <Modal
+        title="Under maintenance"
+        message="We are currently under maintenance! Contact by using the following links."
+        links={modalLinks}
+        unCloseable
+        renderModal
+      />
       <Modal
         renderModal={renderEmailSentModal}
         handleRenderModal={() => handleRenderEmailSentModal()}
