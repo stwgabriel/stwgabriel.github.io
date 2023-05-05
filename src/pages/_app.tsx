@@ -1,7 +1,12 @@
 import 'src/styles/index.css'
 
+import { Analytics } from '@vercel/analytics/react'
 import { AppProps } from 'next/app'
 import { IBM_Plex_Mono, Inter, PT_Serif } from 'next/font/google'
+//
+import RootProvider from 'src/providers'
+import AppStyles from 'src/styles/App'
+import GlobalStyles from 'src/styles/global'
 
 const mono = IBM_Plex_Mono({
   variable: '--font-mono',
@@ -35,8 +40,14 @@ export default function App({ Component, pageProps }: AppProps) {
           }
         `}
       </style>
-
-      <Component {...pageProps} />
+      <RootProvider>
+        <GlobalStyles />
+        <AppStyles>
+          <Component {...pageProps} />
+        </AppStyles>
+        <div id="outer-view" />
+        <Analytics />
+      </RootProvider>
     </>
   )
 }
