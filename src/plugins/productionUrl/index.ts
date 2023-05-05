@@ -4,7 +4,7 @@
  * @TODO the code in this plugin is a candidate for moving into `@sanity/preview-kit/studio`
  */
 
-import { type Slug, definePlugin } from 'sanity'
+import { definePlugin, type Slug } from 'sanity'
 
 import { getSecret } from './utils'
 
@@ -18,7 +18,7 @@ export const productionUrl = definePlugin<{
   }
   if (!previewSecretId.includes('.')) {
     throw new TypeError(
-      '`previewSecretId` must contain a `.` to ensure it can only be queried by authenticated users'
+      '`previewSecretId` must contain a `.` to ensure it can only be queried by authenticated users',
     )
   }
   if (!_types || _types.length === 0) {

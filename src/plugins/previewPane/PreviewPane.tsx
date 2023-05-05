@@ -19,6 +19,49 @@ interface IframeProps {
   slug?: string
 }
 
+// | Used as a cache key that doesn't risk collision or getting
+// | affected by other components that might be using`suspend-react`
+const fetchSecret = Symbol('preview.secret')
+
+const Iframe = memo((props: IframeProps) => {
+  const {
+    apiVersion, documentType, previewSecretId, slug,
+  } = props
+  const client = useClient({ apiVersion })
+
+  const secret = suspend(
+    () => getSecret(client, previewSecretId, true),
+    ['getSecret', previewSecretId, fetchSecret],
+    // | The secret fetch has a TTL of 1 minute, just to check if it's
+    // | necessary to recreate the secret which has a TTL of 60 minutes
+    { lifespan: 60000 },
+  )
+
+  // eslint-disable-next-line no-restricted-globals
+  const url = new URL('/api/preview', location.origin)
+  if (documentType) {
+    url.searchParams.set('documentType', documentType)
+  }
+  if (slug) {
+    url.searchParams.set('slug', slug)
+  }
+  if (secret) {
+    url.searchParams.set('secret', secret)
+  }
+
+  return (
+    <iframe
+      title="preview"
+      style={{
+        width: '100%', height: '100%', position: 'relative', zIndex: 1,
+      }}
+      src={url.toString()}
+    />
+  )
+})
+
+Iframe.displayName = 'iframe'
+
 export function PreviewPane(
   props: PreviewProps & {
     previewSecretId: `${string}.${string}`
@@ -28,6 +71,7 @@ export function PreviewPane(
   const { document, previewSecretId, apiVersion } = props
   const { displayed } = document
   const documentType = displayed?._type
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const slug = (displayed?.slug as any)?.current
 
   const href = resolveHref(documentType, displayed?.slug as string)
@@ -58,39 +102,3 @@ export function PreviewPane(
     </Card>
   )
 }
-
-// Used as a cache key that doesn't risk collision or getting affected by other components that might be using `suspend-react`
-const fetchSecret = Symbol('preview.secret')
-const Iframe = memo((props: IframeProps) => {
-  const {
-    apiVersion, documentType, previewSecretId, slug,
-  } = props
-  const client = useClient({ apiVersion })
-
-  const secret = suspend(
-    () => getSecret(client, previewSecretId, true),
-    ['getSecret', previewSecretId, fetchSecret],
-    // The secret fetch has a TTL of 1 minute, just to check if it's necessary to recreate the secret which has a TTL of 60 minutes
-    { lifespan: 60000 },
-  )
-
-  const url = new URL('/api/preview', location.origin)
-  if (documentType) {
-    url.searchParams.set('documentType', documentType)
-  }
-  if (slug) {
-    url.searchParams.set('slug', slug)
-  }
-  if (secret) {
-    url.searchParams.set('secret', secret)
-  }
-
-  return (
-    <iframe
-      style={{
-        width: '100%', height: '100%', position: 'relative', zIndex: 1,
-      }}
-      src={url.toString()}
-    />
-  )
-})
