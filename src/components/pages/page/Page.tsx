@@ -1,0 +1,48 @@
+import { CustomPortableText } from 'src/components/shared/CustomPortableText'
+import { Header } from 'src/components/shared/Header'
+import Layout from 'src/components/shared/Layout'
+import ScrollUp from 'src/components/shared/ScrollUp'
+import type { PagePayload, SettingsPayload } from 'src/types'
+
+import PageHead from './PageHead'
+
+export interface PageProps {
+  page: PagePayload | undefined
+  settings: SettingsPayload | undefined
+  homePageTitle: string | undefined
+  preview?: boolean
+}
+
+export function Page({
+  page, settings, homePageTitle, preview,
+}: PageProps) {
+  // Default to an empty object to allow previews on non-existent documents
+  const { body, overview, title } = page || {}
+
+  return (
+    <>
+      <PageHead page={page} settings={settings} title={homePageTitle} />
+
+      <Layout settings={settings} preview={preview}>
+        <div>
+          <div className="mb-14">
+            {/* Header */}
+            <Header title={title} description={overview} />
+
+            {/* Body */}
+            {body && (
+              <CustomPortableText
+                paragraphClasses="font-serif max-w-3xl text-gray-600 text-xl"
+                value={body}
+              />
+            )}
+
+            {/* Workaround: scroll to top on route change */}
+            <ScrollUp />
+          </div>
+          <div className="absolute left-0 w-screen border-t" />
+        </div>
+      </Layout>
+    </>
+  )
+}
